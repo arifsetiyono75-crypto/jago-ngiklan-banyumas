@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jago Ngiklan Banyumas - Media Pembelajaran Interaktif Slogan, Iklan, dan Poster Berbasis Pendekatan Culturally Responsive Teaching (CRT) untuk Siswa Kelas 8 SMP">
+  <meta name="theme-color" content="#5C3A21">
+  <title>Jago Ngiklan Banyumas: Petualangan Slogan, Iklan & Poster</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Fonts: Poppins (Heading) & Nunito (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet Utama -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Aksesibilitas: Lewati langsung ke konten utama -->
+  <a href="#main-content" class="skip-link">Lewati ke Konten Utama</a>
+
+  <!-- Canvas Konfeti Interaktif -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Wadah Toast Notifikasi -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ========================================================================
+       HEADER SITUS & NAVIGASI ATAS
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="header-content">
+      <!-- Logo & Identitas -->
+      <div class="brand-area" data-route="beranda" role="button" tabindex="0" aria-label="Kembali ke Beranda">
+        <div class="brand-logo-mini" aria-hidden="true">🥟</div>
+        <div class="brand-text">
+          <h1>Jago Ngiklan Banyumas</h1>
+          <span class="brand-tagline">Petualangan Slogan, Iklan & Poster • Kelas 8</span>
+        </div>
+      </div>
+
+      <!-- Navigasi Desktop -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama Desktop">
+        <button class="desktop-nav-link active" data-route="beranda">🏠 Beranda</button>
+        <button class="desktop-nav-link" data-route="misi1">🔍 Misi 1: Kenali</button>
+        <button class="desktop-nav-link" data-route="misi2">🔬 Misi 2: Bedah</button>
+        <button class="desktop-nav-link" data-route="misi3">🎯 Misi 3: Latihan</button>
+        <button class="desktop-nav-link" data-route="misi4">🎨 Misi 4: Cipta</button>
+        <button class="desktop-nav-link" data-route="misi5">🏆 Misi 5: Refleksi</button>
+        <button class="desktop-nav-link" data-route="guru">👨‍🏫 Panduan Guru</button>
+        <button class="desktop-nav-link" data-route="tentang">ℹ️ Tentang</button>
+      </nav>
+
+      <!-- Status XP & Profil Siswa -->
+      <div class="student-status-bar">
+        <div class="xp-badge-pill" title="Poin Pengalaman (XP) Rika" data-route="misi5" role="button" tabindex="0">
+          <span class="xp-star-icon" aria-hidden="true">⭐</span>
+          <span class="student-xp-display">0</span> XP
+        </div>
+        <button class="student-avatar-btn" id="btn-open-profile" title="Profil & Pengaturan" aria-label="Profil Siswa">
+          👤
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       KONTEN UTAMA APLIKASI
+       ======================================================================== -->
+  <main id="main-content" class="app-container" role="main">
+
+    <!-- ======================================================================
+         VIEW 1: BERANDA PETUALANGAN (UTAMA)
+         ====================================================================== -->
+    <section id="view-beranda" class="view-section active" aria-labelledby="heading-beranda">
+      
+      <!-- HERO & SAMBUTAN KANG MENDHOAN -->
+      <div class="hero-welcome-card">
+        <div class="hero-layout">
+          
+          <!-- Maskot Kang Mendhoan (SVG Handcrafted) -->
+          <div class="mascot-container" id="kang-mendhoan-mascot" title="Klik inyong nggo sapaan!">
+            <div class="mascot-svg-wrapper">
+              <svg viewBox="0 0 160 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Kang Mendhoan, tempe mendoan berblangkon khas Banyumasan">
+                <defs>
+                  <!-- Gradien Tempe Mendoan Gurih -->
+                  <linearGradient id="gradMendoan" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FCD34D" />
+                    <stop offset="50%" stop-color="#F59E0B" />
+                    <stop offset="100%" stop-color="#D97706" />
+                  </linearGradient>
+                  <!-- Gradien Blangkon Soga Banyumas -->
+                  <linearGradient id="gradBlangkon" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#78350F" />
+                    <stop offset="70%" stop-color="#451A03" />
+                    <stop offset="100%" stop-color="#271003" />
+                  </linearGradient>
+                  <!-- Bayangan Halus -->
+                  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#5C3A21" flood-opacity="0.3"/>
+                  </filter>
+                </defs>
+
+                <!-- Badan Tempe Mendoan Hangat -->
+                <rect x="25" y="42" width="110" height="118" rx="28" fill="url(#gradMendoan)" stroke="#B45309" stroke-width="3" filter="url(#softShadow)"/>
+
+                <!-- Daun Bawang / Kucai Renyah (Fleck Hijau) -->
+                <rect x="36" y="65" width="14" height="4" rx="2" fill="#15803D" transform="rotate(-18 43 67)"/>
+                <rect x="110" y="68" width="16" height="4" rx="2" fill="#15803D" transform="rotate(25 118 70)"/>
+                <rect x="34" y="115" width="15" height="4.5" rx="2" fill="#15803D" transform="rotate(35 41 117)"/>
+                <rect x="108" y="125" width="14" height="4" rx="2" fill="#15803D" transform="rotate(-15 115 127)"/>
+                <rect x="70" y="142" width="18" height="4" rx="2" fill="#15803D" transform="rotate(5 79 144)"/>
+
+                <!-- Pipi Merona Ceria -->
+                <circle cx="48" cy="100" r="10" fill="#F87171" opacity="0.6"/>
+                <circle cx="112" cy="100" r="10" fill="#F87171" opacity="0.6"/>
+
+                <!-- Mata Kartun Besar Berbinar -->
+                <!-- Mata Kiri -->
+                <ellipse cx="56" cy="88" rx="8" ry="10" fill="#1F2937"/>
+                <circle cx="54" cy="85" r="3.5" fill="#FFFFFF"/>
+                <circle cx="58" cy="91" r="1.5" fill="#FFFFFF"/>
+                <!-- Mata Kanan -->
+                <ellipse cx="104" cy="88" rx="8" ry="10" fill="#1F2937"/>
+                <circle cx="102" cy="85" r="3.5" fill="#FFFFFF"/>
+                <circle cx="106" cy="91" r="1.5" fill="#FFFFFF"/>
+
+                <!-- Senyum Ramah & Lidah Lucu -->
+                <path d="M 66 100 Q 80 118 94 100" fill="#991B1B" stroke="#7F1D1D" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M 72 108 Q 80 116 88 108" fill="#F43F5E"/>
+
+                <!-- Tangan Kiri Melambai Menyapa -->
+                <g id="mascot-wave-hand">
+                  <path d="M 25 95 C 10 90 2 75 14 68 C 22 64 28 78 26 88 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+                </g>
+                <!-- Tangan Kanan -->
+                <path d="M 135 98 C 146 102 152 115 144 122 C 136 128 132 115 133 105 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+
+                <!-- BLANGKON KHAS BANYUMASAN -->
+                <!-- Tutup Kepala Utama -->
+                <path d="M 20 48 Q 80 12 140 48 Q 146 62 135 64 Q 80 40 25 64 Q 14 62 20 48 Z" fill="url(#gradBlangkon)" stroke="#1C0D02" stroke-width="2"/>
+                <!-- Mondholan / Lipatan Khas di Samping Belakang -->
+                <ellipse cx="136" cy="48" rx="10" ry="12" fill="#582405" stroke="#271003" stroke-width="1.8"/>
+                <!-- Motif Garis Batik Blangkon Emas Soga -->
+                <path d="M 38 48 Q 80 32 122 48" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="4,3"/>
+                <path d="M 45 42 Q 80 26 115 42" fill="none" stroke="#E5A93C" stroke-width="1.8" stroke-dasharray="3,3"/>
+                <!-- Ikatan Depan Blangkon -->
+                <polygon points="76,38 84,38 82,48 78,48" fill="#FCD34D"/>
+              </svg>
+            </div>
+            <span class="mascot-badge-tag">Kang Mendhoan</span>
+          </div>
+
+          <!-- Balon Kata Sambutan Kang Mendhoan -->
+          <div class="speech-bubble">
+            <h2 class="greeting-title" id="heading-beranda">
+              Sugeng Rawuh, <span class="student-name-display">Kanca Jagoan</span>! 👋
+            </h2>
+            <p id="mascot-speech-text">
+              <span class="ngapak-word" data-word="inyong">Inyong</span> Kang Mendhoan! 
+              <span class="ngapak-word" data-word="kepriwe">Kepriwe</span> kabare rika dina kiye? 
+              <span class="ngapak-word" data-word="mayuh">Mayuh</span> kita petualangan keliling Banyumas nyinauni 
+              <strong>Slogan, Iklan, lan Poster</strong>! <span class="ngapak-word" data-word="sing semangat">Sing semangat</span> ya!
+            </p>
+
+            <!-- Box Input Nama Siswa (Jika Belum Tersimpan) -->
+            <div id="student-onboarding-box" class="student-onboarding-box">
+              <form id="student-name-form" style="display:contents;">
+                <label for="student-name-input" style="font-weight:700; font-size:0.85rem; color:var(--color-soga-dark);">
+                  Sapa jenengmu, lur? (Siapa namamu):
+                </label>
+                <input type="text" id="student-name-input" class="student-input-field" placeholder="Ketik namamu di sini..." maxlength="25" required>
+                <button type="submit" class="btn-primary">
+                  <span>Simpan & Mulai</span> 🚀
+                </button>
+              </form>
+            </div>
+
+            <!-- Box Informasi Jika Nama Sudah Tersimpan -->
+            <div id="student-welcomed-box" style="display:none; margin-top:0.6rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+                <span style="font-size:0.85rem; color:var(--color-daun); font-weight:700;">
+                  ✓ Profil Aktif: <strong class="student-name-display">Kanca</strong> • <span class="student-level-display">Santri Sinau</span>
+                </span>
+                <button id="btn-change-name" class="btn-secondary" style="padding:0.25rem 0.65rem; min-height:32px; font-size:0.75rem;">
+                  ✏️ Ganti Nama
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STATUS PROGRESS PETUALANGAN (GAMIFIKASI) -->
+      <section class="adventure-progress-card" aria-label="Kemajuan Petualangan Belajar">
+        <div class="progress-header">
+          <span class="progress-header-title">🗺️ Progres Petualangan Keliling Banyumas</span>
+          <span class="progress-badge-info student-level-display">Santri Sinau (Level 1)</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-fill" id="adventure-progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-footer">
+          <span id="adventure-progress-text">0 dari 5 Misi Selesai (0%)</span>
+          <span>Total: <strong class="student-xp-display">0</strong> XP Terkumpul</span>
+        </div>
+      </section>
+
+      <!-- PETA 5 MISI PETUALANGAN -->
+      <section aria-labelledby="heading-misi-peta">
+        <div class="section-title">
+          <h2 id="heading-misi-peta">Peta Misi Petualangan</h2>
+          <span class="section-tag">Fase D • Kurikulum Merdeka</span>
+        </div>
+
+        <div class="mission-map-grid" id="missions-grid">
+          <!-- Kartu misi akan dirender secara dinamis oleh js/app.js -->
+        </div>
+      </section>
+
+      <!-- KHAZANAH KEARIFAN LOKAL BANYUMAS (PENDEKATAN CRT) -->
+      <section class="crt-culture-showcase" aria-labelledby="heading-budaya-banyumas">
+        <div class="section-title">
+          <h2 id="heading-budaya-banyumas">🏺 Sumber Belajar Budaya Banyumas</h2>
+          <span class="section-tag" style="background:var(--color-mendoan-light); color:var(--color-soga-dark);">
+            Kearifan Lokal Kita
+          </span>
+        </div>
+        <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;">
+          Di Banyumas, kita punya banyak hal hebat yang siap dipromosikan lewat slogan, iklan, dan poster karyamu! Geser ke samping untuk mengenalnya:
+        </p>
+
+        <div class="culture-scroll-row" id="culture-showcase-row">
+          <!-- Item budaya dirender oleh app.js -->
+        </div>
+      </section>
+
+      <!-- TUJUAN PEMBELAJARAN & MODEL PjBL -->
+      <section class="adventure-progress-card" style="background:#FFFDF9; border-color:var(--color-border);" aria-labelledby="heading-tp">
+        <h3 id="heading-tp" style="font-size:1.05rem; margin-bottom:0.75rem; color:var(--color-soga-dark);">
+          🎯 Tujuan Pembelajaran Bab 2 (Kelas 8 SMP)
+        </h3>
+        <ul style="padding-left:1.25rem; font-size:0.88rem; color:var(--color-text-main); display:flex; flex-direction:column; gap:0.4rem;">
+          <li><strong>1. Memahami Hakikat:</strong> Menjelaskan pengertian, fungsi, dan karakteristik slogan, iklan, dan poster.</li>
+          <li><strong>2. Menganalisis Kaidah:</strong> Menemukan kalimat persuasif, imperatif, rima, dan pilihan kata menarik.</li>
+          <li><strong>3. Berpikir Kritis:</strong> Menilai daya tarik iklan nyata serta membedakan iklan jujur vs klaim berlebihan/hoaks.</li>
+          <li><strong>4. Mencipta Karya (PjBL):</strong> Merancang slogan dan poster kreatif untuk UMKM atau budaya Banyumas.</li>
+        </ul>
+      </section>
+
+    </section>
+
+
+    <!-- ======================================================================
+         VIEW 2: MISI 1 – KENALI (MATERI LENGKAP & MINI-CEK PEMAHAMAN)
+         ====================================================================== -->
+    <section id="view-misi1" class="view-section" aria-labelledby="heading-misi1">
+      
+      <!-- Header Misi 1 -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda
+          </button>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="section-tag">Misi 1 dari 5</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-oranye);">⭐ Reward: +100 XP</span>
+          </div>
+        </div>
+        <h2 id="heading-misi1" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          🔍 Misi 1: Kenali Tiga Serangkai Promosi
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          Pelajari hakikat Slogan, Iklan, dan Poster berbalut kearifan budaya Banyumas, pahami kaidah kebahasaannya, lalu selesaikan Mini-Cek untuk membuka Misi 2!
+        </p>
+      </div>
+
+      <!-- Navigasi Subtab Misi 1 -->
+      <nav class="subtab-nav" aria-label="Sub-materi Misi 1">
+        <button class="subtab-btn active" data-subtab="m1-konsep">📖 1. Tiga Serangkai</button>
+        <button class="subtab-btn" data-subtab="m1-matriks">📊 2. Matriks Unsur</button>
+        <button class="subtab-btn" data-subtab="m1-kaidah">✨ 3. Kaidah Bahasa</button>
+        <button class="subtab-btn" data-subtab="m1-flip">🔄 4. Kartu Tanya Cepat</button>
+        <button class="subtab-btn" data-subtab="m1-kuis">🎯 5. Mini-Cek (3 Soal)</button>
+      </nav>
+
+      <!-- SUBTAB 1: TIGA KONSEP (SLOGAN, IKLAN, POSTER) -->
+      <div id="subtab-m1-konsep" class="m1-subtab-pane">
+        <div class="concept-grid" id="m1-concept-container">
+          <!-- Dirender otomatis oleh app.js -->
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: MATRIKS KOMPARASI UNSUR -->
+      <div id="subtab-m1-matriks" class="m1-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <h3 style="font-size:1.1rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            📊 Matriks Perbandingan Unsur Media Promosi
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Bagaimana membedakan Slogan, Iklan, dan Poster dalam sekejap? Amati perbandingan unsur pembentuknya pada tabel berikut:
+          </p>
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Unsur Pembentuk</th>
+                  <th>🗣️ Slogan</th>
+                  <th>📢 Iklan</th>
+                  <th>🖼️ Poster</th>
+                </tr>
+              </thead>
+              <tbody id="m1-matrix-tbody">
+                <!-- Dirender dari APP_DATA.misi1.comparisonMatrix -->
+              </tbody>
+            </table>
+          </div>
+          <div style="background:#F0FDF4; border-left:4px solid var(--color-daun); padding:0.75rem 1rem; border-radius:6px; font-size:0.85rem;">
+            💡 <strong>Kunci Ingatan:</strong> <em>Slogan</em> mengutamakan kata-kata padat makna, <em>Poster</em> mengutamakan visual ilustrasi di ruang publik, sedangkan <em>Iklan</em> memadukan visual, teks, gerak, dan audio secara lengkap!
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: 5 KAIDAH KEBAHASAAN -->
+      <div id="subtab-m1-kaidah" class="m1-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <h3 style="font-size:1.1rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            ✨ 5 Kaidah Kebahasaan Teks Iklan, Slogan & Poster
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Bahasa promosi memiliki kekuatan magis untuk menggerakkan hati pembaca. Kuasai 5 kaidah kebahasaan berikut yang akan kita bedah di Misi 2:
+          </p>
+          <div class="rules-grid" id="m1-rules-container">
+            <!-- Dirender dari APP_DATA.misi1.linguisticRules -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 4: KARTU TANYA CEPAT (FLIP CARDS) -->
+      <div id="subtab-m1-flip" class="m1-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <h3 style="font-size:1.1rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            🔄 Kartu Tanya Cepat (Sentuh / Klik Kartu untuk Membalik!)
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Uji ketangkasan berpikirmu sebelum mencoba kuis! Sentuh kartu di bawah ini untuk melihat rahasia di baliknya:
+          </p>
+          <div class="flip-grid" id="m1-flip-container">
+            <!-- Dirender dari APP_DATA.misi1.flipCards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 5: MINI-CEK PEMAHAMAN (3 SOAL) -->
+      <div id="subtab-m1-kuis" class="m1-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <h3 style="font-size:1.1rem; color:var(--color-soga-dark); margin:0;">
+              🎯 Mini-Cek Pemahaman Misi 1
+            </h3>
+            <span id="m1-quiz-score-pill" style="font-size:0.8rem; font-weight:700; color:var(--color-daun);">
+              Skor: 0 / 3
+            </span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+            Jawab 3 pertanyaan seputar teks promosi Banyumas berikut untuk memverifikasi pemahamanmu dan mengklaim <strong>+100 XP</strong> serta membuka <strong>Misi 2</strong>!
+          </p>
+
+          <div id="m1-quiz-container">
+            <!-- Soal kuis dirender secara dinamis oleh app.js -->
+          </div>
+
+          <div id="m1-quiz-completion-box" style="display:none; text-align:center; padding:1.5rem; background:#FFFBEB; border:2px solid var(--color-mendoan); border-radius:12px; margin-top:1.5rem;">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
+            <h4 style="font-size:1.2rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+              <span class="ngapak-word" data-word="wis bener">Wis Bener</span> Kabeh! Rika Lulus Misi 1!
+            </h4>
+            <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;">
+              Selamat! Rika berhak mendapatkan <strong>+100 XP</strong> dan kunci <strong>Misi 2: Bedah Kaidah Kebahasaan</strong> kini telah terbuka!
+            </p>
+            <button class="btn-primary" data-route="misi2">
+              Lanjut ke Misi 2 (Bedah) 🔬 ➡️
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: MISI 2 – BEDAH (LABORATORIUM KAIDAH KEBAHASAAN BANYUMAS)
+         ====================================================================== -->
+    <section id="view-misi2" class="view-section" aria-labelledby="heading-misi2">
+      
+      <!-- Header Misi 2 -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda
+          </button>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="section-tag" style="background:#EFF6FF; color:#1E40AF;">Misi 2 dari 5</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-oranye);">⭐ Reward: +150 XP</span>
+          </div>
+        </div>
+        <h2 id="heading-misi2" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          🔬 Misi 2: Bedah Kaidah Bahasa Promosi Banyumas
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          Jadilah detektif bahasa! Klik kalimat atau frasa bergaris putus-putus pada contoh di bawah untuk membongkar kaidah kebahasaan beserta rahasia kearifan lokalnya!
+        </p>
+      </div>
+
+      <!-- Bar Filter Kategori & Tracker Kemajuan Bedah -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem;">
+        <div class="filter-bar" style="margin-bottom:0;">
+          <button class="filter-btn active" data-filter="semua">Semua (10)</button>
+          <button class="filter-btn" data-filter="slogan">🗣️ Slogan (4)</button>
+          <button class="filter-btn" data-filter="iklan">📢 Iklan (3)</button>
+          <button class="filter-btn" data-filter="poster">🖼️ Poster (3)</button>
+        </div>
+
+        <div style="font-size:0.82rem; font-weight:700; background:var(--color-surface); border:1px solid var(--color-border); padding:0.35rem 0.75rem; border-radius:var(--radius-full); color:var(--color-soga);">
+          🔍 Kaidah Terbedah: <span id="m2-discovered-count" style="color:var(--color-daun); font-weight:800;">0</span>
+        </div>
+      </div>
+
+      <!-- Kotak Inspektur Kaidah Kebahasaan (Aktif saat diklik) -->
+      <div id="m2-inspector-container" style="display:none; margin-bottom:1.5rem;">
+        <div class="linguistic-inspector-box">
+          <div class="inspector-header">
+            <span class="inspector-rule-tag" id="m2-inspect-badge">Kaidah Kebahasaan</span>
+            <span style="font-size:0.78rem; font-weight:700; color:var(--color-daun);">✓ Berhasil Dianalisis (+15 XP)</span>
+          </div>
+          <div style="font-weight:700; font-size:0.95rem; color:var(--color-soga-dark); margin-bottom:0.4rem;" id="m2-inspect-text">
+            "Kalimat yang diklik"
+          </div>
+          <p class="inspector-explanation" id="m2-inspect-explanation">
+            Penjelasan mengapa kalimat ini termasuk kaidah tersebut.
+          </p>
+          <div class="inspector-crt" id="m2-inspect-crt">
+            🌾 <strong>Nilai Budaya Banyumas:</strong> Penjelasan kontekstual lokal.
+          </div>
+        </div>
+      </div>
+
+      <!-- Galeri 10 Contoh Bedah Banyumas -->
+      <div class="bedah-gallery-grid" id="m2-gallery-grid">
+        <!-- Dirender secara dinamis dari APP_DATA.misi2.examples oleh app.js -->
+      </div>
+
+      <!-- Tombol Aksi Akhir Misi 2 -->
+      <div class="adventure-progress-card" style="text-align:center; padding:1.25rem;">
+        <h4 style="font-size:1.05rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          <span class="ngapak-word" data-word="mantep">Mantep</span> Temen! Keahlian Analisis Rika Makin Tajam!
+        </h4>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+          Setelah memahami kaidah kebahasaan pada slogan, iklan, dan poster Banyumas, rika siap menguji ketangkasan di arena latihan dan game seru!
+        </p>
+        <button class="btn-primary" data-route="misi3">
+          Lanjut ke Misi 3 (Latihan & Game) 🎯 ➡️
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 4: MISI 3 – LATIHAN (ARENA GAME, KUIS ACAK, DETEKSI HOAKS & MATCHING)
+         ====================================================================== -->
+    <section id="view-misi3" class="view-section" aria-labelledby="heading-misi3">
+      
+      <!-- Header Misi 3 -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda
+          </button>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="section-tag" style="background:#FEF3C7; color:#B45309;">Misi 3 dari 5</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-oranye);">⭐ Reward: +200 XP</span>
+          </div>
+        </div>
+        <h2 id="heading-misi3" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          🎯 Misi 3: Arena Juara Ngiklan Banyumas
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          Uji ketangkasan dan literasi kritismu! Selesaikan tantangan Susun Slogan, taklukkan Kuis 10 Soal Acak, basmi Hoaks Promosi, dan kumpulkan lencana juara!
+        </p>
+      </div>
+
+      <!-- Navigasi Subtab Misi 3 -->
+      <nav class="subtab-nav" aria-label="Sub-game Misi 3">
+        <button class="subtab-btn active" data-subtab="m3-susun">🧩 1. Susun Slogan</button>
+        <button class="subtab-btn" data-subtab="m3-kuis">🎯 2. Kuis 10 Soal Acak</button>
+        <button class="subtab-btn" data-subtab="m3-hoaks">🛡️ 3. Iklan vs Hoaks</button>
+        <button class="subtab-btn" data-subtab="m3-jodoh">🔗 4. Jodohkan Ciri</button>
+        <button class="subtab-btn" data-subtab="m3-lencana">🏆 Lencana Saya</button>
+      </nav>
+
+      <!-- SUBTAB 1: TANTANGAN SUSUN KATA SLOGAN (DRAG & DROP / TAP) -->
+      <div id="subtab-m3-susun" class="m3-subtab-pane">
+        <div class="slogan-game-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+            <span class="section-tag" id="dd-challenge-step">Tantangan 1 dari 3</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-daun);">+30 XP per slogan</span>
+          </div>
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.35rem;" id="dd-title">
+            Susun Slogan Kuliner Mendoan
+          </h3>
+          <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;" id="dd-clue">
+            Petunjuk: Susun kata-kata ini menjadi slogan yang mengaitkan hangatnya mendoan dengan kerukunan hidup warga Banyumas!
+          </p>
+
+          <label style="font-size:0.78rem; font-weight:800; color:var(--color-soga); text-transform:uppercase; display:block; margin-bottom:0.35rem;">
+            Wadah Susunan Slogan Rika (Sentuh kata di bawah untuk memasukkan):
+          </label>
+          
+          <!-- Dropzone / Slot Susunan Kata -->
+          <div class="slogan-dropzone" id="slogan-dropzone" aria-live="polite">
+            <span class="slogan-dropzone-empty" id="dropzone-empty-text">Sentuh atau seret kata ke dalam kotak ini...</span>
+          </div>
+
+          <!-- Pool Kata yang Teracak -->
+          <label style="font-size:0.78rem; font-weight:800; color:var(--color-text-muted); text-transform:uppercase; display:block; margin-bottom:0.35rem;">
+            Pilihan Kata Teracak:
+          </label>
+          <div class="word-pool" id="slogan-word-pool">
+            <!-- Dirender oleh app.js -->
+          </div>
+
+          <!-- Tombol Aksi -->
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1rem;">
+            <button class="btn-primary" id="btn-check-slogan">
+              ✓ Cek Susunan Slogan
+            </button>
+            <button class="btn-secondary" id="btn-reset-slogan">
+              🔄 Mulai Ulang Kata
+            </button>
+          </div>
+
+          <!-- Umpan Balik -->
+          <div id="dd-feedback-box" style="display:none;" class="quiz-feedback-box"></div>
+
+          <!-- Tombol Lanjut ke Slogan Berikutnya -->
+          <div id="dd-next-wrapper" style="display:none; margin-top:1rem; text-align:right;">
+            <button class="btn-primary" id="btn-next-slogan">
+              Tantangan Slogan Berikutnya ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: KUIS PILIHAN GANDA 10 SOAL ACAK -->
+      <div id="subtab-m3-kuis" class="m3-subtab-pane" style="display:none;">
+        <div class="slogan-game-card" id="quiz10-card">
+          <div class="quiz-top-bar">
+            <div>
+              <span style="font-size:0.85rem; font-weight:800; color:var(--color-soga-dark);" id="quiz10-step-text">
+                Soal 1 dari 10
+              </span>
+              <span class="diff-badge diff-mudah" id="quiz10-diff-badge" style="margin-left:0.4rem;">
+                Level Mudah
+              </span>
+            </div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--color-daun);">
+              Poin Sesi Ini: <span id="quiz10-score-display">0</span>
+            </div>
+          </div>
+
+          <!-- Skenario Masalah Kontekstual Banyumas -->
+          <div class="scenario-box" id="quiz10-scenario">
+            Skenario kasus Banyumas...
+          </div>
+
+          <!-- Teks Pertanyaan -->
+          <h3 class="quiz-question-text" id="quiz10-question">
+            Pertanyaan kuis...
+          </h3>
+
+          <!-- Pilihan Jawaban A B C D -->
+          <div class="quiz-options-group" id="quiz10-options-group">
+            <!-- Dirender secara dinamis oleh app.js -->
+          </div>
+
+          <!-- Kotak Umpan Balik dan Pembahasan -->
+          <div id="quiz10-feedback-box" style="display:none;" class="quiz-feedback-box"></div>
+
+          <!-- Tombol Soal Selanjutnya -->
+          <div id="quiz10-next-wrapper" style="display:none; margin-top:1rem; text-align:right;">
+            <button class="btn-primary" id="btn-next-quiz10">
+              Soal Selanjutnya ➡️
+            </button>
+          </div>
+        </div>
+
+        <!-- Kartu Hasil Skor Kuis 10 Soal -->
+        <div id="quiz10-result-card" class="quiz-score-modal" style="display:none;">
+          <div style="font-size:3.5rem;">🏆</div>
+          <h3 style="font-size:1.4rem; color:var(--color-soga-dark); margin-bottom:0.25rem;">
+            Hasil Kuis 10 Soal Bab 2
+          </h3>
+          <p style="font-size:0.9rem; color:var(--color-text-muted);">
+            Luar biasa! Rika telah menyelesaikan petualangan penalaran kritis seputar Slogan, Iklan, dan Poster Banyumas!
+          </p>
+          <div class="score-number-big" id="quiz10-final-score">
+            100
+          </div>
+          <p style="font-weight:700; color:var(--color-daun); margin-bottom:1rem;" id="quiz10-final-msg">
+            Mantap Pisan! Rika Menguasai Materi dengan Sempurna!
+          </p>
+          <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+            <button class="btn-secondary" id="btn-restart-quiz10">
+              🔄 Coba Kuis Lagi (Soal Diacak)
+            </button>
+            <button class="btn-primary" data-route="misi4">
+              Lanjut ke Misi 4 (Studio Cipta PjBL) 🎨 ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: IKLAN BENERAN VS HOAKS PROMOSI -->
+      <div id="subtab-m3-hoaks" class="m3-subtab-pane" style="display:none;">
+        <div class="hvr-case-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+            <span class="section-tag" id="hvr-step-tag">Kasus 1 dari 6</span>
+            <span style="font-size:0.8rem; font-weight:700; color:var(--color-daun);">
+              Benar: <span id="hvr-correct-count">0</span> / 6
+            </span>
+          </div>
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.35rem;" id="hvr-case-title">
+            Kasus Promosi
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Sebagai konsumen cerdas, amati klaim promosi berikut. Apakah ini iklan promosi yang etis & jujur, ataukah hoaks/klaim palsu yang menyesatkan?
+          </p>
+
+          <!-- Kotak Kutipan Klaim Promosi -->
+          <div class="hvr-claim-quote" id="hvr-claim-text">
+            "Klaim promosi..."
+          </div>
+
+          <!-- Tombol Pilihan Siswa: Beneran vs Hoaks -->
+          <div class="hvr-btn-grid" id="hvr-actions-container">
+            <button class="hvr-choice-btn btn-choice-real" data-verdict="beneran">
+              <span>🛡️ Iklan Beneran & Jujur</span>
+            </button>
+            <button class="hvr-choice-btn btn-choice-hoax" data-verdict="hoaks">
+              <span>⚠️ Hoaks / Klaim Menyesatkan</span>
+            </button>
+          </div>
+
+          <!-- Hasil Umpan Balik Literasi Kritis -->
+          <div id="hvr-result-box" style="display:none;" class="hvr-result-box">
+            <div style="font-weight:800; font-size:1rem; margin-bottom:0.35rem;" id="hvr-status-title">
+              Status Jawaban
+            </div>
+            <p style="font-size:0.88rem; line-height:1.5; margin-bottom:0.5rem;" id="hvr-explanation">
+              Ulasan analisis etika periklanan.
+            </p>
+            <div style="background:rgba(255,255,255,0.7); padding:0.45rem 0.65rem; border-radius:6px; font-size:0.82rem; font-weight:700;" id="hvr-tip">
+              💡 Tips Kritis Konsumen.
+            </div>
+          </div>
+
+          <div id="hvr-next-wrapper" style="display:none; margin-top:1rem; text-align:right;">
+            <button class="btn-primary" id="btn-next-hvr">
+              Kasus Berikutnya ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 4: MATCHING GAME / JODOHKAN CIRI TEKS -->
+      <div id="subtab-m3-jodoh" class="m3-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin:0;">
+              🔗 Jodohkan Karakteristik dengan Jenis Media
+            </h3>
+            <span style="font-size:0.8rem; font-weight:700; color:var(--color-daun);" id="matching-score-pill">
+              Terjodohkan: 0 / 6
+            </span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+            Pilih kategori yang tepat (<strong>Slogan</strong>, <strong>Iklan</strong>, atau <strong>Poster</strong>) untuk setiap deskripsi dan studi kasus di bawah ini:
+          </p>
+
+          <div id="matching-items-container">
+            <!-- Dirender secara dinamis oleh app.js -->
+          </div>
+
+          <div id="matching-complete-box" style="display:none; text-align:center; padding:1.25rem; background:#DCFCE7; border:2px solid #166534; border-radius:12px; margin-top:1rem;">
+            <h4 style="color:#14532D; font-size:1.15rem; margin-bottom:0.25rem;">
+              🎉 Sempurna! Rika Ahli Membedakan Tiga Serangkai!
+            </h4>
+            <p style="font-size:0.85rem; color:#14532D; margin:0;">
+              Semua karakteristik berhasil dijodohkan dengan tepat! Kamu mendapatkan <strong>+50 XP</strong> dan Lencana Master Tiga Serangkai!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 5: LENCANA PRESTASI MISI 3 -->
+      <div id="subtab-m3-lencana" class="m3-subtab-pane" style="display:none;">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            🏆 Lencana Prestasi Arena Latihan
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+            Selesaikan seluruh aktivitas di Misi 3 untuk membuka lencana kehormatan petualang Banyumas:
+          </p>
+          <div class="badges-showcase-grid" id="m3-badges-grid">
+            <!-- Dirender oleh app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Navigasi Bawah Misi 3 -->
+      <div class="adventure-progress-card" style="text-align:center; padding:1.25rem; margin-top:1.5rem;">
+        <h4 style="font-size:1.05rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          <span class="ngapak-word" data-word="wis bener">Wis Bener</span> Kabeh? Waktunya Berkreasi!
+        </h4>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+          Latihan telah memperkuat fondasimu. Sekarang saatnya menjadi kreator sejati di <strong>Misi 4: Cipta (Proyek Poster & Slogan UMKM Banyumas)</strong>!
+        </p>
+        <button class="btn-primary" data-route="misi4">
+          Lanjut ke Misi 4 (Studio Cipta) 🎨 ➡️
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 5: MISI 4 – CIPTA (PROYEK PjBL, SLOGAN GENERATOR & CANVAS POSTER MAKER)
+         ====================================================================== -->
+    <section id="view-misi4" class="view-section" aria-labelledby="heading-misi4">
+      
+      <!-- Header Misi 4 -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda
+          </button>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="section-tag" style="background:#DCFCE7; color:#14532D;">Misi 4 dari 5 • Proyek PjBL</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-oranye);">⭐ Reward: +250 XP</span>
+          </div>
+        </div>
+        <h2 id="heading-misi4" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          🎨 Misi 4: Studio Cipta Poster & Slogan Banyumas
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          Waktunya unjuk kreativitas! Gunakan Slogan Generator Bantu untuk meracik ide, lalu desain poster digital bermotif batik di Canvas Poster Maker dan unduh hasilnya!
+        </p>
+      </div>
+
+      <!-- Navigasi Subtab Misi 4 -->
+      <nav class="subtab-nav" aria-label="Sub-modul Misi 4">
+        <button class="subtab-btn active" data-subtab="m4-panduan">🧭 1. Panduan Proyek</button>
+        <button class="subtab-btn" data-subtab="m4-generator">💡 2. Slogan Generator</button>
+        <button class="subtab-btn" data-subtab="m4-studio">🎨 3. Poster Maker (Canvas)</button>
+        <button class="subtab-btn" data-subtab="m4-checklist">📋 4. Checklist Karya</button>
+      </nav>
+
+      <!-- SUBTAB 1: PANDUAN LANGKAH PROYEK PjBL -->
+      <div id="subtab-m4-panduan" class="m4-subtab-pane">
+        <div class="adventure-progress-card" style="margin-bottom:1rem;">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+            🧭 Alur 5 Langkah Proyek Kreatif (PjBL)
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+            Sebagai Duta Promosi Banyumas, ikuti alur tahapan proyek berikut agar poster dan slogan yang rika buat memiliki daya pikat tinggi:
+          </p>
+          <div class="pjbl-roadmap-grid" id="pjbl-roadmap-container">
+            <!-- Dirender dari APP_DATA.misi4.pjblSteps oleh app.js -->
+          </div>
+          <div style="text-align:right; margin-top:1rem;">
+            <button class="btn-primary" id="btn-to-slogan-gen">
+              Lanjut ke Langkah 2: Gagas Slogan 💡 ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: SLOGAN GENERATOR BANTU (SCAFFOLDING IDE KREATIF) -->
+      <div id="subtab-m4-generator" class="m4-subtab-pane" style="display:none;">
+        <div class="generator-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+            <h3 style="font-size:1.2rem; color:var(--color-soga-dark); margin:0;">
+              💡 Slogan Generator Pemantik Ide
+            </h3>
+            <span class="section-tag">Bukan Jawaban Jadi • Pemantik Kreatif</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Pilih produk, target audiens, dan gaya bahasa yang rika inginkan. Sistem akan memantik kata kunci dan kerangka kalimat agar rika bisa merangkai slogan orisinalmu sendiri:
+          </p>
+
+          <!-- 1. Pilihan Produk -->
+          <div class="control-group">
+            <span class="control-label">1. Pilih Produk / Objek Budaya Banyumas:</span>
+            <div class="gen-options-group" id="gen-products-group">
+              <!-- Dirender oleh app.js -->
+            </div>
+          </div>
+
+          <!-- 2. Pilihan Target Audiens -->
+          <div class="control-group">
+            <span class="control-label">2. Pilih Target Audiens (Calon Pembeli/Penonton):</span>
+            <div class="gen-options-group" id="gen-audiences-group">
+              <!-- Dirender oleh app.js -->
+            </div>
+          </div>
+
+          <!-- 3. Pilihan Gaya Bahasa -->
+          <div class="control-group">
+            <span class="control-label">3. Pilih Gaya Bahasa (Tone of Voice):</span>
+            <div class="gen-options-group" id="gen-tones-group">
+              <!-- Dirender oleh app.js -->
+            </div>
+          </div>
+
+          <!-- Kotak Hasil Scaffolding Pemantik Ide -->
+          <div class="scaffolding-box" id="gen-scaffolding-box">
+            <div style="font-size:0.8rem; font-weight:800; color:var(--color-soga); text-transform:uppercase; margin-bottom:0.35rem;">
+              🔑 Kata Kunci Sensoris Pemantik Ide (Klik kata untuk menyalin):
+            </div>
+            <div class="keyword-cloud" id="gen-keywords-cloud"></div>
+
+            <div style="margin-bottom:0.75rem;">
+              <strong style="font-size:0.85rem; color:var(--color-soga-dark);">📐 Kerangka Pola Kalimat Pemantik:</strong>
+              <div id="gen-template-text" style="background:#FFFFFF; border:1px solid #EADBCE; padding:0.6rem 0.85rem; border-radius:6px; font-size:0.88rem; font-style:italic; color:var(--color-soga); margin-top:0.25rem;">
+                "Pola kalimat..."
+              </div>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <strong style="font-size:0.85rem; color:var(--color-soga-dark);">✨ Contoh Variasi Awal (Bisa dimodifikasi):</strong>
+              <div id="gen-sample-text" style="font-size:0.88rem; color:var(--color-text-main); margin-top:0.25rem;">
+                "Contoh..."
+              </div>
+            </div>
+
+            <!-- Form Tulis Slogan Siswa -->
+            <div style="background:#FFFFFF; border:2px solid var(--color-soga); border-radius:8px; padding:0.85rem;">
+              <label for="student-custom-slogan" style="display:block; font-weight:800; font-size:0.88rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+                ✍️ Tuliskan Slogan Orisinal Karyamu Sendiri:
+              </label>
+              <input type="text" id="student-custom-slogan" class="control-input" placeholder="Ketik slogan karyamu di sini (misal: Anget Mendoane, Guyub Wargane!)..." maxlength="65">
+              
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+                <span style="font-size:0.78rem; color:var(--color-text-muted);">
+                  💡 Tips: Buat pendek, padat makna, dan berima harmonis.
+                </span>
+                <button class="btn-primary" id="btn-use-slogan-in-poster">
+                  Gunakan Slogan Ini di Poster Maker 🎨 ➡️
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: POSTER MAKER (CANVAS STUDIO 3:4 HIGH-RES) -->
+      <div id="subtab-m4-studio" class="m4-subtab-pane" style="display:none;">
+        <div class="poster-studio-layout">
+          
+          <!-- PANEL KIRI: PENGATURAN KONTROL POSTER -->
+          <div class="poster-controls-card">
+            <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.85rem;">
+              ⚙️ Pengaturan Desain Poster
+            </h3>
+
+            <!-- 1. Pemilih Latar Bertema Banyumas (Minimal 6 Latar) -->
+            <div class="control-group">
+              <span class="control-label">1. Pilih Latar Motif Batik / Alam:</span>
+              <div class="bg-selector-grid" id="poster-bg-grid">
+                <!-- Dirender dari APP_DATA.misi4.backgrounds oleh app.js -->
+              </div>
+            </div>
+
+            <!-- 2. Pemilih Ikon Budaya SVG (Minimal 8 Ikon) -->
+            <div class="control-group">
+              <span class="control-label">2. Pilih Ikon Budaya SVG Khas Banyumas:</span>
+              <div class="icon-selector-grid" id="poster-icon-grid">
+                <!-- Dirender dari APP_DATA.misi4.svgIcons oleh app.js -->
+              </div>
+            </div>
+
+            <!-- 3. Input Judul Utama (Headline) -->
+            <div class="control-group">
+              <label class="control-label" for="inp-poster-headline">3. Judul Utama (Headline):</label>
+              <input type="text" id="inp-poster-headline" class="control-input" value="FESTIVAL MENDOAN BANYUMAS" maxlength="35">
+              <div style="display:flex; align-items:center; gap:0.75rem; margin-top:0.35rem;">
+                <label for="inp-headline-size" style="font-size:0.75rem; color:var(--color-text-muted);">Ukuran Font:</label>
+                <input type="range" id="inp-headline-size" min="36" max="64" value="48" style="flex:1;">
+              </div>
+            </div>
+
+            <!-- 4. Input Slogan Persuasif -->
+            <div class="control-group">
+              <label class="control-label" for="inp-poster-slogan">4. Slogan Persuasif:</label>
+              <input type="text" id="inp-poster-slogan" class="control-input" value="Anget Mendoane, Guyub Wargane!" maxlength="60">
+              <div style="display:flex; align-items:center; gap:0.75rem; margin-top:0.35rem;">
+                <label for="inp-slogan-size" style="font-size:0.75rem; color:var(--color-text-muted);">Ukuran Font:</label>
+                <input type="range" id="inp-slogan-size" min="22" max="36" value="28" style="flex:1;">
+              </div>
+            </div>
+
+            <!-- 5. Input Deskripsi / Informasi Acara/Produk -->
+            <div class="control-group">
+              <label class="control-label" for="inp-poster-desc">5. Deskripsi / Keunggulan / Waktu:</label>
+              <textarea id="inp-poster-desc" class="control-input" rows="2" maxlength="110">Pesta 10.000 Mendoan Hangat, Parade Tari Lengger & Bazar UMKM. 15-16 November di Alun-Alun Purwokerto.</textarea>
+            </div>
+
+            <!-- 6. Input Call to Action & Kontak/Lokasi -->
+            <div class="control-group">
+              <label class="control-label" for="inp-poster-cta">6. Ajakan Bertindak & Kontak/Lokasi (CTA):</label>
+              <input type="text" id="inp-poster-cta" class="control-input" value="Mayuh teka bareng sedulur! Gratis nggo kabeh warga • Info: 0812-BANYUMAS" maxlength="70">
+            </div>
+
+            <!-- 7. Warna Teks Utama & Aksen -->
+            <div class="control-group">
+              <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <div style="flex:1;">
+                  <label for="inp-text-color" style="font-size:0.75rem; font-weight:700; color:var(--color-soga-dark); display:block; margin-bottom:0.25rem;">Warna Teks Judul:</label>
+                  <input type="color" id="inp-text-color" value="#FFFFFF" style="width:100%; height:36px; border:1px solid #CCC; border-radius:6px; cursor:pointer;">
+                </div>
+                <div style="flex:1;">
+                  <label for="inp-accent-color" style="font-size:0.75rem; font-weight:700; color:var(--color-soga-dark); display:block; margin-bottom:0.25rem;">Warna Aksen Slogan:</label>
+                  <input type="color" id="inp-accent-color" value="#F59E0B" style="width:100%; height:36px; border:1px solid #CCC; border-radius:6px; cursor:pointer;">
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-secondary" id="btn-reset-poster" style="width:100%; font-size:0.85rem;">
+              🔄 Kembalikan ke Desain Bawaan
+            </button>
+
+          </div>
+
+          <!-- PANEL KANAN: PRATINJAU CANVAS LIVE & TOMBOL UNDUH -->
+          <div class="poster-preview-card">
+            <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-bottom:0.75rem;">
+              <span class="section-tag">Pratinjau Nyata (3:4)</span>
+              <span style="font-size:0.78rem; color:var(--color-daun); font-weight:700;">HD 900 x 1200 px</span>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="canvas-wrapper">
+              <canvas id="poster-canvas" width="900" height="1200" aria-label="Kanvas pembuatan poster digital Banyumas"></canvas>
+            </div>
+
+            <!-- Tombol Unduh Gambar PNG Resolusi Baik -->
+            <div style="display:flex; flex-direction:column; gap:0.5rem; width:100%; max-width:380px;">
+              <button class="btn-primary" id="btn-download-poster" style="background:linear-gradient(135deg, #166534 0%, #14532D 100%); width:100%; min-height:48px; font-size:1rem;">
+                📥 Unduh Poster PNG (Kualitas Tinggi)
+              </button>
+              <span style="font-size:0.75rem; color:var(--color-text-muted); text-align:center;">
+                ✓ Siap dipajang, dicetak, atau dipresentasikan di kelas.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUBTAB 4: CHECKLIST KELENGKAPAN KARYA & KLAIM XP -->
+      <div id="subtab-m4-checklist" class="m4-subtab-pane" style="display:none;">
+        <div class="checklist-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin:0;">
+              📋 Checklist Kualitas Poster Mandiri
+            </h3>
+            <span id="checklist-counter-badge" style="font-size:0.82rem; font-weight:800; color:var(--color-daun);">
+              0 / 5 Terpenuhi
+            </span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Centang setiap kriteria di bawah ini setelah memastikan poster karyamu memuat elemen-elemen penting teks promosi:
+          </p>
+
+          <div id="poster-checklist-items">
+            <!-- Dirender dari APP_DATA.misi4.checklistItems oleh app.js -->
+          </div>
+
+          <!-- Box Klaim XP Misi 4 -->
+          <div id="m4-claim-box" style="margin-top:1.25rem; padding:1.25rem; background:#FFFBEB; border:2px solid var(--color-mendoan); border-radius:12px; text-align:center; display:none;">
+            <div style="font-size:2.8rem; margin-bottom:0.35rem;">🎨</div>
+            <h4 style="font-size:1.2rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+              <span class="ngapak-word" data-word="mantep">Mantep</span> Pisan! Proyek Cipta Poster Rika Lengkap!
+            </h4>
+            <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;">
+              Rika telah berhasil merancang poster promosi Banyumas dengan prinsip tata letak dan kaidah kebahasaan yang persuasif. Klaim <strong>+250 XP</strong> rika sekarang!
+            </p>
+            <button class="btn-primary" id="btn-claim-m4" style="font-size:1rem; padding:0.75rem 1.75rem;">
+              Klaim +250 XP & Buka Misi 5 🏆
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 6: MISI 5 – ASESMEN, REFLEKSI & SERTIFIKAT JUARA
+         ====================================================================== -->
+    <section id="view-misi5" class="view-section" aria-labelledby="heading-misi5">
+      
+      <!-- Header Misi 5 -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda
+          </button>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span class="section-tag" style="background:#FEF3C7; color:#B45309;">Misi 5 dari 5 • Puncak Petualangan</span>
+            <span style="font-size:0.82rem; font-weight:700; color:var(--color-oranye);">⭐ Reward: +200 XP</span>
+          </div>
+        </div>
+        <h2 id="heading-misi5" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          🏆 Misi 5: Asesmen, Refleksi & Sertifikat Juara
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          <span class="ngapak-word" data-word="mantep">Mantep</span> temen! Rika wis tekan puncak petualangan. Ukur keberhasilan karyamu, tuliskan refleksi sinau, lan undhuh Sertifikat Resmi Duta Promosi Banyumas!
+        </p>
+      </div>
+
+      <!-- Navigasi Subtab Misi 5 -->
+      <nav class="subtab-nav" aria-label="Sub-modul Misi 5">
+        <button class="subtab-btn active" data-subtab="m5-rubrik">📊 1. Rubrik Penilaian</button>
+        <button class="subtab-btn" data-subtab="m5-refleksi">📝 2. Refleksi Sinau</button>
+        <button class="subtab-btn" data-subtab="m5-sertifikat">🎓 3. Sertifikat Duta Banyumas</button>
+      </nav>
+
+      <!-- SUBTAB 1: RUBRIK ASESMEN DIRI & TEMAN SEBAYA -->
+      <div id="subtab-m5-rubrik" class="m5-subtab-pane">
+        <div class="rubric-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem;">
+            <div>
+              <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin:0 0 0.25rem 0;">
+                📊 Rubrik Penilaian Poster & Slogan (4 Kriteria)
+              </h3>
+              <p style="font-size:0.82rem; color:var(--color-text-muted); margin:0;">
+                Gunakan rubrik analitis ini untuk mengukur kualitas karya poster dan slogan yang telah dibuat:
+              </p>
+            </div>
+
+            <!-- Mode Selector: Diri vs Teman Sebaya -->
+            <div style="display:flex; background:#F0EAE1; padding:0.25rem; border-radius:var(--radius-full); gap:0.25rem;">
+              <button id="btn-mode-self" class="subtab-btn active" style="padding:0.3rem 0.75rem; font-size:0.78rem;">
+                🙋 Penilaian Diri Sendiri
+              </button>
+              <button id="btn-mode-peer" class="subtab-btn" style="padding:0.3rem 0.75rem; font-size:0.78rem;">
+                👥 Penilaian Teman Sebaya
+              </button>
+            </div>
+          </div>
+
+          <!-- Input Nama Teman (Tampil jika mode Teman Sebaya aktif) -->
+          <div id="peer-input-wrapper" style="display:none; background:#FFFBEB; border:1px solid var(--color-mendoan); border-radius:8px; padding:0.75rem; margin-bottom:1rem;">
+            <label for="inp-peer-name" style="font-size:0.82rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.25rem;">
+              Nama Teman yang Rika Nilai:
+            </label>
+            <input type="text" id="inp-peer-name" class="control-input" placeholder="Masukkan nama teman sekelasmu (misal: Budi / Siti)..." style="background:#FFF;">
+          </div>
+
+          <!-- Daftar 4 Kriteria Asesmen (Dirender oleh app.js) -->
+          <div id="m5-rubric-container">
+            <!-- Dirender dari APP_DATA.misi5.rubricCriteria -->
+          </div>
+
+          <!-- Ringkasan Nilai & Konversi Skor Live -->
+          <div class="score-summary-bar">
+            <div>
+              <div style="font-size:0.75rem; font-weight:800; color:var(--color-soga); text-transform:uppercase;">
+                Ringkasan Capaian Penilaian:
+              </div>
+              <div style="font-size:1.25rem; font-weight:900; color:var(--color-soga-dark); margin-top:0.15rem;">
+                Total Skor: <span id="rubric-total-score">16</span> / 16 Poin &bull; Nilai: <span id="rubric-final-grade">100</span> / 100
+              </div>
+              <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.35rem;">
+                <span style="font-size:0.78rem; color:var(--color-text-muted);">Predikat Kinerja:</span>
+                <span id="rubric-predicate-badge" class="section-tag" style="background:#DCFCE7; color:#14532D; font-size:0.75rem;">
+                  Sangat Mahir
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-primary" id="btn-save-rubric" style="padding:0.65rem 1.25rem; font-size:0.9rem;">
+                💾 Simpan Penilaian & Klaim +100 XP
+              </button>
+            </div>
+          </div>
+
+          <div id="rubric-save-status" style="display:none; margin-top:0.75rem; padding:0.65rem 0.85rem; border-radius:6px; background:#DCFCE7; color:#14532D; font-size:0.85rem; font-weight:700;"></div>
+
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: REFLEKSI PEMBELAJARAN SISWA -->
+      <div id="subtab-m5-refleksi" class="m5-subtab-pane" style="display:none;">
+        <div class="rubric-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+            📝 Lembar Refleksi Pembelajaran "Inyong Sinau"
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+            Refleksi membantumu mengendapkan pengetahuan dan menyadari kemajuan belajar. Tuliskan jawaban jujur dan terbukamu di bawah ini:
+          </p>
+
+          <form id="form-reflection" style="display:flex; flex-direction:column; gap:1.25rem;">
+            
+            <div class="control-group">
+              <label for="inp-ref-1" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
+                1. Dina kiye inyong sinau akeh babagan (Hari ini saya belajar banyak tentang):
+              </label>
+              <textarea id="inp-ref-1" class="reflection-textarea" placeholder="Contoh: Saya belajar membedakan ciri slogan, iklan, dan poster. Slogan itu padat dan berirama, sedangkan poster butuh gambar kuat yang terbaca 3 detik..."></textarea>
+            </div>
+
+            <div class="control-group">
+              <label for="inp-ref-2" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
+                2. Bagian petualangan sing paling nyenengna kanggone inyong yaiku (Bagian paling seru bagi saya):
+              </label>
+              <textarea id="inp-ref-2" class="reflection-textarea" placeholder="Contoh: Saat mendesain poster di Canvas Poster Maker dengan motif batik Jahe Puger dan memasang ikon tempe mendoan hangat..."></textarea>
+            </div>
+
+            <div class="control-group">
+              <label for="inp-ref-3" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
+                3. Babagan sing esih gawe inyong penasaran utawa kepengin disinauni maning (Yang masih membuat penasaran):
+              </label>
+              <textarea id="inp-ref-3" class="reflection-textarea" placeholder="Contoh: Saya penasaran ingin mempraktikkan poster ini langsung untuk membantu mempromosikan dagangan UMKM mendoan tetangga di media sosial..."></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+              <span style="font-size:0.78rem; color:var(--color-text-muted);">
+                ✓ Catatan refleksi akan tersimpan secara otomatis di perambanmu.
+              </span>
+              <button type="button" class="btn-primary" id="btn-save-reflection" style="padding:0.65rem 1.25rem; font-size:0.9rem;">
+                💾 Simpan Refleksi & Klaim +100 XP
+              </button>
+            </div>
+
+            <div id="reflection-status-box" style="display:none; padding:0.65rem 0.85rem; border-radius:6px; background:#DCFCE7; color:#14532D; font-size:0.85rem; font-weight:700;"></div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: SERTIFIKAT DIGITAL DUTA BANYUMAS -->
+      <div id="subtab-m5-sertifikat" class="m5-subtab-pane" style="display:none;">
+        <div class="rubric-card" style="text-align:center;">
+          <div style="font-size:2.5rem; margin-bottom:0.25rem;">🎓</div>
+          <h3 style="font-size:1.25rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+            Sertifikat Kelulusan & Apresiasi Duta Promosi Banyumas
+          </h3>
+          <p style="font-size:0.88rem; color:var(--color-text-muted); max-width:620px; margin:0 auto 1.25rem auto;">
+            Diberikan sebagai bukti kompetensi literasi teks persuasif dan kepedulian terhadap kearifan budaya Banyumas. Sertifikat di bawah ini dibuat secara otomatis dengan namamu dan perolehan XP akhir:
+          </p>
+
+          <!-- Pratinjau Kanvas Sertifikat Digital 800 x 600 px (4:3) -->
+          <div class="cert-preview-wrapper">
+            <canvas id="cert-canvas" width="800" height="600" aria-label="Sertifikat Digital Duta Promosi Banyumas"></canvas>
+          </div>
+
+          <!-- Tombol Aksi Unduh & Cetak -->
+          <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+            <button class="btn-primary" id="btn-download-cert" style="background:linear-gradient(135deg, #166534 0%, #14532D 100%); min-height:46px; font-size:0.92rem;">
+              📥 Unduh Sertifikat PNG (Kualitas Cetak)
+            </button>
+            <button class="btn-secondary" id="btn-print-cert" style="min-height:46px; font-size:0.92rem;">
+              🖨️ Cetak / Simpan PDF
+            </button>
+          </div>
+          
+          <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:0.75rem;">
+            💡 Kamu bisa mencetak sertifikat ini atau mengunduhnya sebagai lampiran portofolio karya PjBL Bahasa Indonesia.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 7: PANDUAN GURU (PEDAGOGI CRT & PjBL)
+         ====================================================================== -->
+    <section id="view-guru" class="view-section" aria-labelledby="heading-guru">
+      
+      <!-- Header Halaman Guru -->
+      <div class="adventure-progress-card" style="margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <button class="btn-secondary" data-route="beranda" style="min-height:36px; padding:0.35rem 0.75rem; font-size:0.82rem;">
+            ⬅️ Beranda Siswa
+          </button>
+          <span class="section-tag" style="background:#EFF6FF; color:#1E40AF;">Panduan Guru & Penilai PPG</span>
+        </div>
+        <h2 id="heading-guru" style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
+          👨‍🏫 Panduan Guru & Rancangan Pembelajaran Inovatif
+        </h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
+          Dokumentasi pedagogis lengkap karya inovasi: Capaian & Tujuan Pembelajaran (Fase D Kurikulum Merdeka), Alur PjBL 6 Tahap, Kunci Jawaban Lengkap, Rubrik Analitis, dan Integrasi Culturally Responsive Teaching (CRT).
+        </p>
+      </div>
+
+      <!-- Navigasi Tab Panduan Guru -->
+      <nav class="guru-tab-nav" aria-label="Navigasi Panduan Guru">
+        <button class="guru-tab-btn active" data-gurutab="gt-tp">🎯 1. Capaian & TP Fase D</button>
+        <button class="guru-tab-btn" data-gurutab="gt-pjbl">🛠️ 2. Alur 6 Langkah PjBL</button>
+        <button class="guru-tab-btn" data-gurutab="gt-kunci">🔑 3. Kunci Jawaban Lengkap</button>
+        <button class="guru-tab-btn" data-gurutab="gt-rubrik">📋 4. Rubrik Asesmen Analitis</button>
+        <button class="guru-tab-btn" data-gurutab="gt-crt">🌱 5. Integrasi 3 Dimensi CRT</button>
+      </nav>
+
+      <!-- TAB 1: CAPAIAN & TUJUAN PEMBELAJARAN FASE D -->
+      <div id="gt-tp" class="guru-pane">
+        <div class="guru-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            🎯 Capaian Pembelajaran (CP) & Tujuan Pembelajaran (TP) – Fase D (Kelas 8)
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            <strong>Elemen:</strong> Membaca dan Memirsa &bull; Menulis &bull; Berbicara dan Mempresentasikan (Kurikulum Merdeka):
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div class="guru-tp-item">
+              <strong style="color:var(--color-daun);">TP.1 &bull; Menganalisis Informasi Teks Persuasif</strong>
+              <p style="font-size:0.85rem; margin:0.25rem 0 0 0; color:var(--color-text-main);">
+                Peserta didik mampu mengidentifikasi ide pokok, tujuan komunikasi, serta membedakan karakteristik khas slogan, iklan, dan poster dalam konteks kearifan lokal Banyumas.
+              </p>
+            </div>
+            <div class="guru-tp-item">
+              <strong style="color:var(--color-daun);">TP.2 &bull; Menelaah Kaidah Kebahasaan Teks Promosi</strong>
+              <p style="font-size:0.85rem; margin:0.25rem 0 0 0; color:var(--color-text-main);">
+                Peserta didik mampu menganalisis kalimat persuasif, kalimat imperatif, diksi sensoris, rima, dan majas pada contoh teks promosi UMKM dan budaya Banyumas.
+              </p>
+            </div>
+            <div class="guru-tp-item">
+              <strong style="color:var(--color-daun);">TP.3 &bull; Literasi Kritis & Etika Informasi Media</strong>
+              <p style="font-size:0.85rem; margin:0.25rem 0 0 0; color:var(--color-text-main);">
+                Peserta didik mampu menilai kebenaran dan etika informasi promosi serta membedakan iklan jujur/akuntabel dengan hoaks promosi yang menyesatkan.
+              </p>
+            </div>
+            <div class="guru-tp-item">
+              <strong style="color:var(--color-daun);">TP.4 &bull; Mencipta Karya Kreatif Berbasis Proyek (PjBL)</strong>
+              <p style="font-size:0.85rem; margin:0.25rem 0 0 0; color:var(--color-text-main);">
+                Peserta didik mampu merancang slogan orisinal dan poster digital persuasif bernuansa kearifan lokal menggunakan prinsip tata letak dan keterbacaan yang efektif.
+              </p>
+            </div>
+            <div class="guru-tp-item">
+              <strong style="color:var(--color-daun);">TP.5 &bull; Refleksi & Asesmen Rekan Sebaya</strong>
+              <p style="font-size:0.85rem; margin:0.25rem 0 0 0; color:var(--color-text-main);">
+                Peserta didik mampu mengevaluasi karya diri dan teman sebaya secara objektif berbasis rubrik 4 kriteria asesmen autentik.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: ALUR 6 LANGKAH PjBL -->
+      <div id="gt-pjbl" class="guru-pane" style="display:none;">
+        <div class="guru-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            🛠️ Alur Pelaksanaan Project-Based Learning (PjBL) di Kelas
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Matriks keterpaduan antara aktivitas guru pendamping dan aktivitas siswa mandiri dalam model pembelajaran berbasis proyek:
+          </p>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th style="width:25%;">Tahap PjBL</th>
+                  <th style="width:38%;">Peran & Aktivitas Guru</th>
+                  <th style="width:37%;">Aktivitas Siswa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Penentuan Pertanyaan Mendasar</strong></td>
+                  <td>Menayangkan fenomena UMKM lokal Banyumas dan memantik pertanyaan: <em>"Kepriwe carane produk lokal kita dadi kondhang neng kalangan nom-noman?"</em></td>
+                  <td>Mengamati fenomena budaya lokal di Beranda dan Misi 1, menemukan masalah promosi produk daerah.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Mendesain Perencanaan Proyek</strong></td>
+                  <td>Membimbing siswa memilih objek budaya/kuliner dan menentukan target audiens yang relevan.</td>
+                  <td>Memilih 1 objek kearifan lokal (mendoan, soto, getuk, batik, calung, wisata lereng Slamet) di Misi 4.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Menyusun Jadwal & Riset Ide</strong></td>
+                  <td>Mengarahkan siswa menggunakan fitur Slogan Generator Bantu sebagai scaffolding kreatif berpikir tingkat tinggi.</td>
+                  <td>Mengeksplorasi kata kunci sensoris, merangkai pola kalimat persuasif, dan menyusun draf slogan orisinal.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Memonitor Pembuatan Karya</strong></td>
+                  <td>Mendampingi siswa di studio Canvas Poster Maker (pemilihan motif batik, ikon SVG budaya, kontras warna).</td>
+                  <td>Mendesain poster digital mandiri, memadukan headline, slogan, deskripsi keunggulan, dan CTA.</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Menguji Hasil (Asesmen)</strong></td>
+                  <td>Memfasilitasi penilaian diri dan penilaian teman sebaya berbasis rubrik interaktif 4 kriteria.</td>
+                  <td>Memverifikasi 5 checklist karya dan mengisi rubrik penilaian diri/teman sebaya di Misi 5.</td>
+                </tr>
+                <tr>
+                  <td><strong>6. Evaluasi Pengalaman Belajar</strong></td>
+                  <td>Mengajak siswa merefleksikan proses belajar dan mengapresiasi pencapaian Duta Promosi Banyumas.</td>
+                  <td>Menuliskan refleksi "Inyong Sinau", mengunduh poster PNG kualitas tinggi, dan mencetak Sertifikat Digital.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: KUNCI JAWABAN LENGKAP -->
+      <div id="gt-kunci" class="guru-pane" style="display:none;">
+        <div class="guru-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.75rem;">
+            🔑 Kunci Jawaban Lengkap Seluruh Modul Latihan
+          </h3>
+
+          <!-- Kunci Misi 1 -->
+          <div class="answer-key-box">
+            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Mini-Cek Pemahaman (Misi 1)</h4>
+            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+              <li><strong>Soal 1:</strong> <strong>A. Slogan</strong> &bull; Alasan: Pendek, padat makna, berima harmonis akhir -e, semboyan gotong royong.</li>
+              <li><strong>Soal 2:</strong> <strong>B. Kekuatan gambar ilustrasi berukuran besar dan warna mencolok</strong> &bull; Alasan: Poster dirancang untuk menarik mata dari kejauhan dalam tempo 3–5 detik.</li>
+              <li><strong>Soal 3:</strong> <strong>C. "Kunjungi Baturraden akhir pekan ini dan rasakan kesegarannya!"</strong> &bull; Alasan: Mengandung kata kerja imperatif ajakan tindakan nyata (*kunjungi*, *rasakan*).</li>
+            </ul>
+          </div>
+
+          <!-- Kunci Misi 3: Kuis 10 Soal Acak -->
+          <div class="answer-key-box">
+            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Kuis 10 Soal Acak (Misi 3 Pool 12 Soal)</h4>
+            <div style="font-size:0.85rem; line-height:1.6; display:grid; grid-template-columns:1fr; gap:0.35rem;">
+              <div><strong>Soal 1 (q-1):</strong> <strong>B</strong> &bull; Poster dirancang terbaca cepat 3-5 detik di ruang publik.</div>
+              <div><strong>Soal 2 (q-2):</strong> <strong>C</strong> &bull; Kalimat imperatif ajakan kolektif khas Banyumas ("Mayuh padha...").</div>
+              <div><strong>Soal 3 (q-3):</strong> <strong>B</strong> &bull; Slogan Pak Bejo bertele-tele, tidak ada rima/keindahan bunyi.</div>
+              <div><strong>Soal 4 (q-4):</strong> <strong>B</strong> &bull; Majas personifikasi (air Curug Cipendok diibaratkan menyapa jiwa).</div>
+              <div><strong>Soal 5 (q-5):</strong> <strong>B</strong> &bull; Ketiadaan kontak menurunkan kredibilitas dan menyulitkan calon pembeli.</div>
+              <div><strong>Soal 6 (q-6):</strong> <strong>B</strong> &bull; Persuasi CRT mengaktifkan kebanggaan identitas budaya leluhur (Batik Jahe Puger).</div>
+              <div><strong>Soal 7 (q-7):</strong> <strong>C</strong> &bull; Klaim sembuh instan 100% melanggar etika periklanan (EPI) dan regulasi BPOM.</div>
+              <div><strong>Soal 8 (q-8):</strong> <strong>B</strong> &bull; Keselarasan rima memantulkan dinamika musik calung yang ritmis.</div>
+              <div><strong>Soal 9 (q-9):</strong> <strong>C</strong> &bull; Struktur Call to Action (CTA) penuntun aksi pemesanan via kontak WhatsApp.</div>
+              <div><strong>Soal 10 (q-10):</strong> <strong>B</strong> &bull; Format vertikal media sosial relevan dengan psikologi generasi remaja gawai.</div>
+              <div><strong>Soal 11 (q-11):</strong> <strong>B</strong> &bull; Kosa kata lokal dialek Banyumas ("kencot") menyentuh kebutuhan emosional keseharian.</div>
+              <div><strong>Soal 12 (q-12):</strong> <strong>B</strong> &bull; Poster kampanye lingkungan harus memuat slogan penegas dan ajakan solusi konkret.</div>
+            </div>
+          </div>
+
+          <!-- Kunci Misi 3: Iklan vs Hoaks -->
+          <div class="answer-key-box">
+            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Analisis Iklan Beneran vs Hoaks Promosi (Misi 3)</h4>
+            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+              <li><strong>Kasus 1 (Minyak Sereh Kanker):</strong> <strong>HOAKS</strong> (Klaim medis mutlak tanpa uji klinis dilarang BPOM).</li>
+              <li><strong>Kasus 2 (Getuk Goreng P-IRT & Halal):</strong> <strong>IKLAN BENERAN</strong> (Transparan, mencantumkan nomor legalitas resmi).</li>
+              <li><strong>Kasus 3 (Tiket Gratis Seumur Hidup):</strong> <strong>HOAKS / PHISHING</strong> (Modus penipuan pencurian data berantai).</li>
+              <li><strong>Kasus 4 (Diskon Seragam Batik Siswa):</strong> <strong>IKLAN BENERAN</strong> (Promosi kreatif etis mendukung kebanggaan budaya).</li>
+              <li><strong>Kasus 5 (Konser Calung Hadiah Mobil):</strong> <strong>HOAKS</strong> (Janji hadiah tidak masuk akal secara finansial).</li>
+              <li><strong>Kasus 6 (Spanduk Tempe Mendoan Dadakan):</strong> <strong>IKLAN BENERAN</strong> (Deskripsi faktual proses goreng dan bahan baku).</li>
+            </ul>
+          </div>
+
+          <!-- Kunci Misi 3: Matching Game -->
+          <div class="answer-key-box">
+            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Jodohkan Karakteristik (Misi 3)</h4>
+            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+              <li>Semboyan komitmen/nilai moral ringkas &rarr; <strong>Slogan</strong></li>
+              <li>Plakat besar di halte fokus ilustrasi mencolok &rarr; <strong>Poster</strong></li>
+              <li>Promosi komersial memadukan video, lagu calung, teks, kontak WA &rarr; <strong>Iklan</strong></li>
+              <li><em>"Anget Mendoane, Guyub Wargane!"</em> &rarr; <strong>Slogan</strong></li>
+              <li>Pengumuman aksi sosial pelestarian hutan Slamet di dinding &rarr; <strong>Poster</strong></li>
+              <li>Brosur diskon 30% batik tulis Jahe Puger berjam operasional &rarr; <strong>Iklan</strong></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: RUBRIK ASESMEN ANALITIS GURU -->
+      <div id="gt-rubrik" class="guru-pane" style="display:none;">
+        <div class="guru-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            📋 Rubrik Asesmen Analitis Autentik Produk Poster & Slogan
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Pedoman penskoran 4 kriteria dengan skala 1–4. Rumus Konversi Nilai: <code>(Total Skor / 16) x 100</code>.
+          </p>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th style="width:20%;">Kriteria</th>
+                  <th style="width:20%;">Skor 1 (Kurang)</th>
+                  <th style="width:20%;">Skor 2 (Cukup)</th>
+                  <th style="width:20%;">Skor 3 (Baik)</th>
+                  <th style="width:20%;">Skor 4 (Sangat Baik)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Kesesuaian Tema & Budaya Banyumas</strong></td>
+                  <td>Tidak memuat unsur tema/kearifan lokal Banyumas sama sekali.</td>
+                  <td>Tema Banyumas hanya sekadar tempelan nama tanpa konteks jelas.</td>
+                  <td>Tema kuliner/kriya/wisata Banyumas diangkat tepat dan informatif.</td>
+                  <td>Tema kearifan Banyumas diintegrasikan secara mendalam, autentik, dan membanggakan.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Kaidah Kebahasaan & Persuasi Slogan</strong></td>
+                  <td>Kalimat biasa yang datar tanpa daya bujukan/persuasi.</td>
+                  <td>Slogan agak panjang dan rima/diksi masih kurang bertenaga.</td>
+                  <td>Slogan ringkas, jelas membujuk, rima bunyi tertata baik.</td>
+                  <td>Slogan sangat padat, rima harmonis, diksi sensoris memikat, melekat di ingatan.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Komposisi Visual & Ikon Budaya</strong></td>
+                  <td>Visual acak, tidak berhubungan dengan tema, mengganggu keterbacaan.</td>
+                  <td>Ikon atau latar kurang menyatu dengan pesan yang disampaikan.</td>
+                  <td>Ikon budaya relevan dan latar motif batik mendukung suasana promosi.</td>
+                  <td>Visual ikonik, perpaduan motif batik artistik, harmonis, memikat mata.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Struktur Teks & Keterbacaan</strong></td>
+                  <td>Hanya memuat 1-2 unsur teks dan teks sangat sulit dibaca.</td>
+                  <td>Memuat beberapa unsur, tidak ada CTA atau warna teks kurang kontras.</td>
+                  <td>Memuat lengkap 4 unsur utama (Headline, Slogan, Deskripsi, CTA), terbaca jelas.</td>
+                  <td>Struktur teks sempurna, CTA tajam, kontras warna standar WCAG AA, tata letak profesional.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: INTEGRASI 3 DIMENSI CRT -->
+      <div id="gt-crt" class="guru-pane" style="display:none;">
+        <div class="guru-card">
+          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+            🌱 Landasan Teoretis Culturally Responsive Teaching (CRT)
+          </h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
+            Berdasarkan teori Geneva Gay (2002) dan Gloria Ladson-Billings (1995), pembelajaran responsif budaya menempatkan warisan kultural siswa sebagai jembatan pedagogis utama:
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            
+            <div style="background:#FFFBEB; border-left:4px solid var(--color-mendoan-glow); padding:1rem; border-radius:8px;">
+              <h4 style="color:var(--color-soga-dark); margin:0 0 0.35rem 0;">
+                1. Dimensi Validasi & Afirmasi Budaya (Cultural Validation)
+              </h4>
+              <p style="font-size:0.88rem; color:var(--color-text-main); margin:0;">
+                Kearifan lokal Banyumas (kuliner mendoan, soto sokaraja, getuk goreng, batik jahe puger, kesenian calung lengger, dialek ngapak santun) bukan sekadar contoh tempelan, melainkan teks primer (*living curriculum*). Siswa merasa identitas kesehariannya diakui dan bernilai akademik tinggi.
+              </p>
+            </div>
+
+            <div style="background:#FEF2F2; border-left:4px solid #DC2626; padding:1rem; border-radius:8px;">
+              <h4 style="color:#991B1B; margin:0 0 0.35rem 0;">
+                2. Dimensi Kesadaran Kritis (Critical Consciousness)
+              </h4>
+              <p style="font-size:0.88rem; color:var(--color-text-main); margin:0;">
+                Melalui tantangan "Iklan Beneran vs Hoaks Promosi" di Misi 3, siswa dilatih tidak sekadar menjadi konsumen yang mudah tergiur, melainkan pemikir kritis yang mampu menganalisis klaim berlebihan dan melindungi masyarakat dari penipuan promosi.
+              </p>
+            </div>
+
+            <div style="background:#F0FDF4; border-left:4px solid var(--color-daun); padding:1rem; border-radius:8px;">
+              <h4 style="color:var(--color-daun); margin:0 0 0.35rem 0;">
+                3. Dimensi Pemberdayaan & Agensi Budaya (Cultural Agency)
+              </h4>
+              <p style="font-size:0.88rem; color:var(--color-text-main); margin:0;">
+                Melalui proyek pembuatan poster di Misi 4, siswa bertransformasi dari sekadar penerima materi pasif menjadi "Duta Promosi Banyumas" yang berkontribusi nyata menciptakan karya promosi digital bagi UMKM dan destinasi budaya daerahnya.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 8: TENTANG KARYA INOVASI PPG
+         ====================================================================== -->
+    <section id="view-tentang" class="view-section" aria-labelledby="heading-tentang">
+      <div class="adventure-progress-card" style="padding:1.75rem; text-align:center;">
+        <div style="font-size:3.5rem; margin-bottom:0.5rem;">🎓</div>
+        <h2 id="heading-tentang" style="font-size:1.4rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">
+          Karya Inovasi Media Pembelajaran Interaktif PPG
+        </h2>
+        <p style="color:var(--color-text-muted); font-size:0.92rem; max-width:640px; margin:0 auto 1.5rem auto;">
+          <strong>"Jago Ngiklan Banyumas"</strong> dikembangkan sebagai wujud inovasi pembelajaran berbasis digital mandiri untuk menjawab tantangan pembelajaran Bahasa Indonesia abad ke-21 yang kontekstual, responsif budaya (CRT), dan berbasis proyek (PjBL).
+        </p>
+
+        <!-- Kartu Identitas Pengembang / Mahasiswa PPG -->
+        <div style="background:var(--color-surface); border:2px solid var(--color-mendoan); border-radius:12px; padding:1.25rem; max-width:520px; margin:0 auto 1.5rem auto; text-align:left; font-size:0.88rem; box-shadow:var(--shadow-sm);">
+          <div style="font-size:0.8rem; font-weight:800; color:var(--color-soga); text-transform:uppercase; margin-bottom:0.75rem; border-bottom:1px dashed var(--color-border); padding-bottom:0.35rem;">
+            📌 Biodata Karya Inovasi PPG:
+          </div>
+          <div style="margin-bottom:0.4rem;"><strong>Judul Media:</strong> Jago Ngiklan Banyumas</div>
+          <div style="margin-bottom:0.4rem;"><strong>Mata Pelajaran:</strong> Bahasa Indonesia Kelas 8 SMP (Fase D)</div>
+          <div style="margin-bottom:0.4rem;"><strong>Materi Pokok:</strong> Bab 2 – Slogan, Iklan, dan Poster</div>
+          <div style="margin-bottom:0.4rem;"><strong>Pendekatan:</strong> Culturally Responsive Teaching (CRT)</div>
+          <div style="margin-bottom:0.4rem;"><strong>Model Belajar:</strong> Project-Based Learning (PjBL)</div>
+          <div style="margin-bottom:0.4rem;"><strong>Pengembang:</strong> [Nama Mahasiswa PPG]</div>
+          <div style="margin-bottom:0.4rem;"><strong>Nomor Peserta PPG:</strong> [Nomor Peserta PPG / NIM]</div>
+          <div style="margin-bottom:0.4rem;"><strong>Bidang Studi:</strong> Pendidikan Bahasa Indonesia</div>
+          <div style="margin-bottom:0.4rem;"><strong>LPTK / Universitas:</strong> [Nama Perguruan Tinggi Penyelenggara PPG]</div>
+          <div><strong>Tahun Pelaksanaan:</strong> 2026</div>
+        </div>
+
+        <!-- Spesifikasi Teknologi Ringan & Ramah Gawai -->
+        <div style="max-width:580px; margin:0 auto 1.5rem auto; text-align:left; background:#FFFDF9; border:1px solid var(--color-border); border-radius:10px; padding:1rem; font-size:0.82rem; color:var(--color-text-main);">
+          <strong style="color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">⚡ Keunggulan Arsitektur Sistem:</strong>
+          <ul style="padding-left:1.2rem; margin:0; line-height:1.5;">
+            <li><strong>Pure Vanilla Web:</strong> 100% HTML, CSS, JavaScript murni tanpa ketergantungan framework berat.</li>
+            <li><strong>Offline-First Ready:</strong> Dilengkapi Service Worker dan Web App Manifest untuk instalasi di Android.</li>
+            <li><strong>Dual-Canvas Engine:</strong> Pembuatan poster (900x1200 px) & sertifikat digital langsung di peramban tanpa server.</li>
+            <li><strong>Web Audio Synthesizer:</strong> Efek nada slendro gamelan sintetis tanpa unduh berkas MP3 eksternal.</li>
+            <li><strong>Aksesibilitas & CRT:</strong> Warna kontras WCAG AA, tooltip sapaan ngapak edukatif, ramah layar sentuh HP.</li>
+          </ul>
+        </div>
+
+        <!-- Tombol Aksi Pengaturan Data -->
+        <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+          <button class="btn-secondary" id="btn-reset-data" style="color:#DC2626; border-color:#DC2626;">
+            🔄 Reset Data Belajar (Mulai dari Nol)
+          </button>
+          <button class="btn-primary" data-route="beranda">
+            🏠 Kembali ke Beranda
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MODAL POPUP: GLOSARIUM SAPAAN NGAPAK BANYUMAS
+       ======================================================================== -->
+  <div id="glossary-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-word-title">
+    <div class="modal-card">
+      <button class="modal-close-btn modal-close-trigger" aria-label="Tutup jendela">✕</button>
+      <span class="modal-header-tag">Glosarium Budaya Banyumas</span>
+      <h3 class="modal-title" id="modal-word-title">Kata Ngapak</h3>
+      
+      <div style="background:var(--color-mendoan-bg); border-left:4px solid var(--color-mendoan); padding:0.75rem 1rem; border-radius:8px; margin-bottom:1rem;">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--color-soga);">Arti dalam Bahasa Indonesia Baku:</div>
+        <div style="font-size:1.1rem; font-weight:800; color:var(--color-soga-dark);" id="modal-word-arti">Arti</div>
+      </div>
+
+      <div style="margin-bottom:0.75rem; font-size:0.9rem;">
+        <strong style="color:var(--color-soga-dark);">Contoh Kalimat:</strong>
+        <p style="font-style:italic; color:var(--color-text-main); margin-top:0.25rem;" id="modal-word-contoh">"Contoh"</p>
+      </div>
+
+      <div style="font-size:0.82rem; color:var(--color-text-muted); background:#F9F8F6; padding:0.65rem 0.85rem; border-radius:8px; margin-bottom:1.25rem;" id="modal-word-catatan">
+        Catatan budaya.
+      </div>
+
+      <button class="btn-primary modal-close-trigger" style="width:100%;">
+        Paham! Tutup Jendela 👍
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER APLIKASI
+       ======================================================================== -->
+  <footer class="app-footer">
+    <div style="max-width:980px; margin:0 auto;">
+      <p style="margin-bottom:0.35rem;">
+        <strong>Jago Ngiklan Banyumas</strong> &bull; Media Pembelajaran Berbasis Budaya Lokal & PjBL
+      </p>
+      <p style="font-size:0.75rem; color:var(--color-text-light);">
+        Karya Inovasi Pembelajaran PPG &bull; Kurikulum Merdeka Fase D &bull; Dilindungi Etika Akademik
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       BOTTOM NAVIGATION BAR (TAMPILAN KHUSUS HP ANDROID)
+       ======================================================================== -->
+  <nav class="bottom-nav" aria-label="Navigasi Bawah Seluler">
+    <button class="nav-item active" data-route="beranda" aria-label="Halaman Beranda">
+      <span class="nav-icon" aria-hidden="true">🏠</span>
+      <span>Beranda</span>
+    </button>
+    <button class="nav-item" data-route="misi1" aria-label="Misi 1 Kenali">
+      <span class="nav-icon" aria-hidden="true">🔍</span>
+      <span>Misi 1</span>
+    </button>
+    <button class="nav-item" data-route="misi2" aria-label="Misi 2 Bedah">
+      <span class="nav-icon" aria-hidden="true">🔬</span>
+      <span>Misi 2</span>
+    </button>
+    <button class="nav-item" data-route="misi3" aria-label="Misi 3 Latihan">
+      <span class="nav-icon" aria-hidden="true">🎯</span>
+      <span>Latihan</span>
+    </button>
+    <button class="nav-item" data-route="misi4" aria-label="Misi 4 Cipta">
+      <span class="nav-icon" aria-hidden="true">🎨</span>
+      <span>Cipta</span>
+    </button>
+    <button class="nav-item" data-route="misi5" aria-label="Misi 5 Refleksi & Sertifikat">
+      <span class="nav-icon" aria-hidden="true">🏆</span>
+      <span>Refleksi</span>
+    </button>
+  </nav>
+
+  <!-- Skrip Data & Logika Aplikasi -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
