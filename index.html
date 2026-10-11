@@ -167,37 +167,24 @@
               <strong>Slogan, Iklan, lan Poster</strong>! <span class="ngapak-word" data-word="sing semangat">Sing semangat</span> ya!
             </p>
 
-            <!-- Box Input Nama & Kelas Siswa (Jika Belum Tersimpan) -->
+            <!-- Box Input Nama Siswa (Jika Belum Tersimpan) -->
             <div id="student-onboarding-box" class="student-onboarding-box">
-              <form id="student-name-form" style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; width:100%;">
-                <div style="flex:2; min-width:180px;">
-                  <label for="student-name-input" style="font-weight:700; font-size:0.82rem; color:var(--color-soga-dark); display:block; margin-bottom:0.2rem;">
-                    Jeneng Lengkap (Nama Siswa):
-                  </label>
-                  <input type="text" id="student-name-input" class="student-input-field" placeholder="Ketik namamu..." maxlength="30" required style="width:100%;">
-                </div>
-                <div style="flex:1; min-width:90px;">
-                  <label for="student-class-input" style="font-weight:700; font-size:0.82rem; color:var(--color-soga-dark); display:block; margin-bottom:0.2rem;">
-                    Kelas:
-                  </label>
-                  <input type="text" id="student-class-input" class="student-input-field" placeholder="Misal: 8A" maxlength="10" required style="width:100%;">
-                </div>
-                <div style="align-self:flex-end;">
-                  <button type="submit" class="btn-primary" style="min-height:42px;">
-                    <span>Simpan & Mulai</span> 🚀
-                  </button>
-                </div>
+              <form id="student-name-form" style="display:flex; gap:0.5rem; align-items:center; width:100%; max-width:440px;">
+                <input type="text" id="student-name-input" class="student-input-field" placeholder="Ketik jeneng / namamu di sini..." maxlength="30" required style="flex:1;">
+                <button type="submit" class="btn-primary" style="white-space:nowrap;">
+                  <span>Mulai Petualangan</span> 🚀
+                </button>
               </form>
             </div>
 
-            <!-- Box Informasi Jika Nama & Kelas Sudah Tersimpan -->
+            <!-- Box Informasi Jika Nama Sudah Tersimpan -->
             <div id="student-welcomed-box" style="display:none; margin-top:0.6rem;">
               <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
                 <span style="font-size:0.85rem; color:var(--color-daun); font-weight:700;">
-                  ✓ Profil Aktif: <strong class="student-name-display">Kanca</strong> (<span class="student-class-display">8A</span>) • <span class="student-level-display">Santri Sinau</span>
+                  ✓ Profil Aktif: <strong class="student-name-display">Kanca Jagoan</strong> • <span class="student-level-display">Santri Sinau</span>
                 </span>
                 <button id="btn-change-name" class="btn-secondary" style="padding:0.25rem 0.65rem; min-height:32px; font-size:0.75rem;">
-                  ✏️ Ganti Profil
+                  ✏️ Ganti Nama
                 </button>
               </div>
             </div>
@@ -1333,66 +1320,39 @@
         </div>
       </div>
 
-      <!-- TAB 3: KUNCI JAWABAN LENGKAP -->
+      <!-- TAB 3: KUNCI JAWABAN LENGKAP (DIPROTEKSI PIN KHUSUS GURU) -->
       <div id="gt-kunci" class="guru-pane" style="display:none;">
         <div class="guru-card">
-          <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.75rem;">
-            🔑 Kunci Jawaban Lengkap Seluruh Modul Latihan
-          </h3>
-
-          <!-- Kunci Misi 1 -->
-          <div class="answer-key-box">
-            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Mini-Cek Pemahaman (Misi 1)</h4>
-            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
-              <li><strong>Soal 1:</strong> <strong>A. Slogan</strong> &bull; Alasan: Pendek, padat makna, berima harmonis akhir -e, semboyan gotong royong.</li>
-              <li><strong>Soal 2:</strong> <strong>B. Kekuatan gambar ilustrasi berukuran besar dan warna mencolok</strong> &bull; Alasan: Poster dirancang untuk menarik mata dari kejauhan dalam tempo 3–5 detik.</li>
-              <li><strong>Soal 3:</strong> <strong>C. "Kunjungi Baturraden akhir pekan ini dan rasakan kesegarannya!"</strong> &bull; Alasan: Mengandung kata kerja imperatif ajakan tindakan nyata (*kunjungi*, *rasakan*).</li>
-            </ul>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+            <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin:0;">
+              🔑 Kunci Jawaban Seluruh Modul Latihan
+            </h3>
+            <span class="section-tag" style="background:#FEE2E2; color:#991B1B;">🔒 Khusus Pendidik</span>
           </div>
 
-          <!-- Kunci Misi 3: Kuis 10 Soal Acak -->
-          <div class="answer-key-box">
-            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Kuis 10 Soal Acak (Misi 3 Pool 12 Soal)</h4>
-            <div style="font-size:0.85rem; line-height:1.6; display:grid; grid-template-columns:1fr; gap:0.35rem;">
-              <div><strong>Soal 1 (q-1):</strong> <strong>B</strong> &bull; Poster dirancang terbaca cepat 3-5 detik di ruang publik.</div>
-              <div><strong>Soal 2 (q-2):</strong> <strong>C</strong> &bull; Kalimat imperatif ajakan kolektif khas Banyumas ("Mayuh padha...").</div>
-              <div><strong>Soal 3 (q-3):</strong> <strong>B</strong> &bull; Slogan Pak Bejo bertele-tele, tidak ada rima/keindahan bunyi.</div>
-              <div><strong>Soal 4 (q-4):</strong> <strong>B</strong> &bull; Majas personifikasi (air Curug Cipendok diibaratkan menyapa jiwa).</div>
-              <div><strong>Soal 5 (q-5):</strong> <strong>B</strong> &bull; Ketiadaan kontak menurunkan kredibilitas dan menyulitkan calon pembeli.</div>
-              <div><strong>Soal 6 (q-6):</strong> <strong>B</strong> &bull; Persuasi CRT mengaktifkan kebanggaan identitas budaya leluhur (Batik Jahe Puger).</div>
-              <div><strong>Soal 7 (q-7):</strong> <strong>C</strong> &bull; Klaim sembuh instan 100% melanggar etika periklanan (EPI) dan regulasi BPOM.</div>
-              <div><strong>Soal 8 (q-8):</strong> <strong>B</strong> &bull; Keselarasan rima memantulkan dinamika musik calung yang ritmis.</div>
-              <div><strong>Soal 9 (q-9):</strong> <strong>C</strong> &bull; Struktur Call to Action (CTA) penuntun aksi pemesanan via kontak WhatsApp.</div>
-              <div><strong>Soal 10 (q-10):</strong> <strong>B</strong> &bull; Format vertikal media sosial relevan dengan psikologi generasi remaja gawai.</div>
-              <div><strong>Soal 11 (q-11):</strong> <strong>B</strong> &bull; Kosa kata lokal dialek Banyumas ("kencot") menyentuh kebutuhan emosional keseharian.</div>
-              <div><strong>Soal 12 (q-12):</strong> <strong>B</strong> &bull; Poster kampanye lingkungan harus memuat slogan penegas dan ajakan solusi konkret.</div>
+          <!-- KOTAK PROTEKSI PIN GURU (MENCEGAH SISWA MENYONTEK) -->
+          <div id="teacher-lock-box" style="background:#FFFDF9; border:2px dashed var(--color-mendoan); border-radius:12px; padding:2rem 1.5rem; text-align:center; max-width:540px; margin:1rem auto;">
+            <div style="font-size:3rem; margin-bottom:0.5rem;">🔒</div>
+            <h4 style="color:var(--color-soga-dark); font-size:1.1rem; margin-bottom:0.4rem;">
+              Akses Kunci Jawaban Terlindungi
+            </h4>
+            <p style="font-size:0.85rem; color:var(--color-text-muted); margin:0 auto 1.25rem auto; max-width:440px;">
+              Halaman ini dikunci agar peserta didik tidak dapat melihat bocoran kunci jawaban saat mengakses website ini. Masukkan PIN Guru untuk membuka.
+            </p>
+            <div style="display:flex; justify-content:center; gap:0.5rem; max-width:320px; margin:0 auto; flex-wrap:wrap;">
+              <input type="password" id="input-teacher-pin" class="control-input" placeholder="Masukkan PIN Guru..." maxlength="12" style="flex:1; min-width:140px; text-align:center; font-size:1rem; letter-spacing:2px; font-weight:700;">
+              <button id="btn-unlock-answers" class="btn-primary" style="white-space:nowrap; padding:0.55rem 1rem;">
+                Buka Kunci 🔓
+              </button>
+            </div>
+            <div id="pin-error-msg" style="display:none; color:#DC2626; font-size:0.82rem; margin-top:0.6rem; font-weight:700;">
+              ❌ PIN salah! Hanya guru pengampu yang memiliki akses.
             </div>
           </div>
 
-          <!-- Kunci Misi 3: Iklan vs Hoaks -->
-          <div class="answer-key-box">
-            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Analisis Iklan Beneran vs Hoaks Promosi (Misi 3)</h4>
-            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
-              <li><strong>Kasus 1 (Minyak Sereh Kanker):</strong> <strong>HOAKS</strong> (Klaim medis mutlak tanpa uji klinis dilarang BPOM).</li>
-              <li><strong>Kasus 2 (Getuk Goreng P-IRT & Halal):</strong> <strong>IKLAN BENERAN</strong> (Transparan, mencantumkan nomor legalitas resmi).</li>
-              <li><strong>Kasus 3 (Tiket Gratis Seumur Hidup):</strong> <strong>HOAKS / PHISHING</strong> (Modus penipuan pencurian data berantai).</li>
-              <li><strong>Kasus 4 (Diskon Seragam Batik Siswa):</strong> <strong>IKLAN BENERAN</strong> (Promosi kreatif etis mendukung kebanggaan budaya).</li>
-              <li><strong>Kasus 5 (Konser Calung Hadiah Mobil):</strong> <strong>HOAKS</strong> (Janji hadiah tidak masuk akal secara finansial).</li>
-              <li><strong>Kasus 6 (Spanduk Tempe Mendoan Dadakan):</strong> <strong>IKLAN BENERAN</strong> (Deskripsi faktual proses goreng dan bahan baku).</li>
-            </ul>
-          </div>
-
-          <!-- Kunci Misi 3: Matching Game -->
-          <div class="answer-key-box">
-            <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Jodohkan Karakteristik (Misi 3)</h4>
-            <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
-              <li>Semboyan komitmen/nilai moral ringkas &rarr; <strong>Slogan</strong></li>
-              <li>Plakat besar di halte fokus ilustrasi mencolok &rarr; <strong>Poster</strong></li>
-              <li>Promosi komersial memadukan video, lagu calung, teks, kontak WA &rarr; <strong>Iklan</strong></li>
-              <li><em>"Anget Mendoane, Guyub Wargane!"</em> &rarr; <strong>Slogan</strong></li>
-              <li>Pengumuman aksi sosial pelestarian hutan Slamet di dinding &rarr; <strong>Poster</strong></li>
-              <li>Brosur diskon 30% batik tulis Jahe Puger berjam operasional &rarr; <strong>Iklan</strong></li>
-            </ul>
+          <!-- KONTEN KUNCI JAWABAN (HANYA TERBUKA JIKA PIN BENAR) -->
+          <div id="teacher-unlocked-answers" style="display:none;">
+            <!-- Dirender secara dinamis oleh app.js setelah verifikasi PIN -->
           </div>
 
         </div>
@@ -1629,7 +1589,7 @@
   </nav>
 
   <!-- Skrip Data & Logika Aplikasi -->
-  <script src="js/data.js?v=2.0"></script>
-  <script src="js/app.js?v=2.0"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

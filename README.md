@@ -193,78 +193,13 @@ Cari bagian `misi5.rubricCriteria` di `js/data.js`. Setiap kriteria memiliki 4 t
 
 ---
 
-## 📊 7. Panduan Integrasi Google Form & Google Sheets (Rekap Nilai Otomatis)
+## 🔒 7. Keamanan Pembelajaran: Proteksi Kunci Jawaban dengan PIN Guru
 
-Website ini dilengkapi sistem **pengiriman data otomatis ke Google Form guru** tanpa perlu server khusus! Saat siswa menekan tombol *"Simpan Penilaian & Klaim XP"* di Misi 5, seluruh data hasil belajar siswa (nama, kelas, total XP, skor rubrik 4 kriteria, nilai akhir 0–100, catatan refleksi, dan waktu pengerjaan) akan langsung dikirimkan dan masuk ke Google Spreadsheet guru.
-
-Fitur ini juga dilengkapi **antrean offline cerdas (*Offline Sync Queue*)**: jika siswa berada di daerah minim sinyal internet saat menyimpan penilaian, data tetap tersimpan aman di `localStorage` perangkat siswa dan dikirimkan secara otomatis begitu gawai terhubung kembali ke internet.
-
----
-
-### Langkah demi Langkah Menyiapkan Google Form Guru:
-
-#### Langkah 1: Buat Google Form Baru
-1. Buka [Google Forms](https://forms.google.com/) dan buat formulir kosong (*Blank*).
-2. Beri judul formulir, misalnya: `Asesmen Jago Ngiklan Banyumas - Kelas 8`.
-3. Buat **7 pertanyaan** berturut-turut dengan format sebagai berikut:
-   1. **Pertanyaan 1**: Nama Lengkap Siswa (*Jawaban Singkat / Short Answer*)
-   2. **Pertanyaan 2**: Kelas (*Jawaban Singkat / Short Answer*)
-   3. **Pertanyaan 3**: Total XP Belajar (*Jawaban Singkat / Short Answer*)
-   4. **Pertanyaan 4**: Skor Rubrik (*Jawaban Singkat / Short Answer*)
-   5. **Pertanyaan 5**: Nilai Akhir & Predikat (*Jawaban Singkat / Short Answer*)
-   6. **Pertanyaan 6**: Catatan Refleksi Siswa (*Paragraf / Paragraph*)
-   7. **Pertanyaan 7**: Waktu Pengiriman (*Jawaban Singkat / Short Answer*)
-
-#### Langkah 2: Hubungkan ke Google Sheets (Agar Nilai Menjadi Tabel Otomatis)
-1. Pada halaman formulir guru, klik tab **Tanggapan (*Responses*)**.
-2. Klik tombol hijau **Tautkan ke Spreadsheet (*Link to Sheets*)**.
-3. Pilih opsi **Buat spreadsheet baru**, lalu klik **Buat**.
-4. Sekarang, setiap siswa yang menyimpan penilaian di web akan otomatis tercatat sebagai baris data baru di Google Sheets Anda.
-
-#### Langkah 3: Dapatkan ID Kolom (`entry.xxxx`) dan URL `formResponse`
-1. Di halaman edit Google Form, klik ikon titik tiga (⋮) di pojok kanan atas (di sebelah tombol *Kirim*).
-2. Pilih **Dapatkan tautan yang sudah diisi (*Get pre-filled link*)**.
-3. Pada halaman pratinjau yang terbuka, ketikkan teks penanda unik pada setiap kolom:
-   - Kolom Nama: ketik `tesnama`
-   - Kolom Kelas: ketik `teskelas`
-   - Kolom Total XP: ketik `tesxp`
-   - Kolom Skor Rubrik: ketik `tesrubrik`
-   - Kolom Nilai: ketik `tesnilai`
-   - Kolom Refleksi: ketik `tesrefleksi`
-   - Kolom Waktu: ketik `teswaktu`
-4. Gulir ke bawah dan klik tombol **Dapatkan tautan (*Get link*)**, lalu klik **Salin tautan (*Copy link*)**.
-5. Tempelkan tautan tersebut ke Notepad. Strukturnya akan tampak seperti ini:
-   ```text
-   https://docs.google.com/forms/d/e/1FAIpQLScABC123xyz.../viewform?usp=pp_url&entry.123456789=tesnama&entry.987654321=teskelas&entry.11223344=tesxp&entry.55667788=tesrubrik&entry.99001122=tesnilai&entry.33445566=tesrefleksi&entry.77889900=teswaktu
-   ```
-6. Ambil dua bagian penting dari tautan tersebut:
-   - **Ganti kata `/viewform` menjadi `/formResponse`** pada URL awal.
-   - Catat setiap kode angka **`entry.xxxx`** yang berada sebelum teks penanda masing-masing pertanyaan.
-
-#### Langkah 4: Masukkan Konfigurasi ke Berkas `js/data.js`
-Buka berkas `js/data.js` di folder proyek, lalu perbarui blok `googleFormConfig`:
-
-```javascript
-  googleFormConfig: {
-    enabled: true, // Biarkan true agar sinkronisasi aktif
-
-    // Ganti dengan URL formResponse Anda:
-    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLScABC123xyz.../formResponse",
-
-    // Ganti dengan kode entry yang Anda dapatkan di Langkah 3:
-    entries: {
-      nama: "entry.123456789",       // Pertanyaan 1: Nama Siswa
-      kelas: "entry.987654321",      // Pertanyaan 2: Kelas
-      totalXp: "entry.11223344",     // Pertanyaan 3: Total XP Belajar
-      skorRubrik: "entry.55667788",  // Pertanyaan 4: Skor Rubrik
-      nilai: "entry.99001122",       // Pertanyaan 5: Nilai Akhir & Predikat
-      refleksi: "entry.33445566",    // Pertanyaan 6: Catatan Refleksi Siswa
-      waktu: "entry.77889900"        // Pertanyaan 7: Waktu Pengiriman
-    }
-  },
-```
-
-Simpan berkas `js/data.js`. Selesai! Kini seluruh hasil belajar siswa otomatis terekap rapi di Google Sheets tanpa perlu memeriksa gawai siswa satu per satu.
+Untuk mencegah siswa melihat bocoran kunci jawaban saat mengakses media pembelajaran ini di kelas maupun di rumah, tab **"🔑 3. Kunci Jawaban Lengkap"** pada menu **Panduan Guru** dilindungi dengan sistem **PIN Keamanan Pendidik**:
+- **Tampilan Siswa**: Siswa hanya akan melihat kotak pengaman bertanda gembok terkunci. Teks kunci jawaban sama sekali tidak ada di halaman sebelum diverifikasi.
+- **Akses Guru Pengampu**: Guru cukup memasukkan PIN default: **`guru2026`** (atau **`2026`**), lalu klik **Buka Kunci 🔓**.
+- Seluruh kunci jawaban (Mini-Cek Misi 1, Kuis 10 Soal Misi 3, Analisis Iklan vs Hoaks, dan Matching Game) akan terbuka secara dinamis.
+- Terdapat tombol **"🔒 Kunci Kembali"** untuk mengunci kembali kunci jawaban kapan saja setelah digunakan oleh guru.
 
 ---
 
