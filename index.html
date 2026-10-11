@@ -167,27 +167,37 @@
               <strong>Slogan, Iklan, lan Poster</strong>! <span class="ngapak-word" data-word="sing semangat">Sing semangat</span> ya!
             </p>
 
-            <!-- Box Input Nama Siswa (Jika Belum Tersimpan) -->
+            <!-- Box Input Nama & Kelas Siswa (Jika Belum Tersimpan) -->
             <div id="student-onboarding-box" class="student-onboarding-box">
-              <form id="student-name-form" style="display:contents;">
-                <label for="student-name-input" style="font-weight:700; font-size:0.85rem; color:var(--color-soga-dark);">
-                  Sapa jenengmu, lur? (Siapa namamu):
-                </label>
-                <input type="text" id="student-name-input" class="student-input-field" placeholder="Ketik namamu di sini..." maxlength="25" required>
-                <button type="submit" class="btn-primary">
-                  <span>Simpan & Mulai</span> 🚀
-                </button>
+              <form id="student-name-form" style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; width:100%;">
+                <div style="flex:2; min-width:180px;">
+                  <label for="student-name-input" style="font-weight:700; font-size:0.82rem; color:var(--color-soga-dark); display:block; margin-bottom:0.2rem;">
+                    Jeneng Lengkap (Nama Siswa):
+                  </label>
+                  <input type="text" id="student-name-input" class="student-input-field" placeholder="Ketik namamu..." maxlength="30" required style="width:100%;">
+                </div>
+                <div style="flex:1; min-width:90px;">
+                  <label for="student-class-input" style="font-weight:700; font-size:0.82rem; color:var(--color-soga-dark); display:block; margin-bottom:0.2rem;">
+                    Kelas:
+                  </label>
+                  <input type="text" id="student-class-input" class="student-input-field" placeholder="Misal: 8A" maxlength="10" required style="width:100%;">
+                </div>
+                <div style="align-self:flex-end;">
+                  <button type="submit" class="btn-primary" style="min-height:42px;">
+                    <span>Simpan & Mulai</span> 🚀
+                  </button>
+                </div>
               </form>
             </div>
 
-            <!-- Box Informasi Jika Nama Sudah Tersimpan -->
+            <!-- Box Informasi Jika Nama & Kelas Sudah Tersimpan -->
             <div id="student-welcomed-box" style="display:none; margin-top:0.6rem;">
               <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
                 <span style="font-size:0.85rem; color:var(--color-daun); font-weight:700;">
-                  ✓ Profil Aktif: <strong class="student-name-display">Kanca</strong> • <span class="student-level-display">Santri Sinau</span>
+                  ✓ Profil Aktif: <strong class="student-name-display">Kanca</strong> (<span class="student-class-display">8A</span>) • <span class="student-level-display">Santri Sinau</span>
                 </span>
                 <button id="btn-change-name" class="btn-secondary" style="padding:0.25rem 0.65rem; min-height:32px; font-size:0.75rem;">
-                  ✏️ Ganti Nama
+                  ✏️ Ganti Profil
                 </button>
               </div>
             </div>
@@ -1512,10 +1522,10 @@
           <div style="margin-bottom:0.4rem;"><strong>Materi Pokok:</strong> Bab 2 – Slogan, Iklan, dan Poster</div>
           <div style="margin-bottom:0.4rem;"><strong>Pendekatan:</strong> Culturally Responsive Teaching (CRT)</div>
           <div style="margin-bottom:0.4rem;"><strong>Model Belajar:</strong> Project-Based Learning (PjBL)</div>
-          <div style="margin-bottom:0.4rem;"><strong>Pengembang:</strong> [Nama Mahasiswa PPG]</div>
-          <div style="margin-bottom:0.4rem;"><strong>Nomor Peserta PPG:</strong> [Nomor Peserta PPG / NIM]</div>
+          <div style="margin-bottom:0.4rem;"><strong>Pengembang:</strong> Arif Setiyono</div>
+          <div style="margin-bottom:0.4rem;"><strong>Nomor Peserta PPG / NIM:</strong> 2501640512</div>
           <div style="margin-bottom:0.4rem;"><strong>Bidang Studi:</strong> Pendidikan Bahasa Indonesia</div>
-          <div style="margin-bottom:0.4rem;"><strong>LPTK / Universitas:</strong> [Nama Perguruan Tinggi Penyelenggara PPG]</div>
+          <div style="margin-bottom:0.4rem;"><strong>LPTK / Universitas:</strong> Universitas Muhammadiyah Purwokerto</div>
           <div><strong>Tahun Pelaksanaan:</strong> 2026</div>
         </div>
 
@@ -1583,7 +1593,7 @@
         <strong>Jago Ngiklan Banyumas</strong> &bull; Media Pembelajaran Berbasis Budaya Lokal & PjBL
       </p>
       <p style="font-size:0.75rem; color:var(--color-text-light);">
-        Karya Inovasi Pembelajaran PPG &bull; Kurikulum Merdeka Fase D &bull; Dilindungi Etika Akademik
+        Karya Inovasi Pembelajaran PPG &bull; Arif Setiyono (Universitas Muhammadiyah Purwokerto 2026) &bull; Kurikulum Merdeka Fase D
       </p>
     </div>
   </footer>
@@ -1619,7 +1629,7 @@
   </nav>
 
   <!-- Skrip Data & Logika Aplikasi -->
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data.js?v=2.0"></script>
+  <script src="js/app.js?v=2.0"></script>
 </body>
 </html>
