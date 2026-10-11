@@ -2127,13 +2127,18 @@
 
     updateRubricSummary();
 
-    // Simpan Penilaian Rubrik
+    // Simpan Penilaian Rubrik & Kirim ke Google Form Guru
     const btnSaveRubric = document.getElementById('btn-save-rubric');
     if (btnSaveRubric) {
       btnSaveRubric.addEventListener('click', () => {
         let total = 0;
         Object.values(rubricScores).forEach(sc => { total += sc; });
         const finalGrade = Math.round((total / 16) * 100);
+        let predicate = 'Perlu Bimbingan (C)';
+        if (finalGrade >= 90) predicate = 'Sangat Mahir (A+)';
+        else if (finalGrade >= 80) predicate = 'Mahir (A)';
+        else if (finalGrade >= 70) predicate = 'Berkembang Baik (B)';
+
         const peerName = document.getElementById('inp-peer-name')?.value.trim() || '';
 
         if (!appState.quizScores) appState.quizScores = {};
@@ -2143,12 +2148,15 @@
           scores: rubricScores,
           total,
           finalGrade,
+          predicate,
           timestamp: new Date().toISOString()
         };
 
         const statusEl = document.getElementById('rubric-save-status');
         if (statusEl) {
           statusEl.style.display = 'block';
+          statusEl.style.background = '#DCFCE7';
+          statusEl.style.color = '#14532D';
           statusEl.textContent = `✓ Hasil ${currentRubricMode === 'peer' ? 'penilaian untuk ' + (peerName || 'teman') : 'penilaian diri'} berhasil disimpan (Nilai: ${finalGrade}/100)!`;
         }
 
@@ -2265,126 +2273,134 @@
       ctx.save();
       ctx.fillStyle = '#D97706';
       ctx.beginPath();
-      ctx.arc(W / 2, 75, 26, 0, Math.PI * 2);
+      ctx.arc(W / 2, 70, 24, 0, Math.PI * 2);
       ctx.fill();
       ctx.fillStyle = '#FEF3C7';
       ctx.beginPath();
-      ctx.arc(W / 2, 75, 21, 0, Math.PI * 2);
+      ctx.arc(W / 2, 70, 19, 0, Math.PI * 2);
       ctx.fill();
-      ctx.font = '22px sans-serif';
+      ctx.font = '20px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('⭐', W / 2, 83);
+      ctx.fillText('⭐', W / 2, 77);
       ctx.restore();
 
       // Teks Judul Sertifikat
       ctx.save();
       ctx.textAlign = 'center';
       ctx.fillStyle = '#5C3A21';
-      ctx.font = '900 28px Poppins, serif';
+      ctx.font = '900 23px Poppins, serif';
       ctx.letterSpacing = '2px';
-      ctx.fillText('SERTIFIKAT PENGHARGAAN', W / 2, 130);
+      ctx.fillText('SERTIFIKAT PENGHARGAAN', W / 2, 116, 520);
 
-      ctx.font = '700 15px Poppins, sans-serif';
+      ctx.font = '700 13px Poppins, sans-serif';
       ctx.fillStyle = '#B45309';
-      ctx.fillText('DUTA PROMOSI BUDAYA BANYUMAS', W / 2, 155);
+      ctx.fillText('DUTA PROMOSI BUDAYA BANYUMAS', W / 2, 138, 520);
 
-      ctx.font = 'italic 14px Nunito, sans-serif';
+      ctx.font = 'italic 12px Nunito, sans-serif';
       ctx.fillStyle = '#6B7280';
-      ctx.fillText('Diberikan dengan penuh rasa bangga dan apresiasi akademik kepada:', W / 2, 195);
+      ctx.fillText('Diberikan dengan penuh rasa bangga dan apresiasi akademik kepada:', W / 2, 172, 520);
 
-      // Nama Siswa Dicetak Menonjol
-      ctx.font = '900 32px Poppins, sans-serif';
+      // Nama Siswa Dicetak Menonjol (Ukuran Adaptif agar Tidak Pernah Meluap)
+      let nameFontSize = 26;
+      ctx.font = `900 ${nameFontSize}px Poppins, sans-serif`;
+      while (ctx.measureText(studentName).width > 480 && nameFontSize > 16) {
+        nameFontSize -= 2;
+        ctx.font = `900 ${nameFontSize}px Poppins, sans-serif`;
+      }
       ctx.fillStyle = '#166534';
       ctx.shadowColor = 'rgba(22, 101, 52, 0.2)';
-      ctx.shadowBlur = 6;
-      ctx.fillText(studentName, W / 2, 245);
+      ctx.shadowBlur = 4;
+      ctx.fillText(studentName, W / 2, 215, 480);
       ctx.shadowBlur = 0;
 
       // Garis Aksen Pita di Bawah Nama
       ctx.strokeStyle = '#D97706';
-      ctx.lineWidth = 2.5;
+      ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(W / 2 - 200, 260); ctx.lineTo(W / 2 + 200, 260);
+      ctx.moveTo(W / 2 - 140, 228); ctx.lineTo(W / 2 + 140, 228);
       ctx.stroke();
 
-      // Deskripsi Kompetensi
-      ctx.font = '500 15px Nunito, sans-serif';
+      // Deskripsi Kompetensi (Sangat Rapi di dalam bingkai, font 12px dengan batas aman maxWidth 500px)
+      ctx.font = '500 12px Nunito, sans-serif';
       ctx.fillStyle = '#374151';
-      const desc1 = "Atas ketuntasan seluruh rangkaian petualangan belajar Bahasa Indonesia Fase D Kurikulum Merdeka";
-      const desc2 = "Bab 2: Slogan, Iklan, dan Poster melalui pendekatan Culturally Responsive Teaching (CRT)";
-      const desc3 = "serta keberhasilan merancang karya poster kreatif kearifan lokal Banyumas dengan predikat:";
-      ctx.fillText(desc1, W / 2, 292);
-      ctx.fillText(desc2, W / 2, 314);
-      ctx.fillText(desc3, W / 2, 336);
+      const desc1 = "Atas ketuntasan pembelajaran Bahasa Indonesia Fase D Kurikulum Merdeka";
+      const desc2 = "Bab 2: Teks Slogan, Iklan, & Poster berbasis Culturally Responsive Teaching (CRT)";
+      const desc3 = "serta keberhasilan merancang poster promosi kearifan lokal Banyumas dengan predikat:";
+      ctx.fillText(desc1, W / 2, 258, 500);
+      ctx.fillText(desc2, W / 2, 278, 500);
+      ctx.fillText(desc3, W / 2, 298, 500);
 
-      // Box Predikat & XP
+      // Box Predikat & XP (Ukuran Pas & Proporsional)
       ctx.fillStyle = '#FEF3C7';
       ctx.strokeStyle = '#F59E0B';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.roundRect(W / 2 - 220, 355, 440, 42, 21);
+      ctx.roundRect(W / 2 - 180, 322, 360, 36, 18);
       ctx.fill();
       ctx.stroke();
 
-      ctx.font = '800 16px Poppins, sans-serif';
+      ctx.font = '800 13.5px Poppins, sans-serif';
       ctx.fillStyle = '#92400E';
-      ctx.fillText(`🏆 ${currentLvl.title} (${currentLvl.rank}) • ${appState.xp} Total XP`, W / 2, 382);
+      ctx.fillText(`🏆 ${currentLvl.title} (${currentLvl.rank}) • ${appState.xp} Total XP`, W / 2, 345, 340);
 
-      // Cap Stempel Kang Mendhoan
+      // Cap Stempel Kang Mendhoan (Tengah)
       ctx.save();
       const sealX = W / 2;
-      const sealY = 485;
+      const sealY = 464;
       ctx.strokeStyle = '#991B1B';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.arc(sealX, sealY, 40, 0, Math.PI * 2);
+      ctx.arc(sealX, sealY, 36, 0, Math.PI * 2);
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(sealX, sealY, 35, 0, Math.PI * 2);
+      ctx.arc(sealX, sealY, 31, 0, Math.PI * 2);
       ctx.stroke();
 
       ctx.fillStyle = '#991B1B';
-      ctx.font = '900 8.5px Poppins, sans-serif';
-      ctx.fillText('JAGO NGIKLAN BANYUMAS', sealX, sealY - 14);
-      ctx.font = '700 8px Poppins, sans-serif';
-      ctx.fillText('RESMI DISAHKAN', sealX, sealY + 18);
-      ctx.font = '18px sans-serif';
+      ctx.font = '900 8px Poppins, sans-serif';
+      ctx.fillText('JAGO NGIKLAN BANYUMAS', sealX, sealY - 12);
+      ctx.font = '700 7.5px Poppins, sans-serif';
+      ctx.fillText('RESMI DISAHKAN', sealX, sealY + 17);
+      ctx.font = '17px sans-serif';
       ctx.fillText('🥟', sealX, sealY + 4);
       ctx.restore();
 
       // Tanda Tangan Kiri: Kang Mendhoan
       ctx.textAlign = 'center';
       ctx.fillStyle = '#5C3A21';
-      ctx.font = 'italic 700 18px "Brush Script MT", cursive, sans-serif';
-      ctx.fillText('Kang Mendhoan', 160, 480);
+      ctx.font = '500 11px Nunito, sans-serif';
+      ctx.fillText('Pemandu Budaya,', 160, 428, 140);
+      ctx.font = 'italic 700 19px "Brush Script MT", cursive, sans-serif';
+      ctx.fillText('Kang Mendhoan', 160, 458, 140);
       ctx.strokeStyle = '#5C3A21';
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(90, 492); ctx.lineTo(230, 492);
+      ctx.moveTo(90, 472); ctx.lineTo(230, 472);
       ctx.stroke();
       ctx.font = '700 12px Poppins, sans-serif';
-      ctx.fillText('KANG MENDHOAN', 160, 510);
-      ctx.font = '500 11px Nunito, sans-serif';
+      ctx.fillText('KANG MENDHOAN', 160, 492, 140);
+      ctx.font = '500 10px Nunito, sans-serif';
       ctx.fillStyle = '#6B7280';
-      ctx.fillText('Maskot & Pemandu Budaya', 160, 526);
+      ctx.fillText('Maskot Budaya Banyumas', 160, 508, 140);
 
-      // Tanda Tangan Kanan: Pendidik Bahasa Indonesia
+      // Tanda Tangan Kanan: Guru Pengampu (Arif Setiyono)
       ctx.textAlign = 'center';
       ctx.fillStyle = '#5C3A21';
-      ctx.font = '500 12px Nunito, sans-serif';
-      ctx.fillText(`Banyumas, ${dateStr}`, W - 160, 455);
-      ctx.font = 'italic 700 18px "Brush Script MT", cursive, sans-serif';
-      ctx.fillText('Guru Pengampu', W - 160, 480);
+      ctx.font = '500 11px Nunito, sans-serif';
+      ctx.fillText(`Banyumas, ${dateStr}`, W - 160, 412, 140);
+      ctx.fillText('Guru Pengampu,', W - 160, 428, 140);
+      ctx.font = 'italic 700 19px "Brush Script MT", cursive, sans-serif';
+      ctx.fillText('Arif Setiyono', W - 160, 458, 140);
       ctx.strokeStyle = '#5C3A21';
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(W - 230, 492); ctx.lineTo(W - 90, 492);
+      ctx.moveTo(W - 230, 472); ctx.lineTo(W - 90, 472);
       ctx.stroke();
-      ctx.font = '700 12px Poppins, sans-serif';
-      ctx.fillText('GURU BAHASA INDONESIA', W - 160, 510);
-      ctx.font = '500 11px Nunito, sans-serif';
+      ctx.font = '800 13px Poppins, sans-serif';
+      ctx.fillText('ARIF SETIYONO', W - 160, 492, 140);
+      ctx.font = '600 10px Nunito, sans-serif';
       ctx.fillStyle = '#6B7280';
-      ctx.fillText('Fase D Kurikulum Merdeka', W - 160, 526);
+      ctx.fillText('NIM 2501640512 • PPG UMP', W - 160, 508, 140);
 
       ctx.restore();
     }
@@ -2447,6 +2463,108 @@
         });
       });
     });
+
+    // Proteksi PIN Akses Kunci Jawaban Guru
+    const btnUnlock = document.getElementById('btn-unlock-answers');
+    const inputPin = document.getElementById('input-teacher-pin');
+    const lockBox = document.getElementById('teacher-lock-box');
+    const unlockedBox = document.getElementById('teacher-unlocked-answers');
+    const pinError = document.getElementById('pin-error-msg');
+
+    function checkAndUnlockPin() {
+      if (!inputPin) return;
+      const enteredPin = inputPin.value.trim().toLowerCase();
+      // PIN guru: 'guru2026' atau '2026' atau 'guru'
+      if (enteredPin === 'guru2026' || enteredPin === '2026' || enteredPin === 'guru') {
+        playSuccessChime();
+        if (pinError) pinError.style.display = 'none';
+        if (lockBox) lockBox.style.display = 'none';
+        if (unlockedBox) {
+          unlockedBox.style.display = 'block';
+          renderTeacherAnswerKeys();
+        }
+        showToast("Kunci jawaban berhasil dibuka!", "🔓");
+      } else {
+        playTone(200, 'sawtooth', 0.25);
+        if (pinError) {
+          pinError.style.display = 'block';
+        }
+        inputPin.value = '';
+        inputPin.focus();
+      }
+    }
+
+    if (btnUnlock) {
+      btnUnlock.addEventListener('click', checkAndUnlockPin);
+    }
+
+    if (inputPin) {
+      inputPin.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          checkAndUnlockPin();
+        }
+      });
+    }
+
+    function renderTeacherAnswerKeys() {
+      if (!unlockedBox || !window.APP_DATA || !window.APP_DATA.guruData) return;
+      const kd = window.APP_DATA.guruData.kunciJawabanLengkap;
+      if (!kd) return;
+
+      unlockedBox.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem; background:#DCFCE7; border:1px solid #86EFAC; padding:0.6rem 1rem; border-radius:8px;">
+          <span style="font-size:0.85rem; font-weight:700; color:#14532D;">
+            ✓ Kunci Jawaban Terbuka (Akses Khusus Guru Aktif)
+          </span>
+          <button id="btn-relock-answers" class="btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.6rem; min-height:30px;">
+            🔒 Kunci Kembali
+          </button>
+        </div>
+
+        <!-- Kunci Misi 1 -->
+        <div class="answer-key-box">
+          <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Mini-Cek Pemahaman (Misi 1)</h4>
+          <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+            ${kd.misi1.map(k => `<li><strong>Soal ${k.no}:</strong> ${k.jawaban}</li>`).join('')}
+          </ul>
+        </div>
+
+        <!-- Kunci Misi 3: Kuis 10 Soal -->
+        <div class="answer-key-box">
+          <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Kuis 10 Soal Acak (Misi 3)</h4>
+          <div style="font-size:0.85rem; line-height:1.6; display:grid; grid-template-columns:1fr; gap:0.35rem;">
+            ${kd.misi3Kuis.map((k, i) => `<div><strong>Soal ${i+1} (${k.id}):</strong> <strong>${k.kunci}</strong> &bull; ${k.alasan}</div>`).join('')}
+          </div>
+        </div>
+
+        <!-- Kunci Misi 3: Hoaks -->
+        <div class="answer-key-box">
+          <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Analisis Iklan Beneran vs Hoaks Promosi (Misi 3)</h4>
+          <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+            ${kd.misi3Hoaks.map(h => `<li><strong>${h.kasus}:</strong> <strong>${h.verdict}</strong> (${h.alasan})</li>`).join('')}
+          </ul>
+        </div>
+
+        <!-- Kunci Misi 3: Matching -->
+        <div class="answer-key-box">
+          <h4 style="color:var(--color-soga-dark); margin-bottom:0.35rem;">📌 Kunci Jodohkan Karakteristik (Misi 3)</h4>
+          <ul style="padding-left:1.2rem; font-size:0.85rem; margin:0; line-height:1.6;">
+            ${kd.misi3Matching.map(m => `<li>${m.item} &rarr; <strong>${m.jenis}</strong></li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      const btnRelock = document.getElementById('btn-relock-answers');
+      if (btnRelock) {
+        btnRelock.addEventListener('click', () => {
+          unlockedBox.style.display = 'none';
+          unlockedBox.innerHTML = '';
+          if (lockBox) lockBox.style.display = 'block';
+          if (inputPin) inputPin.value = '';
+          showToast("Kunci jawaban kembali terkunci!", "🔒");
+        });
+      }
+    }
   }
 
   // --- 10. EVENT LISTENERS & INISIALISASI ---
@@ -2465,9 +2583,9 @@
     if (nameForm) {
       nameForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const input = document.getElementById('student-name-input');
-        if (input && input.value.trim()) {
-          appState.studentName = input.value.trim();
+        const inputName = document.getElementById('student-name-input');
+        if (inputName && inputName.value.trim()) {
+          appState.studentName = inputName.value.trim();
           saveState();
           updateUIElements();
           playSuccessChime();
@@ -2485,6 +2603,8 @@
         if (onboardingBox && welcomedBox) {
           onboardingBox.style.display = 'flex';
           welcomedBox.style.display = 'none';
+          const inputName = document.getElementById('student-name-input');
+          if (inputName) inputName.value = appState.studentName || '';
         }
       });
     }
