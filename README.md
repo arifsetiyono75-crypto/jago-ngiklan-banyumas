@@ -24,11 +24,14 @@ Media ini memadukan dua pendekatan pedagogis utama:
 - **Pure Vanilla Web (Zero-Framework)**: Dibangun 100% menggunakan HTML5, CSS3, dan JavaScript murni tanpa ketergantungan framework berat (*React, Vue, Tailwind, atau bundler*), sehingga sangat cepat dimuat dan ramah memori HP.
 - **Mobile-First & Layar 360px Friendly**: Didesain responsif khusus untuk gawai Android peserta didik dengan navigasi bawah (*Bottom Nav*), tombol sentuh minimal 44–48px, dan kontras warna standar **WCAG AA / AAA**.
 - **Offline-First Ready (PWA)**: Dilengkapi `manifest.json` dan Service Worker (`sw.js`) dengan strategi caching *stale-while-revalidate*. Siswa dapat tetap belajar saat koneksi internet sekolah/rumah tidak stabil.
+- **Pemandu Budaya Kang Bawor**: Tokoh Punakawan khas Banyumasan berkarakter polos, jujur, *cablaka*, dan humoris yang memandu siswa di seluruh tahapan belajar dengan animasi SVG orisinal (lambaian tangan, kedip mata, lompat ceria) serta sapaan dialek *ngapak* berglosarium interaktif.
+- **Peta Petualangan Kartun Banyumas**: Ilustrasi peta bergaya kartun semi-realistis yang memuat landmark legendaris (Puncak Gunung Slamet 3.428 mdpl, Curug Baturraden, terasering sawah, Sungai Serayu) dengan 5 pin penanda misi interaktif yang beranimasi halus.
+- **Lencana Medali Berkilau**: Desain medali penghargaan 3D berkilau untuk 5 tingkat kemahiran (*Santri Sinau*, *Sahabat Kang Bawor*, *Pendekar Slogan*, *Juragan Promosi*, hingga *Duta Promosi Banyumas*).
 - **Dual-Canvas 2D Graphics Engine**:
-  - **Studio Poster Maker (900 x 1200 px - Rasio 3:4)**: Menyediakan 6 motif latar batik/Banyumas, 8 ikon budaya SVG orisinal, kustomisasi tipografi, dan fitur unduh langsung ke gambar **PNG High-Resolution**.
-  - **Sertifikat Digital Duta Banyumas (800 x 600 px)**: Mencetak sertifikat resmi dengan nama siswa, total perolehan XP, gelar kelulusan, dan stempel cap basah Kang Mendhoan yang siap diunduh PNG atau dicetak PDF.
+  - **Studio Poster Maker (900 x 1200 px - Rasio 3:4)**: Menyediakan 8 latar pemandangan kartun dan motif batik Banyumasan, 18 stiker budaya berdetail tinggi (kuliner mendoan, soto sokaraja, getuk goreng, nopia, kesenian calung, lengger, wayang Kang Bawor, kendi, bintang, pita, diskon, dll.), kontrol multi-stiker (geser sentuh, perbesar-perkecil, putar, tumpuk depan/belakang, hapus), 5 bingkai dekoratif, dan 4 preset tata letak poster siap pakai yang dapat diunduh menjadi **PNG High-Resolution** langsung dari HP maupun laptop.
+  - **Sertifikat Digital Duta Banyumas (800 x 600 px)**: Mencetak sertifikat penghargaan resmi dengan nama siswa, total perolehan XP, gelar kelulusan, tanda tangan Kang Bawor, dan stempel resmi digital yang siap diunduh PNG atau dicetak PDF.
 - **Web Audio API Sound Synthesizer**: Menghasilkan efek nada ceria laras slendro gamelan tanpa memerlukan berkas MP3 eksternal, menghemat kuota internet siswa.
-- **Gamifikasi Terintegrasi**: Peta petualangan 5 misi, sistem poin XP, 5 tingkatan level (*Santri Sinau* s.d. *Maestro Ngiklan*), 4 lencana prestasi, dan efek konfeti kanvas.
+- **Gamifikasi Terintegrasi**: Peta petualangan 5 misi, sistem poin XP, 5 tingkatan level, lencana prestasi, dan efek konfeti kanvas.
 
 ---
 
@@ -38,13 +41,17 @@ Media ini memadukan dua pendekatan pedagogis utama:
 jago-ngiklan-banyumas/
 ├── index.html              # Struktur utama antarmuka SPA & semantik aksesibel
 ├── manifest.json           # Web App Manifest untuk instalasi PWA di Android
-├── sw.js                   # Service Worker cache offline
+├── sw.js                   # Service Worker cache offline v5
 ├── README.md               # Dokumentasi lengkap & panduan guru
+├── assets/                 # Aset grafis orisinal SVG kartun semi-realistis
+│   ├── maskot/             # Kang Bawor 7-pose suite (menyapa, berpikir, semangat, kreasi, bangga, senang, semangati, favicon, ikon PWA)
+│   ├── icons/              # Ilustrasi peta kartun Banyumas & 5 medali berkilau
+│   └── poster/             # Latar pemandangan & ornamen kanvas poster
 ├── css/
-│   └── style.css           # Desain tema batik Banyumas, layout responsif & cetak
+│   └── style.css           # Desain tema batik Banyumas, animasi Kang Bawor, layout responsif & cetak
 └── js/
-    ├── data.js             # PUSAT DATA: Bank Soal, Materi, Glosarium, Rubrik, GuruData
-    └── app.js              # LOGIKA: State Manager, Router, Audio, Canvas 2D Engine
+    ├── data.js             # PUSAT DATA: 18 Stiker, 8 Latar, 5 Bingkai, 4 Preset, Bank Soal, Glosarium
+    └── app.js              # LOGIKA: Multi-sticker Canvas Engine, Router, Audio, State Management
 ```
 
 ---

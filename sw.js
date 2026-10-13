@@ -1,12 +1,28 @@
-// Service Worker sederhana untuk cache offline website pembelajaran
-const CACHE_NAME = 'jago-ngiklan-banyumas-v4';
+// Service Worker untuk cache offline website pembelajaran
+const CACHE_NAME = 'jago-ngiklan-banyumas-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './css/style.css',
   './js/data.js',
   './js/app.js',
-  './manifest.json'
+  './manifest.json',
+  './assets/maskot/bawor-menyapa.svg',
+  './assets/maskot/bawor-berpikir.svg',
+  './assets/maskot/bawor-semangat.svg',
+  './assets/maskot/bawor-kreasi.svg',
+  './assets/maskot/bawor-bangga.svg',
+  './assets/maskot/bawor-senang.svg',
+  './assets/maskot/bawor-semangati.svg',
+  './assets/maskot/bawor-favicon.svg',
+  './assets/maskot/bawor-icon-192.svg',
+  './assets/maskot/bawor-icon-512.svg',
+  './assets/icons/peta-banyumas.svg',
+  './assets/icons/medal-level1.svg',
+  './assets/icons/medal-level2.svg',
+  './assets/icons/medal-level3.svg',
+  './assets/icons/medal-level4.svg',
+  './assets/icons/medal-level5.svg'
 ];
 
 self.addEventListener('install', (event) => {
@@ -34,18 +50,16 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Ambil dari cache, lalu perbarui di latar belakang jika online
         fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(event.request, networkResponse);
             });
           }
-        }).catch(() => {/* Offline fallback aman */});
+        }).catch(() => {});
         return cachedResponse;
       }
       return fetch(event.request).catch(() => {
-        // Fallback jika offline dan aset belum tercache
         if (event.request.mode === 'navigate') {
           return caches.match('./index.html');
         }

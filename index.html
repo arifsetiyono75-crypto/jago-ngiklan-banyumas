@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,9 @@
   <title>Jago Ngiklan Banyumas: Petualangan Slogan, Iklan & Poster</title>
 
   <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
+  <!-- Favicon Kang Bawor -->
+  <link rel="icon" type="image/svg+xml" href="assets/maskot/bawor-favicon.svg">
 
   <!-- Google Fonts: Poppins (Heading) & Nunito (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,90 +80,105 @@
          ====================================================================== -->
     <section id="view-beranda" class="view-section active" aria-labelledby="heading-beranda">
       
-      <!-- HERO & SAMBUTAN KANG MENDHOAN -->
+      <!-- HERO & SAMBUTAN KANG BAWOR -->
       <div class="hero-welcome-card">
         <div class="hero-layout">
           
-          <!-- Maskot Kang Mendhoan (SVG Handcrafted) -->
-          <div class="mascot-container" id="kang-mendhoan-mascot" title="Klik inyong nggo sapaan!">
+          <!-- Maskot Kang Bawor (Punakawan Banyumasan Handcrafted SVG) -->
+          <div class="mascot-container" id="kang-bawor-mascot" title="Klik inyong nggo sapaan!">
             <div class="mascot-svg-wrapper">
-              <svg viewBox="0 0 160 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Kang Mendhoan, tempe mendoan berblangkon khas Banyumasan">
+              <svg viewBox="0 0 160 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Kang Bawor, Punakawan Cablaka Khas Banyumasan">
                 <defs>
-                  <!-- Gradien Tempe Mendoan Gurih -->
-                  <linearGradient id="gradMendoan" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FCD34D" />
-                    <stop offset="50%" stop-color="#F59E0B" />
-                    <stop offset="100%" stop-color="#D97706" />
+                  <linearGradient id="baworSkinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFEDD5" />
+                    <stop offset="50%" stop-color="#FED7AA" />
+                    <stop offset="100%" stop-color="#FDBA74" />
                   </linearGradient>
-                  <!-- Gradien Blangkon Soga Banyumas -->
-                  <linearGradient id="gradBlangkon" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#78350F" />
-                    <stop offset="70%" stop-color="#451A03" />
-                    <stop offset="100%" stop-color="#271003" />
+                  <linearGradient id="baworBatikGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#92400E" />
+                    <stop offset="50%" stop-color="#78350F" />
+                    <stop offset="100%" stop-color="#451A03" />
                   </linearGradient>
-                  <!-- Bayangan Halus -->
-                  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#5C3A21" flood-opacity="0.3"/>
+                  <linearGradient id="baworUdengGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#B45309" />
+                    <stop offset="100%" stop-color="#78350F" />
+                  </linearGradient>
+                  <filter id="softShadowBawor" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#451A03" flood-opacity="0.25"/>
                   </filter>
                 </defs>
 
-                <!-- Badan Tempe Mendoan Hangat -->
-                <rect x="25" y="42" width="110" height="118" rx="28" fill="url(#gradMendoan)" stroke="#B45309" stroke-width="3" filter="url(#softShadow)"/>
+                <!-- Badan Gemuk Punakawan Berkaos Hitam & Kain Batik -->
+                <ellipse cx="80" cy="138" rx="46" ry="32" fill="#1E293B" stroke="#0F172A" stroke-width="3" filter="url(#softShadowBawor)"/>
+                <!-- Kain Batik Soga Banyumasan -->
+                <path d="M 46 138 Q 80 165 114 138 L 110 168 Q 80 178 50 168 Z" fill="url(#baworBatikGrad)" stroke="#451A03" stroke-width="2.5"/>
+                <!-- Motif Batik Jahe Puger Keemasan -->
+                <path d="M 58 148 Q 80 156 102 148" fill="none" stroke="#FDE68A" stroke-width="2" stroke-dasharray="4,3"/>
+                <path d="M 64 158 Q 80 166 96 158" fill="none" stroke="#FDE68A" stroke-width="2" stroke-dasharray="3,3"/>
 
-                <!-- Daun Bawang / Kucai Renyah (Fleck Hijau) -->
-                <rect x="36" y="65" width="14" height="4" rx="2" fill="#15803D" transform="rotate(-18 43 67)"/>
-                <rect x="110" y="68" width="16" height="4" rx="2" fill="#15803D" transform="rotate(25 118 70)"/>
-                <rect x="34" y="115" width="15" height="4.5" rx="2" fill="#15803D" transform="rotate(35 41 117)"/>
-                <rect x="108" y="125" width="14" height="4" rx="2" fill="#15803D" transform="rotate(-15 115 127)"/>
-                <rect x="70" y="142" width="18" height="4" rx="2" fill="#15803D" transform="rotate(5 79 144)"/>
+                <!-- Kalung Merah Tradisional -->
+                <path d="M 55 118 Q 80 134 105 118" fill="none" stroke="#DC2626" stroke-width="4" stroke-linecap="round"/>
 
-                <!-- Pipi Merona Ceria -->
-                <circle cx="48" cy="100" r="10" fill="#F87171" opacity="0.6"/>
-                <circle cx="112" cy="100" r="10" fill="#F87171" opacity="0.6"/>
+                <!-- Kepala Bulat Gemuk Kang Bawor -->
+                <circle cx="80" cy="84" r="38" fill="url(#baworSkinGrad)" stroke="#1E293B" stroke-width="3.5" filter="url(#softShadowBawor)"/>
 
-                <!-- Mata Kartun Besar Berbinar -->
-                <!-- Mata Kiri -->
-                <ellipse cx="56" cy="88" rx="8" ry="10" fill="#1F2937"/>
-                <circle cx="54" cy="85" r="3.5" fill="#FFFFFF"/>
-                <circle cx="58" cy="91" r="1.5" fill="#FFFFFF"/>
-                <!-- Mata Kanan -->
-                <ellipse cx="104" cy="88" rx="8" ry="10" fill="#1F2937"/>
-                <circle cx="102" cy="85" r="3.5" fill="#FFFFFF"/>
-                <circle cx="106" cy="91" r="1.5" fill="#FFFFFF"/>
+                <!-- Pipi Tembem Merona Ramah -->
+                <circle cx="54" cy="94" r="10" fill="#F87171" opacity="0.6"/>
+                <circle cx="106" cy="94" r="10" fill="#F87171" opacity="0.6"/>
 
-                <!-- Senyum Ramah & Lidah Lucu -->
-                <path d="M 66 100 Q 80 118 94 100" fill="#991B1B" stroke="#7F1D1D" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M 72 108 Q 80 116 88 108" fill="#F43F5E"/>
+                <!-- Rambut Kuncung Khas Wayang Punakawan -->
+                <path d="M 75 48 C 65 24 82 22 84 28 C 86 36 82 46 82 48 Z" fill="#0F172A"/>
 
-                <!-- Tangan Kiri Melambai Menyapa -->
-                <g id="mascot-wave-hand">
-                  <path d="M 25 95 C 10 90 2 75 14 68 C 22 64 28 78 26 88 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+                <!-- Ikat Kepala / Udeng Batik Banyumasan -->
+                <path d="M 44 68 Q 80 42 116 68 Q 112 56 80 46 Q 48 56 44 68 Z" fill="url(#baworUdengGrad)" stroke="#451A03" stroke-width="2.5"/>
+                <circle cx="116" cy="66" r="6" fill="#92400E" stroke="#451A03" stroke-width="2"/>
+
+                <!-- Mata Bulat Besar Ekspresif (Mascot Eyes with Blink Animation) -->
+                <g id="mascot-eyes">
+                  <!-- Mata Kiri -->
+                  <circle cx="64" cy="78" r="9.5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="65" cy="78" r="4.5" fill="#0F172A"/>
+                  <circle cx="63" cy="75" r="2" fill="#FFFFFF"/>
+                  <!-- Mata Kanan -->
+                  <circle cx="96" cy="78" r="9.5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="95" cy="78" r="4.5" fill="#0F172A"/>
+                  <circle cx="93" cy="75" r="2" fill="#FFFFFF"/>
                 </g>
-                <!-- Tangan Kanan -->
-                <path d="M 135 98 C 146 102 152 115 144 122 C 136 128 132 115 133 105 Z" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
 
-                <!-- BLANGKON KHAS BANYUMASAN -->
-                <!-- Tutup Kepala Utama -->
-                <path d="M 20 48 Q 80 12 140 48 Q 146 62 135 64 Q 80 40 25 64 Q 14 62 20 48 Z" fill="url(#gradBlangkon)" stroke="#1C0D02" stroke-width="2"/>
-                <!-- Mondholan / Lipatan Khas di Samping Belakang -->
-                <ellipse cx="136" cy="48" rx="10" ry="12" fill="#582405" stroke="#271003" stroke-width="1.8"/>
-                <!-- Motif Garis Batik Blangkon Emas Soga -->
-                <path d="M 38 48 Q 80 32 122 48" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="4,3"/>
-                <path d="M 45 42 Q 80 26 115 42" fill="none" stroke="#E5A93C" stroke-width="1.8" stroke-dasharray="3,3"/>
-                <!-- Ikatan Depan Blangkon -->
-                <polygon points="76,38 84,38 82,48 78,48" fill="#FCD34D"/>
+                <!-- Alis Melengkung Ramah & Lucu -->
+                <path d="M 54 65 Q 64 60 74 66" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 86 66 Q 96 60 106 65" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- Hidung Bulat Khas Kang Bawor -->
+                <circle cx="80" cy="87" r="7" fill="#FB923C" stroke="#C2410C" stroke-width="2"/>
+
+                <!-- Mulut Lebar Tersenyum Cablaka & Ramah -->
+                <path d="M 62 96 Q 80 118 98 96" fill="#991B1B" stroke="#7F1D1D" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 70 106 Q 80 115 90 106" fill="#F43F5E"/>
+                <line x1="58" y1="94" x2="63" y2="98" stroke="#7F1D1D" stroke-width="2" stroke-linecap="round"/>
+                <line x1="102" y1="94" x2="97" y2="98" stroke="#7F1D1D" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Tangan Kiri Melambai Menyapa Siswa -->
+                <g id="mascot-wave-hand">
+                  <path d="M 44 122 Q 22 108 24 88 Q 32 82 40 96 Q 44 112 44 122 Z" fill="url(#baworSkinGrad)" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="26" cy="86" r="7" fill="url(#baworSkinGrad)" stroke="#1E293B" stroke-width="2"/>
+                </g>
+                <!-- Tangan Kanan Memberi Jempol Mantep -->
+                <path d="M 116 122 Q 138 112 136 94 Q 130 88 122 100 Q 116 112 116 122 Z" fill="url(#baworSkinGrad)" stroke="#1E293B" stroke-width="2.5"/>
+                <circle cx="134" cy="94" r="7" fill="url(#baworSkinGrad)" stroke="#1E293B" stroke-width="2"/>
               </svg>
             </div>
-            <span class="mascot-badge-tag">Kang Mendhoan</span>
+            <span class="mascot-badge-tag">Kang Bawor</span>
           </div>
 
-          <!-- Balon Kata Sambutan Kang Mendhoan -->
+          <!-- Balon Kata Sambutan Kang Bawor -->
+
           <div class="speech-bubble">
             <h2 class="greeting-title" id="heading-beranda">
               Sugeng Rawuh, <span class="student-name-display">Kanca Jagoan</span>! 👋
             </h2>
             <p id="mascot-speech-text">
-              <span class="ngapak-word" data-word="inyong">Inyong</span> Kang Mendhoan! 
+              <span class="ngapak-word" data-word="inyong">Inyong</span> Kang Bawor! Cablaka, jujur, lan grapyak. 
               <span class="ngapak-word" data-word="kepriwe">Kepriwe</span> kabare rika dina kiye? 
               <span class="ngapak-word" data-word="mayuh">Mayuh</span> kita petualangan keliling Banyumas nyinauni 
               <strong>Slogan, Iklan, lan Poster</strong>! <span class="ngapak-word" data-word="sing semangat">Sing semangat</span> ya!
@@ -214,6 +231,44 @@
         <div class="section-title">
           <h2 id="heading-misi-peta">Peta Misi Petualangan</h2>
           <span class="section-tag">Fase D • Kurikulum Merdeka</span>
+        </div>
+
+                <!-- ILUSTRASI PETA PETUALANGAN BANYUMAS BERGAYA KARTUN (CRT & GAMIFIKASI) -->
+        <div class="adventure-map-container" style="background:#FFFFFF; border:2px solid var(--color-border); border-radius:16px; padding:1.25rem; margin-bottom:1.5rem; box-shadow:var(--shadow-sm); overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+            <div>
+              <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin:0;">ðŸ—ºï¸ Peta Petualangan Tanah Banyumas</h3>
+              <span style="font-size:0.8rem; color:var(--color-text-muted);">Jelajahi 5 destinasi belajar: klik penanda pin beranimasi di peta atau pilih kartu misi di bawah!</span>
+            </div>
+            <span class="section-tag" style="background:#E0F2FE; color:#0369A1;">ðŸ“ 5 Lokasi Legendaris</span>
+          </div>
+          
+          <div class="map-interactive-wrapper" style="position:relative; border-radius:12px; overflow:hidden; border:2px solid #CBD5E1; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06);">
+            <img src="assets/icons/peta-banyumas.svg" alt="Peta Petualangan Banyumas Bergaya Kartun Semi-Realistis" style="width:100%; height:auto; display:block;" />
+            <!-- Waypoint Pins Beranimasi -->
+            <div class="map-pins-layer">
+              <button class="map-waypoint-btn" data-route="misi1" style="top:50%; left:20%;" title="Misi 1: Alun-Alun Purwokerto">
+                <span class="pin-marker">1</span>
+                <span class="pin-tooltip">Misi 1: Kenali (Purwokerto)</span>
+              </button>
+              <button class="map-waypoint-btn" data-route="misi2" style="top:25%; left:62%;" title="Misi 2: Baturraden">
+                <span class="pin-marker">2</span>
+                <span class="pin-tooltip">Misi 2: Bedah (Baturraden)</span>
+              </button>
+              <button class="map-waypoint-btn" data-route="misi3" style="top:53%; left:56%;" title="Misi 3: Sokaraja">
+                <span class="pin-marker">3</span>
+                <span class="pin-tooltip">Misi 3: Latihan (Sokaraja)</span>
+              </button>
+              <button class="map-waypoint-btn" data-route="misi4" style="top:62%; left:80%;" title="Misi 4: Banyumas Kota Lama">
+                <span class="pin-marker">4</span>
+                <span class="pin-tooltip">Misi 4: Cipta (Kota Lama)</span>
+              </button>
+              <button class="map-waypoint-btn" data-route="misi5" style="top:8%; left:36%;" title="Misi 5: Puncak Gunung Slamet">
+                <span class="pin-marker">5</span>
+                <span class="pin-tooltip">Misi 5: Refleksi (Puncak Slamet)</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="mission-map-grid" id="missions-grid">
@@ -877,20 +932,61 @@
               ⚙️ Pengaturan Desain Poster
             </h3>
 
-            <!-- 1. Pemilih Latar Bertema Banyumas (Minimal 6 Latar) -->
+            <!-- Preset Tata Letak Poster (Rekomendasi Cepat) -->
             <div class="control-group">
-              <span class="control-label">1. Pilih Latar Motif Batik / Alam:</span>
+              <span class="control-label">âš¡ Pilih Preset Desain Siap Pakai:</span>
+              <div class="preset-selector-grid" id="poster-preset-grid">
+                <!-- Dirender dari APP_DATA.misi4.posterPresets oleh app.js -->
+              </div>
+            </div>
+
+            <!-- 1. Pemilih Latar Bertema Banyumas (8 Pemandangan & Batik) -->
+            <div class="control-group">
+              <span class="control-label">1. Pilih Latar Ilustrasi Alam & Batik Banyumas:</span>
               <div class="bg-selector-grid" id="poster-bg-grid">
                 <!-- Dirender dari APP_DATA.misi4.backgrounds oleh app.js -->
               </div>
             </div>
 
-            <!-- 2. Pemilih Ikon Budaya SVG (Minimal 8 Ikon) -->
+            <!-- 2. Pemilih Bingkai Dekoratif -->
             <div class="control-group">
-              <span class="control-label">2. Pilih Ikon Budaya SVG Khas Banyumas:</span>
+              <span class="control-label">2. Pilih Bingkai Dekoratif:</span>
+              <div class="frame-selector-row" id="poster-frame-row">
+                <!-- Dirender dari APP_DATA.misi4.posterFrames oleh app.js -->
+              </div>
+            </div>
+
+            <!-- 3. Pemilih Stiker Budaya (18 Stiker Detail Kartun Semi-Realistis) -->
+            <div class="control-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                <span class="control-label" style="margin-bottom:0;">3. Tambah Stiker Budaya & Karakter:</span>
+                <span style="font-size:0.75rem; color:var(--color-daun); font-weight:700;">+ Klik untuk Menambahkan</span>
+              </div>
               <div class="icon-selector-grid" id="poster-icon-grid">
                 <!-- Dirender dari APP_DATA.misi4.svgIcons oleh app.js -->
               </div>
+            </div>
+
+            <!-- 4. Panel Kelola Multi-Stiker di Kanvas -->
+            <div class="control-group active-sticker-panel" id="active-sticker-panel" style="background:#FFFBEB; border:1.5px solid var(--color-mendoan); border-radius:10px; padding:0.85rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span style="font-size:0.82rem; font-weight:800; color:var(--color-soga-dark);">ðŸŽ¯ Kelola Stiker Terpilih di Kanvas:</span>
+                <span style="font-size:0.75rem; background:var(--color-soga); color:#FFF; padding:2px 8px; border-radius:12px; font-weight:700;" id="sticker-count-badge">0 Stiker</span>
+              </div>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.6rem;">
+                <button type="button" class="btn-secondary" id="btn-sticker-bring-forward" style="flex:1; min-height:32px; padding:0.25rem 0.5rem; font-size:0.75rem;" title="Bawa stiker ke lapisan paling depan">â¬†ï¸ Tumpuk Depan</button>
+                <button type="button" class="btn-secondary" id="btn-sticker-send-backward" style="flex:1; min-height:32px; padding:0.25rem 0.5rem; font-size:0.75rem;" title="Kirim stiker ke lapisan belakang">â¬‡ï¸ Tumpuk Belakang</button>
+                <button type="button" class="btn-secondary" id="btn-sticker-delete" style="min-height:32px; padding:0.25rem 0.65rem; font-size:0.75rem; color:#DC2626; border-color:#DC2626;" title="Hapus stiker yang sedang dipilih">ðŸ—‘ï¸ Hapus</button>
+              </div>
+              <div style="display:flex; gap:0.75rem; align-items:center; margin-bottom:0.35rem;">
+                <label for="inp-sticker-size" style="font-size:0.75rem; color:var(--color-text-muted); width:65px;">Ukuran:</label>
+                <input type="range" id="inp-sticker-size" min="60" max="350" value="180" style="flex:1;">
+              </div>
+              <div style="display:flex; gap:0.75rem; align-items:center;">
+                <label for="inp-sticker-rotate" style="font-size:0.75rem; color:var(--color-text-muted); width:65px;">Putar:</label>
+                <input type="range" id="inp-sticker-rotate" min="-180" max="180" value="0" style="flex:1;">
+              </div>
+              <span style="font-size:0.72rem; color:var(--color-text-muted); display:block; margin-top:0.4rem;">ðŸ’¡ Sentuh atau seret stiker langsung di kanvas untuk memindahkannya!</span>
             </div>
 
             <!-- 3. Input Judul Utama (Headline) -->
