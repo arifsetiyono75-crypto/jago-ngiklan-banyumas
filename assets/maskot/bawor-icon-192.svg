@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="100%" height="100%" role="img" aria-label="Jago Ngiklan Banyumas - Kang Bawor 192px">
+  <defs>
+    <radialGradient id="iconBg192" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="70%" stop-color="#FEF3C7" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </radialGradient>
+    <linearGradient id="iconRim192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="50%" stop-color="#5C3A21" />
+      <stop offset="100%" stop-color="#2D1508" />
+    </linearGradient>
+    <radialGradient id="baworSkin192" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFDEB5" />
+      <stop offset="60%" stop-color="#F5B888" />
+      <stop offset="100%" stop-color="#D98A52" />
+    </radialGradient>
+    <linearGradient id="udeng192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C3A21" />
+      <stop offset="100%" stop-color="#2D1508" />
+    </linearGradient>
+  </defs>
+
+  <!-- Latar Belakang Lingkaran Maskot PWA Berbingkai Batik Emas -->
+  <rect width="192" height="192" rx="42" fill="url(#iconRim192)" />
+  <circle cx="96" cy="96" r="82" fill="url(#iconBg192)" stroke="#F59E0B" stroke-width="3" />
+
+  <!-- Ornamen Sudut Tradisional -->
+  <circle cx="28" cy="28" r="4" fill="#F59E0B" />
+  <circle cx="164" cy="28" r="4" fill="#F59E0B" />
+  <circle cx="28" cy="164" r="4" fill="#F59E0B" />
+  <circle cx="164" cy="164" r="4" fill="#F59E0B" />
+
+  <!-- Tubuh Bagian Atas & Rompi -->
+  <ellipse cx="96" cy="148" rx="48" ry="34" fill="#FCD29F" stroke="#3A1E0D" stroke-width="3" />
+  <path d="M 54 126 Q 70 144 64 168 Q 50 156 48 136 Z" fill="url(#udeng192)" stroke="#3A1E0D" stroke-width="2.5" />
+  <path d="M 138 126 Q 122 144 128 168 Q 142 156 144 136 Z" fill="url(#udeng192)" stroke="#3A1E0D" stroke-width="2.5" />
+  <path d="M 74 120 Q 96 132 118 120" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" />
+
+  <!-- Kepala & Wajah Kang Bawor -->
+  <ellipse cx="96" cy="88" rx="46" ry="42" fill="url(#baworSkin192)" stroke="#3A1E0D" stroke-width="3.2" />
+
+  <!-- Pipi Merona -->
+  <ellipse cx="64" cy="98" rx="10" ry="7" fill="#F87171" opacity="0.65" />
+  <ellipse cx="128" cy="98" rx="10" ry="7" fill="#F87171" opacity="0.65" />
+
+  <!-- Telinga & Anting -->
+  <ellipse cx="50" cy="88" rx="7" ry="10" fill="url(#baworSkin192)" stroke="#3A1E0D" stroke-width="2.5" />
+  <circle cx="50" cy="95" r="3.5" fill="#F59E0B" stroke="#3A1E0D" stroke-width="1.2" />
+  <ellipse cx="142" cy="88" rx="7" ry="10" fill="url(#baworSkin192)" stroke="#3A1E0D" stroke-width="2.5" />
+  <circle cx="142" cy="95" r="3.5" fill="#F59E0B" stroke="#3A1E0D" stroke-width="1.2" />
+
+  <!-- Mata Bulat Ceria -->
+  <ellipse cx="76" cy="80" rx="10.5" ry="12" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+  <circle cx="78" cy="80" r="6.5" fill="#2E170A" />
+  <circle cx="76" cy="77" r="2.8" fill="#FFFFFF" />
+
+  <ellipse cx="116" cy="80" rx="10.5" ry="12" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+  <circle cx="114" cy="80" r="6.5" fill="#2E170A" />
+  <circle cx="112" cy="77" r="2.8" fill="#FFFFFF" />
+
+  <!-- Alis -->
+  <path d="M 64 68 Q 76 62 88 68" stroke="#3A1E0D" stroke-width="3.2" stroke-linecap="round" fill="none" />
+  <path d="M 104 68 Q 116 62 128 68" stroke="#3A1E0D" stroke-width="3.2" stroke-linecap="round" fill="none" />
+
+  <!-- Hidung Bulat Khas Bawor -->
+  <path d="M 90 86 C 90 79 102 79 102 86 C 102 93 90 93 90 86 Z" fill="#E89658" stroke="#3A1E0D" stroke-width="2.4" />
+
+  <!-- Senyum Terbuka Cablaka -->
+  <path d="M 72 98 Q 96 124 120 98 Q 96 104 72 98 Z" fill="#991B1B" stroke="#3A1E0D" stroke-width="2.6" />
+  <path d="M 79 99 Q 96 104 113 99 Q 96 102 79 99 Z" fill="#FFFFFF" />
+  <path d="M 86 112 Q 96 106 106 112 Q 96 120 86 112 Z" fill="#F43F5E" />
+
+  <!-- Udeng Batik Soga & Mondholan -->
+  <path d="M 52 64 Q 96 44 140 64 Q 144 74 136 74 Q 96 56 56 74 Z" fill="url(#udeng192)" stroke="#3A1E0D" stroke-width="2.6" />
+  <circle cx="142" cy="65" r="9" fill="#2D1508" />
+  <path d="M 66 61 Q 96 50 126 61" stroke="#F59E0B" stroke-width="2.2" fill="none" stroke-dasharray="3,2" />
+
+  <!-- Rambut Kuncung Khas -->
+  <path d="M 92 48 C 88 32 100 22 108 26 C 114 29 110 38 100 48 Z" fill="#1C1008" stroke="#3A1E0D" stroke-width="2.2" />
+
+  <!-- Pita Banner Judul Bawah -->
+  <rect x="36" y="156" width="120" height="22" rx="11" fill="#5C3A21" stroke="#F59E0B" stroke-width="1.8" />
+  <text x="96" y="171" font-family="'Poppins', sans-serif" font-weight="900" font-size="9" fill="#FFFBEB" text-anchor="middle" letter-spacing="1">KANG BAWOR</text>
+</svg>

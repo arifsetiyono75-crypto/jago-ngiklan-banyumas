@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%" role="img" aria-label="Medali Duta Promosi Budaya Banyumas">
+  <defs>
+    <!-- Gradasi Pita Emas & Cokelat Soga Kraton -->
+    <linearGradient id="ribbonGrad5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#78350F" />
+      <stop offset="30%" stop-color="#F59E0B" />
+      <stop offset="70%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#5C3A21" />
+    </linearGradient>
+    <radialGradient id="crownGoldGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="30%" stop-color="#FDE68A" />
+      <stop offset="65%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#92400E" />
+    </radialGradient>
+    <radialGradient id="diamondGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#BAE6FD" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </radialGradient>
+    <filter id="medalGlow5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#78350F" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <g filter="url(#medalGlow5)">
+    <!-- Pita Gantung Berornamen -->
+    <path d="M 26 0 L 50 36 L 40 40 L 16 0 Z" fill="url(#ribbonGrad5)" stroke="#5C3A21" stroke-width="1.8" />
+    <path d="M 74 0 L 50 36 L 60 40 L 84 0 Z" fill="url(#ribbonGrad5)" stroke="#5C3A21" stroke-width="1.8" />
+    <path d="M 45 0 L 50 22 L 55 0 Z" fill="#EF4444" />
+
+    <!-- Cincin Gantung Mahkota -->
+    <circle cx="50" cy="36" r="8" fill="none" stroke="#F59E0B" stroke-width="3" />
+
+    <!-- Medali Utama Emas Murni Berornamen -->
+    <circle cx="50" cy="74" r="38" fill="url(#crownGoldGrad)" stroke="#78350F" stroke-width="2.5" />
+    <!-- Sinar Matahari / Ornamen Luar -->
+    <circle cx="50" cy="74" r="32" fill="#5C3A21" stroke="#FDE68A" stroke-width="1.5" />
+
+    <!-- Mahkota Kejayaan Duta Budaya -->
+    <path d="M 32 80 L 36 64 L 43 72 L 50 58 L 57 72 L 64 64 L 68 80 Z" fill="url(#crownGoldGrad)" stroke="#78350F" stroke-width="1.8" />
+    <!-- Permata di Ujung Mahkota -->
+    <circle cx="36" cy="63" r="2.5" fill="#EF4444" />
+    <circle cx="50" cy="57" r="3.2" fill="url(#diamondGrad)" stroke="#0369A1" stroke-width="0.8" />
+    <circle cx="64" cy="63" r="2.5" fill="#EF4444" />
+
+    <!-- Banner "DUTA" Kecil Emas -->
+    <rect x="34" y="82" width="32" height="10" rx="4" fill="#FDE68A" stroke="#78350F" stroke-width="1.2" />
+    <text x="50" y="90" font-family="'Poppins', sans-serif" font-weight="900" font-size="7" fill="#78350F" text-anchor="middle" letter-spacing="1">DUTA</text>
+
+    <!-- Kilau Cahaya Berlian Putih -->
+    <polygon points="26,48 29,53 35,53 30,56 32,62 26,58 20,62 22,56 17,53 23,53" fill="#FFFFFF" opacity="0.95" />
+    <polygon points="76,78 78,82 82,82 79,84 80,88 76,85 72,88 73,84 70,82 74,82" fill="#FFFFFF" opacity="0.9" />
+  </g>
+</svg>

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="100%" height="100%" role="img" aria-label="Kang Bawor Berpikir">
+  <defs>
+    <radialGradient id="baworSkin2" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFDEB5" />
+      <stop offset="60%" stop-color="#F5B888" />
+      <stop offset="100%" stop-color="#D98A52" />
+    </radialGradient>
+    <radialGradient id="baworBelly2" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#FCD29F" />
+      <stop offset="70%" stop-color="#EAA26A" />
+      <stop offset="100%" stop-color="#C27339" />
+    </radialGradient>
+    <linearGradient id="udengBawor2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C3A21" />
+      <stop offset="50%" stop-color="#784719" />
+      <stop offset="100%" stop-color="#3A1E0D" />
+    </linearGradient>
+    <linearGradient id="goldTrim2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="baworShadow2" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#3A1E0D" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <g filter="url(#baworShadow2)">
+    <!-- BAYANGAN TANAH -->
+    <ellipse cx="100" cy="208" rx="55" ry="8" fill="#3A1E0D" opacity="0.2" />
+
+    <!-- KAKI & JARIK BATIK -->
+    <ellipse cx="80" cy="198" rx="14" ry="9" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <ellipse cx="120" cy="198" rx="14" ry="9" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="73" cy="200" r="3" fill="#D98A52" />
+    <circle cx="127" cy="200" r="3" fill="#D98A52" />
+
+    <path d="M 64 150 Q 100 156 136 150 L 140 190 Q 100 200 60 190 Z" fill="url(#udengBawor2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <path d="M 72 160 Q 90 172 82 188" stroke="url(#goldTrim2)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 96 158 Q 112 170 102 189" stroke="url(#goldTrim2)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 120 162 Q 134 174 126 188" stroke="url(#goldTrim2)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 64 150 Q 100 156 136 150 L 136 158 Q 100 164 64 158 Z" fill="url(#goldTrim2)" stroke="#3A1E0D" stroke-width="2" />
+    <circle cx="100" cy="157" r="5" fill="#EF4444" stroke="#78350F" stroke-width="1.5" />
+
+    <!-- BADAN GEMUK -->
+    <ellipse cx="100" cy="138" rx="42" ry="34" fill="url(#baworBelly2)" stroke="#3A1E0D" stroke-width="3" />
+    <ellipse cx="100" cy="144" rx="3.5" ry="2.5" fill="#A85724" />
+
+    <!-- ROMPI KAIN SOGA -->
+    <path d="M 64 116 Q 78 132 72 152 Q 62 142 60 126 Z" fill="url(#udengBawor2)" stroke="#3A1E0D" stroke-width="2" />
+    <path d="M 136 116 Q 122 132 128 152 Q 138 142 140 126 Z" fill="url(#udengBawor2)" stroke="#3A1E0D" stroke-width="2" />
+
+    <!-- TANGAN KIRI (MENOPANG SIKU KANAN) -->
+    <g id="tangan-kiri-topang">
+      <path d="M 62 124 Q 85 142 110 134" stroke="#3A1E0D" stroke-width="9" stroke-linecap="round" fill="none" />
+      <path d="M 62 124 Q 85 142 110 134" stroke="url(#baworSkin2)" stroke-width="5" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- TANGAN KANAN (JARI DI DAGU - GESTUR BERPIKIR) -->
+    <g id="tangan-kanan-dagu">
+      <path d="M 138 122 Q 130 138 114 130 Q 108 116 112 100" stroke="#3A1E0D" stroke-width="8" stroke-linecap="round" fill="none" />
+      <path d="M 138 122 Q 130 138 114 130 Q 108 116 112 100" stroke="url(#baworSkin2)" stroke-width="4.5" stroke-linecap="round" fill="none" />
+      <!-- Jari telunjuk mengetuk dagu -->
+      <circle cx="112" cy="98" r="6" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="2" />
+      <path d="M 108 94 L 104 88" stroke="#3A1E0D" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+
+    <!-- LEHER & KALUNG -->
+    <rect x="88" y="104" width="24" height="12" rx="6" fill="url(#baworSkin2)" />
+    <path d="M 80 110 Q 100 120 120 110" stroke="url(#goldTrim2)" stroke-width="3" fill="none" stroke-linecap="round" />
+
+    <!-- KEPALA & WAJAH -->
+    <ellipse cx="100" cy="74" rx="44" ry="40" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="3" />
+
+    <!-- PIPI -->
+    <ellipse cx="68" cy="85" rx="9" ry="6" fill="#F87171" opacity="0.65" />
+    <ellipse cx="132" cy="85" rx="9" ry="6" fill="#F87171" opacity="0.65" />
+
+    <!-- TELINGA & ANTING -->
+    <ellipse cx="56" cy="74" rx="7" ry="10" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="56" cy="81" r="3.5" fill="url(#goldTrim2)" stroke="#3A1E0D" stroke-width="1.2" />
+    <ellipse cx="144" cy="74" rx="7" ry="10" fill="url(#baworSkin2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="144" cy="81" r="3.5" fill="url(#goldTrim2)" stroke="#3A1E0D" stroke-width="1.2" />
+
+    <!-- MATA BERPIKIR (MELIRIK KE ATAS KANAN DENGAN CERDAS) -->
+    <!-- Mata Kiri -->
+    <ellipse cx="80" cy="66" rx="10" ry="11" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="84" cy="62" r="6" fill="#2E170A" />
+    <circle cx="83" cy="60" r="2.2" fill="#FFFFFF" />
+    <!-- Alis Kiri Datar Fokus -->
+    <path d="M 70 54 Q 80 54 90 54" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Mata Kanan -->
+    <ellipse cx="120" cy="66" rx="10" ry="11" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="124" cy="62" r="6" fill="#2E170A" />
+    <circle cx="123" cy="60" r="2.2" fill="#FFFFFF" />
+    <!-- Alis Kanan Terangkat Penasaran -->
+    <path d="M 110 52 Q 120 44 132 50" stroke="#3A1E0D" stroke-width="3.2" stroke-linecap="round" fill="none" />
+
+    <!-- HIDUNG CEMBUNG -->
+    <path d="M 94 72 C 94 65 106 65 106 72 C 106 79 94 79 94 72 Z" fill="#E89658" stroke="#3A1E0D" stroke-width="2.2" />
+    <ellipse cx="98" cy="70" rx="2" ry="1.2" fill="#FFFFFF" opacity="0.6" />
+
+    <!-- MULUT SENYUM BERGUMAM / MENIMBANG IDE -->
+    <path d="M 82 88 Q 98 94 116 86" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" fill="none" />
+    <circle cx="118" cy="86" r="2" fill="#3A1E0D" />
+
+    <!-- UDENG SOGA -->
+    <path d="M 58 50 Q 100 32 142 50 Q 146 60 138 60 Q 100 42 62 60 Q 54 60 58 50 Z" fill="url(#udengBawor2)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="144" cy="52" r="9" fill="#3A1E0D" />
+    <path d="M 70 48 Q 100 38 130 48" stroke="url(#goldTrim2)" stroke-width="2.2" fill="none" stroke-dasharray="3,2" />
+    <polygon points="96,38 104,38 102,46 98,46" fill="#FDE68A" stroke="#3A1E0D" stroke-width="1.2" />
+
+    <!-- RAMBUT KUNCUNG -->
+    <path d="M 96 36 C 92 20 104 10 112 14 C 118 17 114 26 104 36 Z" fill="#1C1008" stroke="#3A1E0D" stroke-width="2.2" />
+    <path d="M 100 28 Q 106 18 110 20" stroke="#784719" stroke-width="1.5" fill="none" stroke-linecap="round" />
+
+    <!-- GELEMBUNG IDE BOHLAM KECIL DI ATAS KANAN -->
+    <g id="gelembung-ide">
+      <circle cx="156" cy="30" r="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" />
+      <!-- Bohlam Ide Lucu -->
+      <path d="M 152 28 Q 156 22 160 28 Q 158 32 154 32 Z" fill="#F59E0B" />
+      <rect x="153" y="32" width="6" height="3" rx="1" fill="#78350F" />
+      <!-- Kilau Ide -->
+      <line x1="156" y1="11" x2="156" y2="7" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+      <line x1="171" y1="20" x2="175" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+      <circle cx="144" cy="44" r="3.5" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5" />
+    </g>
+  </g>
+</svg>

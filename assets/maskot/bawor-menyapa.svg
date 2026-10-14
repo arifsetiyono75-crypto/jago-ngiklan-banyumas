@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="100%" height="100%" role="img" aria-label="Kang Bawor Menyapa">
+  <defs>
+    <!-- Gradasi Warna Kulit Hangat Sawo Matang -->
+    <radialGradient id="baworSkin" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFDEB5" />
+      <stop offset="60%" stop-color="#F5B888" />
+      <stop offset="100%" stop-color="#D98A52" />
+    </radialGradient>
+    <radialGradient id="baworBelly" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#FCD29F" />
+      <stop offset="70%" stop-color="#EAA26A" />
+      <stop offset="100%" stop-color="#C27339" />
+    </radialGradient>
+    <!-- Gradasi Udeng / Ikat Kepala Soga Banyumasan -->
+    <linearGradient id="udengBawor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C3A21" />
+      <stop offset="50%" stop-color="#784719" />
+      <stop offset="100%" stop-color="#3A1E0D" />
+    </linearGradient>
+    <linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <!-- Bayangan Lembut -->
+    <filter id="baworShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#3A1E0D" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <g filter="url(#baworShadow)">
+    <!-- BAYANGAN TANAH / PIJAKAN -->
+    <ellipse cx="100" cy="208" rx="55" ry="8" fill="#3A1E0D" opacity="0.2" />
+
+    <!-- KAKI PENDEK & KAIN JARIK LURIK BATIK BANYUMAS -->
+    <!-- Kaki Kiri & Kanan -->
+    <ellipse cx="80" cy="198" rx="14" ry="9" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" />
+    <ellipse cx="120" cy="198" rx="14" ry="9" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" />
+    <!-- Jari Kaki Lucu -->
+    <circle cx="73" cy="200" r="3" fill="#D98A52" />
+    <circle cx="127" cy="200" r="3" fill="#D98A52" />
+
+    <!-- KAIN JARIK BATIK SOGA (PINGGANG HINGGA LUTUT) -->
+    <path d="M 64 150 Q 100 156 136 150 L 140 190 Q 100 200 60 190 Z" fill="url(#udengBawor)" stroke="#3A1E0D" stroke-width="2.5" />
+    <!-- Motif Guratan Emas Batik Banyumas -->
+    <path d="M 72 160 Q 90 172 82 188" stroke="url(#goldTrim)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 96 158 Q 112 170 102 189" stroke="url(#goldTrim)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 120 162 Q 134 174 126 188" stroke="url(#goldTrim)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <!-- Sabuk Timang Emas -->
+    <path d="M 64 150 Q 100 156 136 150 L 136 158 Q 100 164 64 158 Z" fill="url(#goldTrim)" stroke="#3A1E0D" stroke-width="2" />
+    <circle cx="100" cy="157" r="5" fill="#EF4444" stroke="#78350F" stroke-width="1.5" />
+
+    <!-- BADAN BULAT GEMUK KANG BAWOR -->
+    <ellipse cx="100" cy="138" rx="42" ry="34" fill="url(#baworBelly)" stroke="#3A1E0D" stroke-width="3" />
+    <!-- Pusar Jenaka Khas Punakawan -->
+    <ellipse cx="100" cy="144" rx="3.5" ry="2.5" fill="#A85724" />
+
+    <!-- ROMPI KAIN SOGA TERBUKA (KIRI & KANAN DADA) -->
+    <path d="M 64 116 Q 78 132 72 152 Q 62 142 60 126 Z" fill="url(#udengBawor)" stroke="#3A1E0D" stroke-width="2" />
+    <path d="M 136 116 Q 122 132 128 152 Q 138 142 140 126 Z" fill="url(#udengBawor)" stroke="#3A1E0D" stroke-width="2" />
+
+    <!-- TANGAN KIRI (BERKACAK PINGGANG DENGAN SANTAI) -->
+    <g id="tangan-kiri">
+      <path d="M 60 120 Q 38 135 52 155 Q 60 152 64 146" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="56" cy="152" r="6" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2" />
+    </g>
+
+    <!-- TANGAN KANAN (MELAMBAI HANGAT MENYAPA KANCA-KANCA) -->
+    <g id="tangan-kanan-melambai" class="anim-bawor-wave">
+      <!-- Lengan Atas ke Samping Atas -->
+      <path d="M 140 120 Q 166 110 162 86 Q 152 82 142 98 Z" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" />
+      <!-- Telapak Tangan & Jari Melambai Terbuka -->
+      <circle cx="164" cy="78" r="9" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.2" />
+      <!-- 4 Jari Melambai Ceria -->
+      <path d="M 158 72 L 158 64" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" />
+      <path d="M 163 70 L 165 62" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" />
+      <path d="M 168 71 L 172 63" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" />
+      <path d="M 172 75 L 178 70" stroke="#3A1E0D" stroke-width="2.8" stroke-linecap="round" />
+      <path d="M 155 77 L 150 78" stroke="#3A1E0D" stroke-width="2.8" stroke-linecap="round" /> <!-- Jempol -->
+    </g>
+
+    <!-- LEHER & KALUNG KORDON -->
+    <rect x="88" y="104" width="24" height="12" rx="6" fill="url(#baworSkin)" />
+    <path d="M 80 110 Q 100 120 120 110" stroke="url(#goldTrim)" stroke-width="3" fill="none" stroke-linecap="round" />
+
+    <!-- KEPALA & WAJAH BULAT TEMBEM KANG BAWOR -->
+    <ellipse cx="100" cy="74" rx="44" ry="40" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="3" />
+
+    <!-- PIPI MERONA HANGAT & RAMAH -->
+    <ellipse cx="68" cy="85" rx="9" ry="6" fill="#F87171" opacity="0.65" />
+    <ellipse cx="132" cy="85" rx="9" ry="6" fill="#F87171" opacity="0.65" />
+
+    <!-- TELINGA KIRI & KANAN DENGAN ANTING SUBANG EMAS -->
+    <ellipse cx="56" cy="74" rx="7" ry="10" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="56" cy="81" r="3.5" fill="url(#goldTrim)" stroke="#3A1E0D" stroke-width="1.2" />
+    <ellipse cx="144" cy="74" rx="7" ry="10" fill="url(#baworSkin)" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="144" cy="81" r="3.5" fill="url(#goldTrim)" stroke="#3A1E0D" stroke-width="1.2" />
+
+    <!-- MATA BULAT BESAR BLALAK-BLALAK KHAS PUNAKAWAN (EKSPRESIF & CERIA) -->
+    <!-- Mata Kiri -->
+    <ellipse cx="80" cy="66" rx="10" ry="11" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="82" cy="66" r="6" fill="#2E170A" />
+    <circle cx="80" cy="63" r="2.5" fill="#FFFFFF" /> <!-- Highlight Kilau -->
+    <circle cx="84" cy="68" r="1.2" fill="#FFFFFF" />
+    <!-- Alis Kiri Melengkung Ramah -->
+    <path d="M 69 54 Q 81 48 91 55" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Mata Kanan -->
+    <ellipse cx="120" cy="66" rx="10" ry="11" fill="#FFFFFF" stroke="#3A1E0D" stroke-width="2.5" />
+    <circle cx="118" cy="66" r="6" fill="#2E170A" />
+    <circle cx="116" cy="63" r="2.5" fill="#FFFFFF" /> <!-- Highlight Kilau -->
+    <circle cx="120" cy="68" r="1.2" fill="#FFFFFF" />
+    <!-- Alis Kanan Melengkung Ramah -->
+    <path d="M 109 55 Q 119 48 131 54" stroke="#3A1E0D" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- HIDUNG BULAT CEMBUNG KHAS BAWOR (LUCU & SAHAJA) -->
+    <path d="M 94 72 C 94 65 106 65 106 72 C 106 79 94 79 94 72 Z" fill="#E89658" stroke="#3A1E0D" stroke-width="2.2" />
+    <ellipse cx="98" cy="70" rx="2" ry="1.2" fill="#FFFFFF" opacity="0.6" />
+
+    <!-- SENYUM LEBAR TERBUKA & LIDAH MERAH MUDA (CABALAKA & HUMORIS) -->
+    <path d="M 76 84 Q 100 110 124 84 Q 100 90 76 84 Z" fill="#991B1B" stroke="#3A1E0D" stroke-width="2.5" />
+    <!-- Gigi Putih Bersih di Atas -->
+    <path d="M 83 85 Q 100 90 117 85 Q 110 88 100 88 Q 90 88 83 85 Z" fill="#FFFFFF" />
+    <!-- Lidah Lucu Merona -->
+    <path d="M 90 98 Q 100 92 110 98 Q 100 106 90 98 Z" fill="#F43F5E" />
+    <!-- Lesung Pipit Tawa -->
+    <path d="M 72 82 Q 74 88 77 91" stroke="#3A1E0D" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M 128 82 Q 126 88 123 91" stroke="#3A1E0D" stroke-width="2" stroke-linecap="round" fill="none" />
+
+    <!-- IKAT KEPALA / UDENG KHAS BANYUMAS DENGAN MONDHOLAN -->
+    <path d="M 58 50 Q 100 32 142 50 Q 146 60 138 60 Q 100 42 62 60 Q 54 60 58 50 Z" fill="url(#udengBawor)" stroke="#3A1E0D" stroke-width="2.5" />
+    <!-- Mondholan Khas di Belakang Samping -->
+    <circle cx="144" cy="52" r="9" fill="#3A1E0D" />
+    <!-- Motif Guratan Emas Udeng -->
+    <path d="M 70 48 Q 100 38 130 48" stroke="url(#goldTrim)" stroke-width="2.2" fill="none" stroke-dasharray="3,2" />
+    <polygon points="96,38 104,38 102,46 98,46" fill="#FDE68A" stroke="#3A1E0D" stroke-width="1.2" />
+
+    <!-- RAMBUT KUNCUNG / JAMBUL PUNAKAWAN KHAS KANG BAWOR -->
+    <!-- Jambul melengkung gagah & lucu di pucuk kepala -->
+    <path d="M 96 36 C 92 20 104 10 112 14 C 118 17 114 26 104 36 Z" fill="#1C1008" stroke="#3A1E0D" stroke-width="2.2" />
+    <!-- Kilau Rambut Hitam -->
+    <path d="M 100 28 Q 106 18 110 20" stroke="#784719" stroke-width="1.5" fill="none" stroke-linecap="round" />
+  </g>
+</svg>
