@@ -24,7 +24,7 @@ Media ini memadukan dua pendekatan pedagogis utama:
 - **Pure Vanilla Web (Zero-Framework)**: Dibangun 100% menggunakan HTML5, CSS3, dan JavaScript murni tanpa ketergantungan framework berat (*React, Vue, Tailwind, atau bundler*), sehingga sangat cepat dimuat dan ramah memori HP.
 - **Mobile-First & Layar 360px Friendly**: Didesain responsif khusus untuk gawai Android peserta didik dengan navigasi bawah (*Bottom Nav*), tombol sentuh minimal 44–48px, dan kontras warna standar **WCAG AA / AAA**.
 - **Offline-First Ready (PWA)**: Dilengkapi `manifest.json` dan Service Worker (`sw.js`) dengan strategi caching *stale-while-revalidate*. Siswa dapat tetap belajar saat koneksi internet sekolah/rumah tidak stabil.
-- **Pemandu Budaya Kang Bawor**: Tokoh Punakawan khas Banyumasan berkarakter polos, jujur, *cablaka*, dan humoris yang memandu siswa di seluruh tahapan belajar dengan animasi SVG orisinal (lambaian tangan, kedip mata, lompat ceria) serta sapaan dialek *ngapak* berglosarium interaktif.
+- **Pemandu Budaya Kang Bawor**: Tokoh Punakawan khas Banyumasan berkarakter polos, jujur, *cablaka*, dan bersahaja yang memandu siswa di seluruh tahapan belajar dengan animasi SVG orisinal (lambaian tangan, kedip mata, lompat ceria). Pendekatan Culturally Responsive Teaching (CRT) diwujudkan secara utuh melalui muatan kearifan lokal Banyumas dengan bahasa pengantar 100% Bahasa Indonesia baku yang ramah dan komunikatif bagi siswa SMP.
 - **Peta Petualangan Kartun Banyumas**: Ilustrasi peta bergaya kartun semi-realistis yang memuat landmark legendaris (Puncak Gunung Slamet 3.428 mdpl, Curug Baturraden, terasering sawah, Sungai Serayu) dengan 5 pin penanda misi interaktif yang beranimasi halus.
 - **Lencana Medali Berkilau**: Desain medali penghargaan 3D berkilau untuk 5 tingkat kemahiran (*Santri Sinau*, *Sahabat Kang Bawor*, *Pendekar Slogan*, *Juragan Promosi*, hingga *Duta Promosi Banyumas*).
 - **Dual-Canvas 2D Graphics Engine**:
@@ -41,7 +41,7 @@ Media ini memadukan dua pendekatan pedagogis utama:
 jago-ngiklan-banyumas/
 ├── index.html              # Struktur utama antarmuka SPA & semantik aksesibel
 ├── manifest.json           # Web App Manifest untuk instalasi PWA di Android
-├── sw.js                   # Service Worker cache offline v5
+├── sw.js                   # Service Worker cache offline v6
 ├── README.md               # Dokumentasi lengkap & panduan guru
 ├── assets/                 # Aset grafis orisinal SVG kartun semi-realistis
 │   ├── maskot/             # Kang Bawor 7-pose suite (menyapa, berpikir, semangat, kreasi, bangga, senang, semangati, favicon, ikon PWA)
@@ -50,7 +50,7 @@ jago-ngiklan-banyumas/
 ├── css/
 │   └── style.css           # Desain tema batik Banyumas, animasi Kang Bawor, layout responsif & cetak
 └── js/
-    ├── data.js             # PUSAT DATA: 18 Stiker, 8 Latar, 5 Bingkai, 4 Preset, Bank Soal, Glosarium
+    ├── data.js             # PUSAT DATA: 18 Stiker, 8 Latar, 5 Bingkai, 4 Preset, Bank Soal, Panduan Guru
     └── app.js              # LOGIKA: Multi-sticker Canvas Engine, Router, Audio, State Management
 ```
 

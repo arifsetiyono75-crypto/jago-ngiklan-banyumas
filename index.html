@@ -59,7 +59,7 @@
 
       <!-- Status XP & Profil Siswa -->
       <div class="student-status-bar">
-        <div class="xp-badge-pill" title="Poin Pengalaman (XP) Rika" data-route="misi5" role="button" tabindex="0">
+        <div class="xp-badge-pill" title="Poin Pengalaman (XP) Kamu" data-route="misi5" role="button" tabindex="0">
           <span class="xp-star-icon" aria-hidden="true">⭐</span>
           <span class="student-xp-display">0</span> XP
         </div>
@@ -85,7 +85,7 @@
         <div class="hero-layout">
           
           <!-- Maskot Kang Bawor (Punakawan Banyumasan Handcrafted SVG) -->
-          <div class="mascot-container" id="kang-bawor-mascot" title="Klik inyong nggo sapaan!">
+          <div class="mascot-container" id="kang-bawor-mascot" title="Klik Kang Bawor untuk menyapa!">
             <div class="mascot-svg-wrapper">
               <svg viewBox="0 0 160 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Kang Bawor, Punakawan Cablaka Khas Banyumasan">
                 <defs>
@@ -175,13 +175,10 @@
 
           <div class="speech-bubble">
             <h2 class="greeting-title" id="heading-beranda">
-              Sugeng Rawuh, <span class="student-name-display">Kanca Jagoan</span>! 👋
+              Selamat Datang, <span class="student-name-display">Siswa Jagoan</span>! 👋
             </h2>
             <p id="mascot-speech-text">
-              <span class="ngapak-word" data-word="inyong">Inyong</span> Kang Bawor! Cablaka, jujur, lan grapyak. 
-              <span class="ngapak-word" data-word="kepriwe">Kepriwe</span> kabare rika dina kiye? 
-              <span class="ngapak-word" data-word="mayuh">Mayuh</span> kita petualangan keliling Banyumas nyinauni 
-              <strong>Slogan, Iklan, lan Poster</strong>! <span class="ngapak-word" data-word="sing semangat">Sing semangat</span> ya!
+              Halo, saya <strong>Kang Bawor</strong>! Pemandu belajarmu yang ramah, jujur, dan bersahaja. Bagaimana kabarmu hari ini? Mari berpetualang menjelajahi kearifan lokal Banyumas sambil mempelajari <strong>Slogan, Iklan, dan Poster</strong>. Ayo, tetap semangat!
             </p>
 
             <!-- Box Input Nama Siswa (Jika Belum Tersimpan) -->
@@ -431,10 +428,10 @@
           <div id="m1-quiz-completion-box" style="display:none; text-align:center; padding:1.5rem; background:#FFFBEB; border:2px solid var(--color-mendoan); border-radius:12px; margin-top:1.5rem;">
             <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎉</div>
             <h4 style="font-size:1.2rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
-              <span class="ngapak-word" data-word="wis bener">Wis Bener</span> Kabeh! Rika Lulus Misi 1!
+              Hebat, Semua Jawaban Benar! Kamu Lulus Misi 1!
             </h4>
             <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;">
-              Selamat! Rika berhak mendapatkan <strong>+100 XP</strong> dan kunci <strong>Misi 2: Bedah Kaidah Kebahasaan</strong> kini telah terbuka!
+              Selamat! Kamu berhak mendapatkan <strong>+100 XP</strong> dan kunci <strong>Misi 2: Bedah Kaidah Kebahasaan</strong> kini telah terbuka!</p>
             </p>
             <button class="btn-primary" data-route="misi2">
               Lanjut ke Misi 2 (Bedah) 🔬 ➡️
@@ -511,10 +508,10 @@
       <!-- Tombol Aksi Akhir Misi 2 -->
       <div class="adventure-progress-card" style="text-align:center; padding:1.25rem;">
         <h4 style="font-size:1.05rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
-          <span class="ngapak-word" data-word="mantep">Mantep</span> Temen! Keahlian Analisis Rika Makin Tajam!
+          Luar Biasa! Kemampuan Analisis Kamu Makin Tajam!
         </h4>
         <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
-          Setelah memahami kaidah kebahasaan pada slogan, iklan, dan poster Banyumas, rika siap menguji ketangkasan di arena latihan dan game seru!
+          Setelah memahami kaidah kebahasaan pada slogan, iklan, dan poster Banyumas, kamu siap menguji ketangkasan di arena latihan dan game seru!
         </p>
         <button class="btn-primary" data-route="misi3">
           Lanjut ke Misi 3 (Latihan & Game) 🎯 ➡️
@@ -558,7 +555,7 @@
 
       <!-- SUBTAB 1: TANTANGAN SUSUN KATA SLOGAN (DRAG & DROP / TAP) -->
       <div id="subtab-m3-susun" class="m3-subtab-pane">
-        <div class="slogan-game-card">
+        <div class="slogan-game-card" id="dd-game-card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
             <span class="section-tag" id="dd-challenge-step">Tantangan 1 dari 3</span>
             <span style="font-size:0.82rem; font-weight:700; color:var(--color-daun);">+30 XP per slogan</span>
@@ -571,7 +568,7 @@
           </p>
 
           <label style="font-size:0.78rem; font-weight:800; color:var(--color-soga); text-transform:uppercase; display:block; margin-bottom:0.35rem;">
-            Wadah Susunan Slogan Rika (Sentuh kata di bawah untuk memasukkan):
+            Wadah Susunan Slogan Kamu (Sentuh kata di bawah untuk memasukkan):
           </label>
           
           <!-- Dropzone / Slot Susunan Kata -->
@@ -605,6 +602,22 @@
             <button class="btn-primary" id="btn-next-slogan">
               Tantangan Slogan Berikutnya ➡️
             </button>
+          </div>
+        </div>
+
+        <!-- Layar Selesai Susun Slogan -->
+        <div id="dd-complete-card" class="slogan-game-card" style="display:none; text-align:center; padding:2rem 1.5rem;">
+          <div style="font-size:3rem; margin-bottom:0.5rem;">✍️</div>
+          <h3 style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.5rem;">Luar Biasa! Semua Slogan Berhasil Disusun!</h3>
+          <p style="font-size:0.9rem; color:var(--color-text-main); line-height:1.5; max-width:500px; margin:0 auto 1.25rem auto;">
+            Kamu telah membuktikan kepiawaian merangkai slogan bermakna dengan rima harmonis dan sarat kearifan lokal Banyumas!
+          </p>
+          <div style="background:#FEF3C7; border:2px solid #F59E0B; border-radius:12px; padding:0.85rem 1rem; max-width:440px; margin:0 auto 1.25rem auto;">
+            <div style="font-weight:800; color:#92400E; font-size:0.92rem;">🏆 Lencana Terbuka: Penyusun Slogan Ulung!</div>
+          </div>
+          <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+            <button class="btn-secondary" id="btn-restart-dd" style="min-height:44px;">🔄 Susun Ulang Slogan</button>
+            <button class="btn-primary" id="btn-dd-to-quiz" style="min-height:44px;">Lanjut: Kuis 10 Soal Acak ➡️</button>
           </div>
         </div>
       </div>
@@ -659,13 +672,13 @@
             Hasil Kuis 10 Soal Bab 2
           </h3>
           <p style="font-size:0.9rem; color:var(--color-text-muted);">
-            Luar biasa! Rika telah menyelesaikan petualangan penalaran kritis seputar Slogan, Iklan, dan Poster Banyumas!
+            Luar biasa! Kamu telah menyelesaikan petualangan penalaran kritis seputar Slogan, Iklan, dan Poster Banyumas!
           </p>
           <div class="score-number-big" id="quiz10-final-score">
             100
           </div>
           <p style="font-weight:700; color:var(--color-daun); margin-bottom:1rem;" id="quiz10-final-msg">
-            Mantap Pisan! Rika Menguasai Materi dengan Sempurna!
+            Hebat Sekali! Kamu Menguasai Materi dengan Sempurna!
           </p>
           <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
             <button class="btn-secondary" id="btn-restart-quiz10">
@@ -680,7 +693,7 @@
 
       <!-- SUBTAB 3: IKLAN BENERAN VS HOAKS PROMOSI -->
       <div id="subtab-m3-hoaks" class="m3-subtab-pane" style="display:none;">
-        <div class="hvr-case-card">
+        <div class="hvr-case-card" id="hvr-game-card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
             <span class="section-tag" id="hvr-step-tag">Kasus 1 dari 6</span>
             <span style="font-size:0.8rem; font-weight:700; color:var(--color-daun);">
@@ -728,6 +741,26 @@
             </button>
           </div>
         </div>
+
+        <!-- Layar Hasil Deteksi Iklan vs Hoaks -->
+        <div id="hvr-result-card" class="slogan-game-card" style="display:none; text-align:center; padding:2rem 1.5rem;">
+          <div style="font-size:3rem; margin-bottom:0.5rem;" id="hvr-result-icon">🛡️</div>
+          <h3 style="font-size:1.35rem; color:var(--color-soga-dark); margin-bottom:0.5rem;" id="hvr-result-title">Hasil Deteksi Iklan Jujur vs Hoaks</h3>
+          <div style="font-size:1.05rem; font-weight:800; color:var(--color-daun); margin-bottom:0.75rem;">
+            Skor Akhir: <span id="hvr-final-score">0</span> / <span id="hvr-total-cases">6</span> Kasus Tepat
+          </div>
+          <p style="font-size:0.9rem; color:var(--color-text-main); line-height:1.5; max-width:500px; margin:0 auto 1.25rem auto;" id="hvr-result-desc">
+            Ulasan pencapaian literasi kritis akan tampil di sini.
+          </p>
+          <div id="hvr-badge-earned-box" style="display:none; background:#FEF3C7; border:2px solid #F59E0B; border-radius:12px; padding:0.85rem 1rem; max-width:440px; margin:0 auto 1.25rem auto;">
+            <div style="font-weight:800; color:#92400E; font-size:0.92rem;">🏆 Lencana Terbuka: Detektif Anti-Hoaks!</div>
+            <div style="font-size:0.8rem; color:#B45309; margin-top:0.25rem;">Kamu memiliki kejelian tinggi dalam membedakan klaim promosi etis dengan hoaks yang menyesatkan!</div>
+          </div>
+          <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+            <button class="btn-secondary" id="btn-restart-hvr" style="min-height:44px;">🔄 Ulangi Deteksi Hoaks</button>
+            <button class="btn-primary" id="btn-hvr-to-matching" style="min-height:44px;">Lanjut: Jodohkan Ciri Teks ➡️</button>
+          </div>
+        </div>
       </div>
 
       <!-- SUBTAB 4: MATCHING GAME / JODOHKAN CIRI TEKS -->
@@ -751,7 +784,7 @@
 
           <div id="matching-complete-box" style="display:none; text-align:center; padding:1.25rem; background:#DCFCE7; border:2px solid #166534; border-radius:12px; margin-top:1rem;">
             <h4 style="color:#14532D; font-size:1.15rem; margin-bottom:0.25rem;">
-              🎉 Sempurna! Rika Ahli Membedakan Tiga Serangkai!
+              🎉 Sempurna! Kamu Ahli Membedakan Tiga Serangkai!
             </h4>
             <p style="font-size:0.85rem; color:#14532D; margin:0;">
               Semua karakteristik berhasil dijodohkan dengan tepat! Kamu mendapatkan <strong>+50 XP</strong> dan Lencana Master Tiga Serangkai!
@@ -778,7 +811,7 @@
       <!-- Tombol Navigasi Bawah Misi 3 -->
       <div class="adventure-progress-card" style="text-align:center; padding:1.25rem; margin-top:1.5rem;">
         <h4 style="font-size:1.05rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
-          <span class="ngapak-word" data-word="wis bener">Wis Bener</span> Kabeh? Waktunya Berkreasi!
+          Sudah Benar Semua? Waktunya Berkreasi!
         </h4>
         <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
           Latihan telah memperkuat fondasimu. Sekarang saatnya menjadi kreator sejati di <strong>Misi 4: Cipta (Proyek Poster & Slogan UMKM Banyumas)</strong>!
@@ -829,7 +862,7 @@
             🧭 Alur 5 Langkah Proyek Kreatif (PjBL)
           </h3>
           <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
-            Sebagai Duta Promosi Banyumas, ikuti alur tahapan proyek berikut agar poster dan slogan yang rika buat memiliki daya pikat tinggi:
+            Sebagai Duta Promosi Banyumas, ikuti alur tahapan proyek berikut agar poster dan slogan yang kamu buat memiliki daya pikat tinggi:
           </p>
           <div class="pjbl-roadmap-grid" id="pjbl-roadmap-container">
             <!-- Dirender dari APP_DATA.misi4.pjblSteps oleh app.js -->
@@ -852,7 +885,7 @@
             <span class="section-tag">Bukan Jawaban Jadi • Pemantik Kreatif</span>
           </div>
           <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1rem;">
-            Pilih produk, target audiens, dan gaya bahasa yang rika inginkan. Sistem akan memantik kata kunci dan kerangka kalimat agar rika bisa merangkai slogan orisinalmu sendiri:
+            Pilih produk, target audiens, dan gaya bahasa yang kamu inginkan. Sistem akan memantik kata kunci dan kerangka kalimat agar kamu bisa merangkai slogan orisinalmu sendiri:
           </p>
 
           <!-- 1. Pilihan Produk -->
@@ -1018,7 +1051,7 @@
             <!-- 6. Input Call to Action & Kontak/Lokasi -->
             <div class="control-group">
               <label class="control-label" for="inp-poster-cta">6. Ajakan Bertindak & Kontak/Lokasi (CTA):</label>
-              <input type="text" id="inp-poster-cta" class="control-input" value="Mayuh teka bareng sedulur! Gratis nggo kabeh warga • Info: 0812-BANYUMAS" maxlength="70">
+              <input type="text" id="inp-poster-cta" class="control-input" value="Ayo hadir bersama keluarga! Gratis untuk seluruh warga • Info: 0812-BANYUMAS" maxlength="70">
             </div>
 
             <!-- 7. Warna Teks Utama & Aksen -->
@@ -1091,10 +1124,10 @@
           <div id="m4-claim-box" style="margin-top:1.25rem; padding:1.25rem; background:#FFFBEB; border:2px solid var(--color-mendoan); border-radius:12px; text-align:center; display:none;">
             <div style="font-size:2.8rem; margin-bottom:0.35rem;">🎨</div>
             <h4 style="font-size:1.2rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
-              <span class="ngapak-word" data-word="mantep">Mantep</span> Pisan! Proyek Cipta Poster Rika Lengkap!
+              Luar Biasa! Proyek Cipta Poster Kamu Lengkap!
             </h4>
             <p style="font-size:0.88rem; color:var(--color-text-muted); margin-bottom:1rem;">
-              Rika telah berhasil merancang poster promosi Banyumas dengan prinsip tata letak dan kaidah kebahasaan yang persuasif. Klaim <strong>+250 XP</strong> rika sekarang!
+              Kamu telah berhasil merancang poster promosi Banyumas dengan prinsip tata letak dan kaidah kebahasaan yang persuasif. Klaim <strong>+250 XP</strong> kamu sekarang!
             </p>
             <button class="btn-primary" id="btn-claim-m4" style="font-size:1rem; padding:0.75rem 1.75rem;">
               Klaim +250 XP & Buka Misi 5 🏆
@@ -1126,7 +1159,7 @@
           🏆 Misi 5: Asesmen, Refleksi & Sertifikat Juara
         </h2>
         <p style="font-size:0.9rem; color:var(--color-text-muted); margin:0;">
-          <span class="ngapak-word" data-word="mantep">Mantep</span> temen! Rika wis tekan puncak petualangan. Ukur keberhasilan karyamu, tuliskan refleksi sinau, lan undhuh Sertifikat Resmi Duta Promosi Banyumas!
+          Selamat! Kamu telah mencapai puncak petualangan. Nilai keberhasilan karyamu, tuliskan refleksi belajar, dan unduh Sertifikat Resmi Duta Promosi Banyumas!
         </p>
       </div>
 
@@ -1164,7 +1197,7 @@
           <!-- Input Nama Teman (Tampil jika mode Teman Sebaya aktif) -->
           <div id="peer-input-wrapper" style="display:none; background:#FFFBEB; border:1px solid var(--color-mendoan); border-radius:8px; padding:0.75rem; margin-bottom:1rem;">
             <label for="inp-peer-name" style="font-size:0.82rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.25rem;">
-              Nama Teman yang Rika Nilai:
+              Nama Teman yang Kamu Nilai:
             </label>
             <input type="text" id="inp-peer-name" class="control-input" placeholder="Masukkan nama teman sekelasmu (misal: Budi / Siti)..." style="background:#FFF;">
           </div>
@@ -1207,7 +1240,7 @@
       <div id="subtab-m5-refleksi" class="m5-subtab-pane" style="display:none;">
         <div class="rubric-card">
           <h3 style="font-size:1.15rem; color:var(--color-soga-dark); margin-bottom:0.35rem;">
-            📝 Lembar Refleksi Pembelajaran "Inyong Sinau"
+            📝 Lembar Refleksi Pembelajaran Mandiri
           </h3>
           <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
             Refleksi membantumu mengendapkan pengetahuan dan menyadari kemajuan belajar. Tuliskan jawaban jujur dan terbukamu di bawah ini:
@@ -1217,21 +1250,21 @@
             
             <div class="control-group">
               <label for="inp-ref-1" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
-                1. Dina kiye inyong sinau akeh babagan (Hari ini saya belajar banyak tentang):
+                1. Hari ini saya belajar banyak tentang:
               </label>
               <textarea id="inp-ref-1" class="reflection-textarea" placeholder="Contoh: Saya belajar membedakan ciri slogan, iklan, dan poster. Slogan itu padat dan berirama, sedangkan poster butuh gambar kuat yang terbaca 3 detik..."></textarea>
             </div>
 
             <div class="control-group">
               <label for="inp-ref-2" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
-                2. Bagian petualangan sing paling nyenengna kanggone inyong yaiku (Bagian paling seru bagi saya):
+                2. Bagian petualangan yang paling menarik bagi saya adalah:
               </label>
               <textarea id="inp-ref-2" class="reflection-textarea" placeholder="Contoh: Saat mendesain poster di Canvas Poster Maker dengan motif batik Jahe Puger dan memasang ikon tempe mendoan hangat..."></textarea>
             </div>
 
             <div class="control-group">
               <label for="inp-ref-3" style="font-size:0.88rem; font-weight:800; color:var(--color-soga-dark); display:block; margin-bottom:0.35rem;">
-                3. Babagan sing esih gawe inyong penasaran utawa kepengin disinauni maning (Yang masih membuat penasaran):
+                3. Materi yang masih membuat saya penasaran atau ingin saya pelajari lebih lanjut:
               </label>
               <textarea id="inp-ref-3" class="reflection-textarea" placeholder="Contoh: Saya penasaran ingin mempraktikkan poster ini langsung untuk membantu mempromosikan dagangan UMKM mendoan tetangga di media sosial..."></textarea>
             </div>
@@ -1382,7 +1415,7 @@
               <tbody>
                 <tr>
                   <td><strong>1. Penentuan Pertanyaan Mendasar</strong></td>
-                  <td>Menayangkan fenomena UMKM lokal Banyumas dan memantik pertanyaan: <em>"Kepriwe carane produk lokal kita dadi kondhang neng kalangan nom-noman?"</em></td>
+                  <td>Menayangkan fenomena UMKM lokal Banyumas dan memantik pertanyaan: <em>"Bagaimana cara produk lokal Banyumas diminati oleh generasi muda?"</em></td>
                   <td>Mengamati fenomena budaya lokal di Beranda dan Misi 1, menemukan masalah promosi produk daerah.</td>
                 </tr>
                 <tr>
@@ -1408,7 +1441,7 @@
                 <tr>
                   <td><strong>6. Evaluasi Pengalaman Belajar</strong></td>
                   <td>Mengajak siswa merefleksikan proses belajar dan mengapresiasi pencapaian Duta Promosi Banyumas.</td>
-                  <td>Menuliskan refleksi "Inyong Sinau", mengunduh poster PNG kualitas tinggi, dan mencetak Sertifikat Digital.</td>
+                  <td>Menuliskan refleksi belajar mandiri, mengunduh poster PNG kualitas tinggi, dan mencetak Sertifikat Digital.</td>
                 </tr>
               </tbody>
             </table>
@@ -1527,7 +1560,7 @@
                 1. Dimensi Validasi & Afirmasi Budaya (Cultural Validation)
               </h4>
               <p style="font-size:0.88rem; color:var(--color-text-main); margin:0;">
-                Kearifan lokal Banyumas (kuliner mendoan, soto sokaraja, getuk goreng, batik jahe puger, kesenian calung lengger, dialek ngapak santun) bukan sekadar contoh tempelan, melainkan teks primer (*living curriculum*). Siswa merasa identitas kesehariannya diakui dan bernilai akademik tinggi.
+                Kearifan lokal Banyumas (kuliner mendoan, soto sokaraja, getuk goreng, batik jahe puger, kesenian calung lengger, ) bukan sekadar contoh tempelan, melainkan teks primer (*living curriculum*). Siswa merasa identitas kesehariannya diakui dan bernilai akademik tinggi.
               </p>
             </div>
 
@@ -1593,7 +1626,7 @@
             <li><strong>Offline-First Ready:</strong> Dilengkapi Service Worker dan Web App Manifest untuk instalasi di Android.</li>
             <li><strong>Dual-Canvas Engine:</strong> Pembuatan poster (900x1200 px) & sertifikat digital langsung di peramban tanpa server.</li>
             <li><strong>Web Audio Synthesizer:</strong> Efek nada slendro gamelan sintetis tanpa unduh berkas MP3 eksternal.</li>
-            <li><strong>Aksesibilitas & CRT:</strong> Warna kontras WCAG AA, tooltip sapaan ngapak edukatif, ramah layar sentuh HP.</li>
+            <li><strong>Aksesibilitas & CRT:</strong> Warna kontras WCAG AA, ramah layar sentuh HP.</li>
           </ul>
         </div>
 
