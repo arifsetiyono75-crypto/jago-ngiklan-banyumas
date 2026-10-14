@@ -1,5 +1,5 @@
-// Service Worker untuk cache offline website pembelajaran
-const CACHE_NAME = 'jago-ngiklan-banyumas-v6';
+﻿// Service Worker untuk cache offline website pembelajaran
+const CACHE_NAME = 'jago-ngiklan-banyumas-v7';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
