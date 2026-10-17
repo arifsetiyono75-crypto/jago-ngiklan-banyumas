@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Stylesheet Utama -->
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -30,6 +30,199 @@
 
   <!-- Wadah Toast Notifikasi -->
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ========================================================================
+       LAYAR PEMBUKA (SPLASH SCREEN)
+       Nuansa Budaya Banyumasan: Soga Tua, Mendoan, Hijau Daun, Siluet Slamet
+       ======================================================================== -->
+  <aside id="splash-screen" class="splash-screen-overlay" role="dialog" aria-modal="true" aria-labelledby="splash-title" aria-describedby="splash-desc">
+    <!-- Ornamen Pita Batik Banyumasan Atas -->
+    <div class="splash-batik-ribbon splash-batik-top" aria-hidden="true"></div>
+
+    <!-- Latar Belakang Hangat: Siluet Gunung Slamet, Awan & Lembah Sawah Banyumas -->
+    <div class="splash-bg-landscape" aria-hidden="true">
+      <svg viewBox="0 0 1200 400" preserveAspectRatio="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="splashSkyGrad" x1="0" y1="0" x2="0" y2="100%">
+            <stop offset="0%" stop-color="#FDFBF7" stop-opacity="0" />
+            <stop offset="100%" stop-color="#F3ECE6" stop-opacity="0.9" />
+          </linearGradient>
+          <linearGradient id="splashSlametGrad" x1="0" y1="0" x2="0" y2="100%">
+            <stop offset="0%" stop-color="#E5D3C2" stop-opacity="0.45" />
+            <stop offset="100%" stop-color="#D7BEA8" stop-opacity="0.8" />
+          </linearGradient>
+          <linearGradient id="splashHillGrad" x1="0" y1="0" x2="0" y2="100%">
+            <stop offset="0%" stop-color="#D9E6CE" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#C2D6B2" stop-opacity="0.85" />
+          </linearGradient>
+        </defs>
+        <!-- Awan Lembut Hangat -->
+        <g fill="#FFFFFF" opacity="0.6">
+          <ellipse cx="280" cy="90" rx="90" ry="26" />
+          <ellipse cx="340" cy="80" rx="60" ry="32" />
+          <ellipse cx="880" cy="110" rx="100" ry="28" />
+          <ellipse cx="940" cy="100" rx="65" ry="35" />
+        </g>
+        <!-- Siluet Gunung Slamet Megah -->
+        <path d="M 380 400 L 590 120 Q 600 110 610 120 L 820 400 Z" fill="url(#splashSlametGrad)" />
+        <path d="M 450 400 L 600 150 L 760 400 Z" fill="#CBB199" opacity="0.25" />
+        <!-- Perbukitan Sawah Terasering Banyumas -->
+        <path d="M 0 400 Q 250 290 550 350 T 1200 330 L 1200 400 Z" fill="url(#splashHillGrad)" />
+        <path d="M 0 400 Q 350 340 750 380 T 1200 370 L 1200 400 Z" fill="#ABC499" opacity="0.4" />
+      </svg>
+    </div>
+
+    <!-- Bar Atas: Tombol Kontrol Suara (Default Mati) -->
+    <div class="splash-top-bar">
+      <button id="splash-sound-toggle" class="splash-audio-btn" type="button" aria-pressed="false" aria-label="Pengaturan suara latar dan efek: saat ini mati">
+        <span class="splash-audio-icon" aria-hidden="true">🔇</span>
+        <span class="splash-audio-label">Suara: Mati</span>
+      </button>
+    </div>
+
+    <!-- Konten Tengah: Kartu Sambutan Edukatif -->
+    <div class="splash-center-wrapper">
+      <div class="splash-card">
+        <!-- Tagline Identitas Kurikulum & Mata Pelajaran -->
+        <div class="splash-curriculum-tag">
+          <span class="splash-tag-icon" aria-hidden="true">🏛️</span>
+          <span>Media Pembelajaran Bahasa Indonesia SMP &bull; Kurikulum Merdeka</span>
+        </div>
+
+        <!-- Header: Logo & Judul Seragam dengan Header Situs -->
+        <div class="splash-brand-header">
+          <div class="splash-logo-badge" aria-hidden="true">
+            <img src="assets/maskot/bawor-favicon.svg" alt="" width="46" height="46" class="splash-logo-img">
+          </div>
+          <div class="splash-title-group">
+            <h1 id="splash-title" class="splash-main-title">Jago Ngiklan Banyumas</h1>
+            <p id="splash-desc" class="splash-subtitle">Petualangan Slogan, Iklan &amp; Poster &bull; Bahasa Indonesia Kelas 8</p>
+          </div>
+        </div>
+
+        <!-- Baris Maskot Kang Bawor & Balon Sapaan Ramah -->
+        <div class="splash-mascot-row">
+          <div class="splash-mascot-visual">
+            <div class="splash-mascot-avatar" id="splash-bawor-mascot" title="Kang Bawor menyapamu!">
+              <!-- Handcrafted Animated SVG Kang Bawor -->
+              <svg viewBox="0 0 160 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot Kang Bawor Punakawan Banyumas">
+                <defs>
+                  <linearGradient id="splashBaworSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFEDD5" />
+                    <stop offset="50%" stop-color="#FED7AA" />
+                    <stop offset="100%" stop-color="#FDBA74" />
+                  </linearGradient>
+                  <linearGradient id="splashBaworBatik" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#92400E" />
+                    <stop offset="50%" stop-color="#78350F" />
+                    <stop offset="100%" stop-color="#451A03" />
+                  </linearGradient>
+                  <linearGradient id="splashBaworUdeng" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#B45309" />
+                    <stop offset="100%" stop-color="#78350F" />
+                  </linearGradient>
+                  <filter id="splashBaworShadow" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#451A03" flood-opacity="0.2"/>
+                  </filter>
+                </defs>
+
+                <!-- Badan Gemuk Berkaos Hitam & Kain Batik Soga -->
+                <ellipse cx="80" cy="138" rx="46" ry="32" fill="#1E293B" stroke="#0F172A" stroke-width="3" filter="url(#splashBaworShadow)"/>
+                <path d="M 46 138 Q 80 165 114 138 L 110 168 Q 80 178 50 168 Z" fill="url(#splashBaworBatik)" stroke="#451A03" stroke-width="2.5"/>
+                <path d="M 58 148 Q 80 156 102 148" fill="none" stroke="#FDE68A" stroke-width="2" stroke-dasharray="4,3"/>
+
+                <!-- Kalung Merah Tradisional -->
+                <path d="M 55 118 Q 80 134 105 118" fill="none" stroke="#DC2626" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- Kepala Bulat Gemuk Kang Bawor -->
+                <circle cx="80" cy="84" r="38" fill="url(#splashBaworSkin)" stroke="#1E293B" stroke-width="3.5" filter="url(#splashBaworShadow)"/>
+                <circle cx="54" cy="94" r="10" fill="#F87171" opacity="0.6"/>
+                <circle cx="106" cy="94" r="10" fill="#F87171" opacity="0.6"/>
+
+                <!-- Rambut Kuncung Khas Wayang Punakawan -->
+                <path d="M 75 48 C 65 24 82 22 84 28 C 86 36 82 46 82 48 Z" fill="#0F172A"/>
+
+                <!-- Udeng Batik Banyumasan -->
+                <path d="M 44 68 Q 80 42 116 68 Q 112 56 80 46 Q 48 56 44 68 Z" fill="url(#splashBaworUdeng)" stroke="#451A03" stroke-width="2.5"/>
+                <circle cx="116" cy="66" r="6" fill="#92400E" stroke="#451A03" stroke-width="2"/>
+
+                <!-- Mata Bulat (Animasi Kedip Halus) -->
+                <g class="splash-mascot-eyes">
+                  <circle cx="64" cy="78" r="9.5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="65" cy="78" r="4.5" fill="#0F172A"/>
+                  <circle cx="63" cy="75" r="2" fill="#FFFFFF"/>
+                  <circle cx="96" cy="78" r="9.5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="95" cy="78" r="4.5" fill="#0F172A"/>
+                  <circle cx="93" cy="75" r="2" fill="#FFFFFF"/>
+                </g>
+
+                <!-- Alis Melengkung Ramah & Hidung Bulat -->
+                <path d="M 54 65 Q 64 60 74 66" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 86 66 Q 96 60 106 65" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="80" cy="87" r="7" fill="#FB923C" stroke="#C2410C" stroke-width="2"/>
+
+                <!-- Mulut Lebar Tersenyum Cablaka & Ramah -->
+                <path d="M 62 96 Q 80 118 98 96" fill="#991B1B" stroke="#7F1D1D" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 70 106 Q 80 115 90 106" fill="#F43F5E"/>
+
+                <!-- Tangan Kiri Melambai Halus -->
+                <g class="splash-mascot-wave">
+                  <path d="M 44 122 Q 22 108 24 88 Q 32 82 40 96 Q 44 112 44 122 Z" fill="url(#splashBaworSkin)" stroke="#1E293B" stroke-width="2.5"/>
+                  <circle cx="26" cy="86" r="7" fill="url(#splashBaworSkin)" stroke="#1E293B" stroke-width="2"/>
+                </g>
+                <!-- Tangan Kanan Memberi Jempol Mantap -->
+                <path d="M 116 122 Q 138 112 136 94 Q 130 88 122 100 Q 116 112 116 122 Z" fill="url(#splashBaworSkin)" stroke="#1E293B" stroke-width="2.5"/>
+                <circle cx="134" cy="94" r="7" fill="url(#splashBaworSkin)" stroke="#1E293B" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Balon Gelembung Ucapan Kang Bawor -->
+          <div class="splash-speech-bubble" id="splash-speech-bubble">
+            <span class="splash-bubble-sender">Kang Bawor:</span>
+            <p class="splash-bubble-text" id="splash-bubble-text">
+              "Halo, saya Kang Bawor! Siap belajar bersama?"
+            </p>
+          </div>
+        </div>
+
+        <!-- Kotak Ringkasan Siswa yang Kembali (Khusus Pengguna Lama) -->
+        <div id="splash-returning-user-box" class="splash-returning-box" style="display:none;">
+          <div class="splash-returning-badge">
+            <span class="splash-returning-star" aria-hidden="true">⭐</span>
+            <span id="splash-returning-summary">Memuat capaian belajarmu...</span>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi Utama (Tinggi minimal 56px, denyut halus) -->
+        <div class="splash-actions-area">
+          <button id="btn-splash-start" class="btn-splash-primary" type="button" aria-label="Mulai belajar petualangan">
+            <span class="splash-btn-icon" aria-hidden="true">🚀</span>
+            <span id="splash-btn-text">MULAI BELAJAR</span>
+            <span class="splash-btn-arrow" aria-hidden="true">→</span>
+          </button>
+
+          <!-- Tautan Reset Mulai dari Awal (Pengguna Lama dengan Konfirmasi) -->
+          <div id="splash-reset-wrap" class="splash-reset-wrap" style="display:none;">
+            <button id="btn-splash-reset" class="splash-link-btn" type="button">
+              🔄 Mulai petualangan dari awal
+            </button>
+          </div>
+        </div>
+
+        <!-- Catatan Kaki: Pengembang, Kurikulum, & Versi -->
+        <div class="splash-card-footer">
+          <p class="splash-footer-credit">
+            Karya Inovasi PPG 2026 &bull; Arif Setiyono (Universitas Muhammadiyah Purwokerto)
+          </p>
+          <span class="splash-footer-version">v2.0 &bull; Pembelajaran Berbasis Budaya Banyumas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ornamen Pita Batik Banyumasan Bawah -->
+    <div class="splash-batik-ribbon splash-batik-bottom" aria-hidden="true"></div>
+  </aside>
 
   <!-- ========================================================================
        HEADER SITUS & NAVIGASI ATAS
@@ -1719,8 +1912,8 @@
     </button>
   </nav>
 
-  <!-- Skrip Data & Logika Aplikasi (Cache-busting v7) -->
-  <script src="js/data.js?v=8"></script>
-  <script src="js/app.js?v=8"></script>
+  <!-- Skrip Data & Logika Aplikasi (Cache-busting v9) -->
+  <script src="js/data.js?v=9"></script>
+  <script src="js/app.js?v=9"></script>
 </body>
 </html>
